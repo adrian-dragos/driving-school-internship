@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Application.DTOs;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Application.Instructors.Quieries.GetInstructorsList
 {
-    public class GetInstructorsListQuery : IRequest<IEnumerable<InstructorViewModel>>
+    public class GetInstructorListQuery : IRequest<IEnumerable<InstructorDto>>
     {
-        public InstructorViewModel instructorViewModel;
+        public InstructorDto instructorDto;
     }
 }
