@@ -10,29 +10,22 @@ using System.Threading.Tasks;
 
 namespace Application.Instructors.Commands.CreateInstructor
 {
- public class CreateInstructorCommandHandler : IRequestHandler<CreateInstructorCommand, int>
+ public class CreateInstructorCommandListHandler : IRequestHandler<CreateInstructorListCommand, int>
     {
         private readonly IInstructorRepository _repository;
         private readonly IMapper _mapper;
 
-        public CreateInstructorCommandHandler(IInstructorRepository repository, IMapper mapper)
+        public CreateInstructorCommandListHandler(IInstructorRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task<int> Handle(CreateInstructorCommand command, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateInstructorListCommand command, CancellationToken cancellationToken)
         {
-            var instructor = _mapper.Map<Instructor>(command.InstructorViewModel);
+            var instructor = _mapper.Map<Instructor>(command.instructorDto);
             instructor = await _repository.AddAsync(instructor);
             return instructor.Id;
-            //var instructor = new Instructor
-            //{
-            //    Name = command.Name
-            //};
-
-            //await _repository.AddAsync(instructor);
-            //return instructor.Id;
         }
     }
 }
