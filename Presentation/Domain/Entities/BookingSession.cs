@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class BookingSession
+    public class BookingSession : BaseEntity
     {
-        public int Id { get; set; }
         public DateTime StartTime { get; set; }
         public bool IsAvailable { get; set; } = false;
         public virtual ICollection<Instructor>? Insturctors { get; set; }

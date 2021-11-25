@@ -8,7 +8,6 @@ namespace Application.BookingSessions.Queries.GetBookingSession
 {
     public class BookingSessionViewModel
     {
-        public int Id { get; set; }
         public DateTime StartTime { get; set; }
         public bool IsAvailable { get; set; } = false;
     }

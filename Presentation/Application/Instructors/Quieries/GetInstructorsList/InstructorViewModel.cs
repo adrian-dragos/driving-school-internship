@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Application.DTOs.Instructors;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,7 @@ namespace Application.Instructors.Quieries.GetInstructorsList
     public class InstructorViewModel
     {
         public string Name { get; set; }
+
+        public int? BookingSessionId { get; set; }
     }
 }

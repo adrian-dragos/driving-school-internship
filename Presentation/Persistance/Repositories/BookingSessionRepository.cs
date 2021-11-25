@@ -17,7 +17,7 @@ namespace Persistance.Repositories
             await _context.BookingSessions.AddAsync(bookingSession);
             _context.SaveChanges();
         }
-
+        
         public IEnumerable<BookingSession> GetBookingSessions()
         {
             return _context.BookingSessions.ToList();

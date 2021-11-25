@@ -17,12 +17,11 @@ namespace Application.BookingSessions.Queries.GetBookingSession
             _repository = repository;
         }
 
-        public Task<IEnumerable<BookingSessionViewModel>> Handle(GetBookingSessionListQuery request, CancellationToken cancellationToken)
+        public Task<IEnumerable<BookingSessionViewModel>> Handle(GetBookingSessionListQuery query, CancellationToken cancellationToken)
         {
             var result = _repository.GetBookingSessions().Select(bookingSession => new BookingSessionViewModel
             {
-                Id = bookingSession.Id,
-              //  StartTime = bookingSession.StartTime,
+                StartTime = bookingSession.StartTime,
                 IsAvailable = bookingSession.IsAvailable
             });
 

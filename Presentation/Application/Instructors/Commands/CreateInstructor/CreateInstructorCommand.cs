@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Application.DTOs.Instructors;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace Application.Instructors.Commands.CreateInstructor
 {
     public class CreateInstructorCommand : IRequest<int>
     {
-     //  public int BookingSessionId { get; set; }
+        //public InstructorDto instructorDto;
+        public int BookingSessionId { get; set; }
         public string Name { get; set; }
     }
 }
-    

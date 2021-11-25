@@ -11,18 +11,19 @@ using Application.Instructors.Quieries.GetInstructorsList;
 using Application.BookingSessions.Commands;
 using Application.BookingSessions.Queries.GetBookingSession;
 using Persistance.Repositories;
+using AutoMapper;
+using System.Reflection;
 
 Console.WriteLine("Hello, World!");
-
-
 using (var dbContext = new ApplicationContext())
 {
     dbContext.Database.EnsureCreated();
 }
 
-
 var diCotainer = new ServiceCollection()
+    .AddAutoMapper(typeof(MappingProfile))
     .AddMediatR(typeof(AssemblyMarker).Assembly)
+    .AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>))
     .AddScoped<IInstructorRepository, InstructorRepository>()
     .AddScoped<IBookingSessionRepository, BookingSessionRepository>()
     .BuildServiceProvider();
@@ -34,27 +35,22 @@ for (int i = 0; i < 5; i++)
 }
 
 var instructors = await mediator.Send(new GetInstructorsListQuery());
-
 foreach (var i in instructors)
 {
     Console.WriteLine(i.Name);
 }
 
-
 for (int i = 0; i < 5; i++)
 {
-    var bookingSeesionId = await mediator.Send(new CreateBookingSessionCommand {
+    var bookingSeesionId = await mediator.Send(new CreateBookingSessionCommand
+    {
         Startime = DateTime.Now,
         IsAvailable = true
     });
 }
 
 var bookingSessions = await mediator.Send(new GetBookingSessionListQuery());
-
-
 foreach (var bookingSession in bookingSessions)
 {
     Console.WriteLine(bookingSession.StartTime);
 }
-
-

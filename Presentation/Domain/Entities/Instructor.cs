@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Instructor
+    public class Instructor : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
 
         public int? BookingSessionId { get; set; }
