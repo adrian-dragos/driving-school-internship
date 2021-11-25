@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.Dtos;
+using Application.Interfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.BookingSessions.Queries.GetBookingSession
 {
-    public class GetBookingSessionListQueryHandler : IRequestHandler<GetBookingSessionListQuery, IEnumerable<BookingSessionViewModel>>
+    public class GetBookingSessionListQueryHandler : IRequestHandler<GetBookingSessionListQuery, IEnumerable<BookingSessionDto>>
     {
         private readonly IBookingSessionRepository _repository;
 
@@ -17,9 +18,9 @@ namespace Application.BookingSessions.Queries.GetBookingSession
             _repository = repository;
         }
 
-        public Task<IEnumerable<BookingSessionViewModel>> Handle(GetBookingSessionListQuery query, CancellationToken cancellationToken)
+        public Task<IEnumerable<BookingSessionDto>> Handle(GetBookingSessionListQuery query, CancellationToken cancellationToken)
         {
-            var result = _repository.GetBookingSessions().Select(bookingSession => new BookingSessionViewModel
+            var result = _repository.GetBookingSessions().Select(bookingSession => new BookingSessionDto
             {
                 StartTime = bookingSession.StartTime,
                 IsAvailable = bookingSession.IsAvailable

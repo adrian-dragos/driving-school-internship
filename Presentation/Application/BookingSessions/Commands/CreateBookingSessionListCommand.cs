@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.BookingSessions.Queries.GetBookingSession
+namespace Application.BookingSessions.Commands
 {
-    public class GetBookingSessionListQuery : IRequest<IEnumerable <BookingSessionDto>>
+    public class CreateBookingSessionListCommand : IRequest<int>
     {
-
+        public BookingSessionDto bookingSessionDto;
     }
 }
