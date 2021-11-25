@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.BookingSessions.Queries.GetBookingSession
+namespace Application.Dtos
 {
-    public class BookingSessionViewModel
+    public class BookingSessionDto
     {
         public DateTime StartTime { get; set; }
         public bool IsAvailable { get; set; } = false;

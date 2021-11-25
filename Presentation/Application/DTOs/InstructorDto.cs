@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Instructors.Quieries.GetInstructorsList
+namespace Application.DTOs
 {
-    public class InstructorViewModel
+    public class InstructorDto
     {
         public string Name { get; set; }
         public int? BookingSessionId { get; set; }
