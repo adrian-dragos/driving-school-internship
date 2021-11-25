@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Persistance.Repositories
 {
-    public class BookingSessionRepository : IBookingSessionRepository
+    public class BookingSessionRepository : GenericRepository<BookingSession>, IBookingSessionRepository
     {
         private ApplicationContext _context = new ApplicationContext();
 

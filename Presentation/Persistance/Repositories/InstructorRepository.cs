@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
+using Persistance.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Persistance
 {
-    public class InstructorRepository : IInstructorRepository
+    public class InstructorRepository : GenericRepository<Instructor>, IInstructorRepository
     {
         private ApplicationContext _context = new ApplicationContext();
 

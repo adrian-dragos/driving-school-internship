@@ -9,7 +9,6 @@ namespace Application.Instructors.Quieries.GetInstructorsList
     public class InstructorViewModel
     {
         public string Name { get; set; }
-
         public int? BookingSessionId { get; set; }
     }
 }

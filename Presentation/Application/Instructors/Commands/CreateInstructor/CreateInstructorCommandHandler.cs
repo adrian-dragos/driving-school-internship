@@ -12,19 +12,12 @@ namespace Application.Instructors.Commands.CreateInstructor
 {
  public class CreateInstructorCommandHandler : IRequestHandler<CreateInstructorCommand, int>
     {
-        //private readonly IInstructorRepository _repository;
-        private readonly IGenericRepository<Instructor> _repository;
+        private readonly IInstructorRepository _repository;
 
-        //public CreateInstructorCommandHandler(IInstructorRepository repository)
-        //{
-        //    _repository = repository;
-        //}
-
-        public CreateInstructorCommandHandler(IGenericRepository<Instructor> repository)
+        public CreateInstructorCommandHandler(IInstructorRepository repository)
         {
             _repository = repository;
         }
-
 
         public async Task<int> Handle(CreateInstructorCommand command, CancellationToken cancellationToken)
         {
