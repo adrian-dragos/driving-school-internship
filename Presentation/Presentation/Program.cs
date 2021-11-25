@@ -13,6 +13,8 @@ using Application.BookingSessions.Queries.GetBookingSession;
 using Persistance.Repositories;
 using AutoMapper;
 using System.Reflection;
+using Application.DTOs;
+using Application.Dtos;
 
 Console.WriteLine("Hello, World!");
 using (var dbContext = new ApplicationContext())
@@ -31,11 +33,11 @@ var diCotainer = new ServiceCollection()
 var mediator = diCotainer.GetRequiredService<IMediator>();
 for (int i = 0; i < 5; i++)
 {
-    var instructor = new InstructorViewModel { Name = $"name{i}" };
-    var instructorId = await mediator.Send(new CreateInstructorCommand { InstructorViewModel = instructor });
+    var instructor = new InstructorDto { Name = $"name{i}" };
+    var instructorId = await mediator.Send(new CreateInstructorListCommand { instructorDto = instructor });
 }
 
-var instructors = await mediator.Send(new GetInstructorsListQuery());
+var instructors = await mediator.Send(new GetInstructorListQuery());
 foreach (var i in instructors)
 {
     Console.WriteLine(i.Name);
@@ -43,11 +45,13 @@ foreach (var i in instructors)
 
 for (int i = 0; i < 5; i++)
 {
-    var bookingSeesionId = await mediator.Send(new CreateBookingSessionCommand
+    var bookginSession = new BookingSessionDto
     {
-        Startime = DateTime.Now,
+        StartTime = DateTime.Now,
         IsAvailable = true
-    });
+    };
+
+var bookingSeesionId = await mediator.Send(new CreateBookingSessionListCommand { bookingSessionDto = bookginSession });
 }
 
 var bookingSessions = await mediator.Send(new GetBookingSessionListQuery());
