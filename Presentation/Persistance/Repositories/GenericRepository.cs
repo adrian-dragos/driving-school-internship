@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,7 @@ namespace Persistance.Repositories
 
         public async Task<IEnumerable<T>> GetAll()
         {
-            return _context.Set<T>().ToList();
+            return await _context.Set<T>().ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
@@ -45,18 +46,21 @@ namespace Persistance.Repositories
             return await _context.Set<T>().FindAsync(id);
         }
 
-        public async Task<T> Remove(T entity)
+        public async Task Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
             await _context.SaveChangesAsync();
-            return entity;
         }
 
-        public async Task<IEnumerable<T>> RemoveRange(IEnumerable<T> entities)
+        public async Task RemoveRange(IEnumerable<T> entities)
         {
             _context.Set<T>().RemoveRange(entities);
             await _context.SaveChangesAsync();
-            return entities;
+        }
+
+        public async Task Update(T entity)
+        {
+            _context.Entry(entity).State = EntityState.Modified;
         }
     }
 }

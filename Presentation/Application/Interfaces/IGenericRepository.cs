@@ -9,13 +9,14 @@ namespace Application.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {
-        Task<T> GetByIdAsync(int id);
-        Task<IEnumerable<T>> GetAll();
-        Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression);
         Task<T> AddAsync(T entity);
         Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities);
-        Task<T> Remove(T entity);
-        Task<IEnumerable<T>> RemoveRange(IEnumerable<T> entities);
+        Task<IEnumerable<T>> GetAll();
+        Task<T> GetByIdAsync(int id);
+        Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression);
+        Task Remove(T entity);
+        Task RemoveRange(IEnumerable<T> entities);
+        Task Update(T entity);
 
     }
 }
