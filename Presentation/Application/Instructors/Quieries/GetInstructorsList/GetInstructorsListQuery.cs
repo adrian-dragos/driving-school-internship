@@ -9,7 +9,6 @@ namespace Application.Instructors.Quieries.GetInstructorsList
 {
     public class GetInstructorsListQuery : IRequest<IEnumerable<InstructorViewModel>>
     {
-        // public string Name { get; set; }
         public InstructorViewModel instructorViewModel;
     }
 }

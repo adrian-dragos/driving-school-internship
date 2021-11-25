@@ -12,11 +12,10 @@ namespace Application.Instructors.Quieries.GetInstructorsList
 {
     public class GetInstructorsListQueryHandler : IRequestHandler<GetInstructorsListQuery, IEnumerable<InstructorViewModel>>
     {
-        //private readonly IInstructorRepository _repository;
-        private readonly IGenericRepository<Instructor> _repository;  
+        private readonly IInstructorRepository _repository;
         private readonly IMapper _mapper;
 
-        public GetInstructorsListQueryHandler(IGenericRepository<Instructor> repository, IMapper mapper)
+        public GetInstructorsListQueryHandler(IInstructorRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -25,14 +24,6 @@ namespace Application.Instructors.Quieries.GetInstructorsList
        
         public async Task<IEnumerable<InstructorViewModel>> Handle(GetInstructorsListQuery query, CancellationToken cancellationToken)
         {
-            //var result = _repository.GetInstructors().Select(instructor => new InstructorViewModel
-            //{
-            //    BookingSessionId = instructor.BookingSessionId,
-            //    Name = instructor.Name
-            //});
-
-            //return Task.FromResult(result);
-
             var instructor = await _repository.GetAll();
             return _mapper.Map<List<InstructorViewModel>>(instructor);
         }

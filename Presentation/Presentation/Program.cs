@@ -31,7 +31,8 @@ var diCotainer = new ServiceCollection()
 var mediator = diCotainer.GetRequiredService<IMediator>();
 for (int i = 0; i < 5; i++)
 {
-    var instructorId = await mediator.Send(new CreateInstructorCommand { Name = $"name{i}" });
+    var instructor = new InstructorViewModel { Name = $"name{i}" };
+    var instructorId = await mediator.Send(new CreateInstructorCommand { InstructorViewModel = instructor });
 }
 
 var instructors = await mediator.Send(new GetInstructorsListQuery());
