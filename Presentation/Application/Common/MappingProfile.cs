@@ -1,4 +1,5 @@
-﻿using Application.Instructors.Quieries.GetInstructorsList;
+﻿using Application.Dtos;
+using Application.DTOs;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -13,7 +14,8 @@ namespace Application.Common
     {
         public MappingProfile()
         {
-            CreateMap<Instructor, InstructorViewModel>().ReverseMap();
+            CreateMap<Instructor, InstructorDto>().ReverseMap();
+            CreateMap<BookingSession, BookingSessionDto>().ReverseMap();
         }
     }
 }
