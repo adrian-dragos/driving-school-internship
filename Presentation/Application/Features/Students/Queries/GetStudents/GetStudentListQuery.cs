@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Instructors.Commands.CreateInstructor
+namespace Features.Application.Students.Queries.GetStudent
 {
-    public class CreateInstructorCommand : IRequest<int>
+    public class GetStudentListQuery : IRequest<IEnumerable<StudentDto>>
     {
-        public InstructorDto instructorDto;
+        public StudentDto studentDto;
     }
 }

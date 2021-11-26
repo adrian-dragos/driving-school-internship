@@ -4,20 +4,20 @@ using Application.Interfaces;
 using Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using Persistance;
-using Application.Instructors.Commands.CreateInstructor;
 using MediatR;
 using Application.Common;
-using Application.Instructors.Quieries.GetInstructorsList;
-using Application.BookingSessions.Queries.GetBookingSession;
 using Persistance.Repositories;
 using AutoMapper;
 using System.Reflection;
 using Application.DTOs;
 using Application.Dtos;
 using Microsoft.EntityFrameworkCore;
-using Application.Students.Commands.CreateStudent;
-using Application.Students.Queries.GetStudent;
-using Application.BookingSessions.Commands.CreateBookginSession;
+using Features.Application.Instructors.Commands.CreateInstructor;
+using Features.Application.Instructors.Quieries.GetInstructorsList;
+using Features.Application.BookingSessions.Commands.CreateBookginSession;
+using Features.Application.BookingSessions.Queries.GetBookingSession;
+using Features.Application.Students.Commands.CreateStudent;
+using Features.Application.Students.Queries.GetStudent;
 
 Console.WriteLine("Hello, World!");
 using (var dbContext = new ApplicationContext())

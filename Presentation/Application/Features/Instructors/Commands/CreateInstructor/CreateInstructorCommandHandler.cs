@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Instructors.Commands.CreateInstructor
+namespace Features.Application.Instructors.Commands.CreateInstructor
 {
  public class CreateInstructorCommandHandler : IRequestHandler<CreateInstructorCommand, int>
     {

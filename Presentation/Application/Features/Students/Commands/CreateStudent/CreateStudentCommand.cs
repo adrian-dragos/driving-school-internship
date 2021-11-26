@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Students.Commands.CreateStudent
+namespace Features.Application.Students.Commands.CreateStudent
 {
     public class CreateStudentCommand : IRequest<int>
     {

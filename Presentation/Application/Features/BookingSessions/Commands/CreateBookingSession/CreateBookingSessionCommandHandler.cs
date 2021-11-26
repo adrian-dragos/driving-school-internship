@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.BookingSessions.Commands.CreateBookginSession
+namespace Features.Application.BookingSessions.Commands.CreateBookginSession
 {
     public class CreateBookingSessionCommandHandler : IRequestHandler<CreateBookingSessionCommand, int>
     {

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Students.Queries.GetStudent
+namespace Features.Application.Students.Queries.GetStudent
 {
     public class GetStudentListHandler : IRequestHandler<GetStudentListQuery, IEnumerable<StudentDto>>
     {

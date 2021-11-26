@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.BookingSessions.Queries.GetBookingSession
+namespace Features.Application.BookingSessions.Queries.GetBookingSession
 {
     public class GetBookingSessionListQueryHandler : IRequestHandler<GetBookingSessionListQuery, IEnumerable<BookingSessionDto>>
     {

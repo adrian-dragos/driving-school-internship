@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Instructors.Quieries.GetInstructorsList
+namespace Features.Application.Instructors.Quieries.GetInstructorsList
 {
     public class GetInstructorListQueryHandler : IRequestHandler<GetInstructorListQuery, IEnumerable<InstructorDto>>
     {
