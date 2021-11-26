@@ -17,11 +17,6 @@ namespace Persistance
 
         private readonly string _connectionString = @"Server=DESKTOP-912OTND;Database=Test1;Trusted_Connection=True;";
 
-        //public ApplicationContext(DbContextOptions<ApplicationContext> options)
-        //: base(options)
-        //{
-        //}
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

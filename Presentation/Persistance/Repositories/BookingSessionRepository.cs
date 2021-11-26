@@ -10,7 +10,7 @@ namespace Persistance.Repositories
 {
     public class BookingSessionRepository : GenericRepository<BookingSession>, IBookingSessionRepository
     {
-        private ApplicationContext _context;// = new ApplicationContext();
+        private ApplicationContext _context;
 
         public BookingSessionRepository(ApplicationContext context) : base(context)
         {

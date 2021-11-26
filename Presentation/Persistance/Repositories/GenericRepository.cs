@@ -11,7 +11,7 @@ namespace Persistance.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected readonly ApplicationContext _context;// = new ApplicationContext();
+        protected readonly ApplicationContext _context;
         public GenericRepository(ApplicationContext context)
         {
             _context = context;

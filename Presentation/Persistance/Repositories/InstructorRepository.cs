@@ -11,7 +11,7 @@ namespace Persistance
 {
     public class InstructorRepository : GenericRepository<Instructor>, IInstructorRepository
     {
-        private ApplicationContext _context;// = new ApplicationContext();
+        private ApplicationContext _context;
 
         public InstructorRepository(ApplicationContext context) : base(context)
         {
