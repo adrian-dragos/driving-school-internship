@@ -1,5 +1,6 @@
 ﻿using Application.Dtos;
 using Application.Interfaces;
+using AutoMapper;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -12,21 +13,18 @@ namespace Application.BookingSessions.Queries.GetBookingSession
     public class GetBookingSessionListQueryHandler : IRequestHandler<GetBookingSessionListQuery, IEnumerable<BookingSessionDto>>
     {
         private readonly IBookingSessionRepository _repository;
+        private readonly IMapper _mapper;
 
-        public GetBookingSessionListQueryHandler(IBookingSessionRepository repository)
+        public GetBookingSessionListQueryHandler(IBookingSessionRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public Task<IEnumerable<BookingSessionDto>> Handle(GetBookingSessionListQuery query, CancellationToken cancellationToken)
+        public async Task<IEnumerable<BookingSessionDto>> Handle(GetBookingSessionListQuery query, CancellationToken cancellationToken)
         {
-            var result = _repository.GetBookingSessions().Select(bookingSession => new BookingSessionDto
-            {
-                StartTime = bookingSession.StartTime,
-                IsAvailable = bookingSession.IsAvailable
-            });
-
-            return Task.FromResult(result);
+            var bookingSession = await _repository.GetAll();
+            return _mapper.Map<List<BookingSessionDto>>(bookingSession);            
         }
     }
 }

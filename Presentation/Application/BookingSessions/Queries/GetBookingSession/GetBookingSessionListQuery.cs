@@ -10,6 +10,6 @@ namespace Application.BookingSessions.Queries.GetBookingSession
 {
     public class GetBookingSessionListQuery : IRequest<IEnumerable <BookingSessionDto>>
     {
-
+        public BookingSessionDto bookingSessionDto;
     }
 }
