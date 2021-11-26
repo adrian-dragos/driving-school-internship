@@ -12,30 +12,18 @@ using System.Reflection;
 using Application.DTOs;
 using Application.Dtos;
 using Microsoft.EntityFrameworkCore;
-using Features.Application.Instructors.Commands.CreateInstructor;
-using Features.Application.Instructors.Quieries.GetInstructorsList;
-using Features.Application.BookingSessions.Commands.CreateBookginSession;
-using Features.Application.BookingSessions.Queries.GetBookingSession;
-using Features.Application.Students.Commands.CreateStudent;
-using Features.Application.Students.Queries.GetStudent;
 using Presentation;
 
 
 
-var diCotainer = new ServiceCollection()
-    .AddDbContextFactory<ApplicationContext>()
-    .AddAutoMapper(typeof(MappingProfile))
-    .AddMediatR(typeof(AssemblyMarker).Assembly)
-    .AddTransient<IUnitOfWork, UnitOfWork>()
-    .AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>))
-    .AddScoped<IInstructorRepository, InstructorRepository>()
-    .AddScoped<IBookingSessionRepository, BookingSessionRepository>()
-    .AddScoped<IStudentRepository, StudentRepository>()
-    .BuildServiceProvider();
+var services = new ServiceCollection();
+PersistanceService.ConfigurePersistenceServices(services);
+ApplicationService.ConfigurePersistenceServices(services);
 
 
+var mediator = services.BuildServiceProvider().
+                    GetRequiredService<IMediator>();
 
-var mediator = diCotainer.GetRequiredService<IMediator>();
 using (var dbContext = new ApplicationContext())
 {
     var isCreated = dbContext.Database.EnsureCreated();
