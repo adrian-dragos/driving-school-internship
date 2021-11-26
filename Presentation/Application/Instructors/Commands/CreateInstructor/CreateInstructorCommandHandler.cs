@@ -10,20 +10,20 @@ using System.Threading.Tasks;
 
 namespace Application.Instructors.Commands.CreateInstructor
 {
- public class CreateInstructorCommandListHandler : IRequestHandler<CreateInstructorListCommand, int>
+ public class CreateInstructorCommandHandler : IRequestHandler<CreateInstructorCommand, int>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IInstructorRepository _repository;
         private readonly IMapper _mapper;
 
-        public CreateInstructorCommandListHandler(IUnitOfWork unitOfWork, IInstructorRepository repository, IMapper mapper)
+        public CreateInstructorCommandHandler(IUnitOfWork unitOfWork, IInstructorRepository repository, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task<int> Handle(CreateInstructorListCommand command, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateInstructorCommand command, CancellationToken cancellationToken)
         {
             var instructor = _mapper.Map<Instructor>(command.instructorDto);
             instructor = await _repository.AddAsync(instructor);

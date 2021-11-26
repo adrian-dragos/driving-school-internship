@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.BookingSessions.Commands
+namespace Application.BookingSessions.Commands.CreateBookginSession
 {
-    public class CreateBookingSessionListCommand : IRequest<int>
+    public class CreateBookingSessionCommand : IRequest<int>
     {
         public BookingSessionDto bookingSessionDto;
     }
