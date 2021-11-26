@@ -9,6 +9,5 @@ namespace Application.DTOs
     public class InstructorDto
     {
         public string Name { get; set; }
-        public int? BookingSessionId { get; set; }
     }
 }

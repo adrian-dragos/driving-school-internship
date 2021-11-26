@@ -16,6 +16,8 @@ using System.Reflection;
 using Application.DTOs;
 using Application.Dtos;
 using Microsoft.EntityFrameworkCore;
+using Application.Students.Commands.CreateStudent;
+using Application.Students.Queries.GetStudent;
 
 Console.WriteLine("Hello, World!");
 using (var dbContext = new ApplicationContext())
@@ -31,6 +33,7 @@ var diCotainer = new ServiceCollection()
     .AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>))
     .AddScoped<IInstructorRepository, InstructorRepository>()
     .AddScoped<IBookingSessionRepository, BookingSessionRepository>()
+    .AddScoped<IStudentRepository, StudentRepository>()
     .BuildServiceProvider();
 
 var mediator = diCotainer.GetRequiredService<IMediator>();
@@ -53,12 +56,26 @@ for (int i = 0; i < 5; i++)
         StartTime = DateTime.Now,
         IsAvailable = true
     };
-
-var bookingSeesionId = await mediator.Send(new CreateBookingSessionListCommand { bookingSessionDto = bookginSession });
+    var bookingSeesionId = await mediator.Send(new CreateBookingSessionListCommand { bookingSessionDto = bookginSession });
 }
 
 var bookingSessions = await mediator.Send(new GetBookingSessionListQuery());
 foreach (var bookingSession in bookingSessions)
 {
     Console.WriteLine(bookingSession.StartTime);
+}
+
+for (int i = 0; i < 5;  i++)
+{
+    var student = new StudentDto
+    {
+        Name = $"name{i}"
+    };
+    var studentId = await mediator.Send(new CreateStudentCommand { studentDto = student });
+}
+
+var students = await mediator.Send(new GetStudentListQuery());
+foreach (var student in students)
+{
+    Console.WriteLine(student.Name);
 }

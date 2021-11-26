@@ -10,6 +10,7 @@ namespace Application.Interfaces
     {
         IBookingSessionRepository BookingSessions { get; }
         IInstructorRepository Instructors { get; }
+        IStudentRepository Students { get; }
         Task Save();
     }
 }

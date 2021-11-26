@@ -14,8 +14,9 @@ namespace Application.Common
     {
         public MappingProfile()
         {
-            CreateMap<Instructor, InstructorDto>().ReverseMap();
             CreateMap<BookingSession, BookingSessionDto>().ReverseMap();
+            CreateMap<Instructor, InstructorDto>().ReverseMap();
+            CreateMap<Student, StudentDto>().ReverseMap();
         }
     }
 }

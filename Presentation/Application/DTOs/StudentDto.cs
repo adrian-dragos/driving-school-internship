@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Application.DTOs
 {
-    public class Student : BaseEntity
+    public class StudentDto
     {
         public string Name { get; set; }
         public int? BookingSessionId { get; set; }
-        public virtual BookingSession? GetBookingSessions { get; set; }
     }
 }
