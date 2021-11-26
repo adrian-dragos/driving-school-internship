@@ -63,7 +63,7 @@ namespace Presentation
             var instructors = await mediator.Send(new GetInstructorListQuery());
             foreach (var i in instructors)
             {
-                Console.WriteLine("\t\t" + i.Name);
+                Console.WriteLine("\t" + i.Name);
             }
             Console.WriteLine("Succesfull Initialization");
 
