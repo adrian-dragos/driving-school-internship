@@ -12,11 +12,13 @@ namespace Application.Instructors.Commands.CreateInstructor
 {
  public class CreateInstructorCommandListHandler : IRequestHandler<CreateInstructorListCommand, int>
     {
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IInstructorRepository _repository;
         private readonly IMapper _mapper;
 
-        public CreateInstructorCommandListHandler(IInstructorRepository repository, IMapper mapper)
+        public CreateInstructorCommandListHandler(IUnitOfWork unitOfWork, IInstructorRepository repository, IMapper mapper)
         {
+            _unitOfWork = unitOfWork;
             _repository = repository;
             _mapper = mapper;
         }
@@ -25,6 +27,7 @@ namespace Application.Instructors.Commands.CreateInstructor
         {
             var instructor = _mapper.Map<Instructor>(command.instructorDto);
             instructor = await _repository.AddAsync(instructor);
+            await _unitOfWork.Save();
             return instructor.Id;
         }
     }

@@ -14,17 +14,20 @@ namespace Application.BookingSessions.Commands
     {
         private readonly IBookingSessionRepository _repository;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateBookingSessionListCommandHandler(IBookingSessionRepository repository, IMapper mapper)
+        public CreateBookingSessionListCommandHandler(IBookingSessionRepository repository, IMapper mapper, IUnitOfWork unitOfWork)
         {
             _repository = repository;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<int> Handle(CreateBookingSessionListCommand command, CancellationToken cancellationToken)
         {
             var bookginSession = _mapper.Map<BookingSession>(command.bookingSessionDto);
             bookginSession = await _repository.AddAsync(bookginSession);
+            await _unitOfWork.Save();
             return bookginSession.Id;
         }
     }

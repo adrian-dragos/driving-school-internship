@@ -10,7 +10,11 @@ namespace Persistance.Repositories
 {
     public class BookingSessionRepository : GenericRepository<BookingSession>, IBookingSessionRepository
     {
-        private ApplicationContext _context = new ApplicationContext();
+        private ApplicationContext _context;// = new ApplicationContext();
+
+        public BookingSessionRepository(ApplicationContext context) : base(context)
+        {
+        }
 
         public async Task CreateBookingSession(BookingSession bookingSession)
         {
@@ -20,7 +24,7 @@ namespace Persistance.Repositories
         
         public IEnumerable<BookingSession> GetBookingSessions()
         {
-            return _context.BookingSessions.ToList();
+            return _context.BookingSessions;
         }
     }
 }

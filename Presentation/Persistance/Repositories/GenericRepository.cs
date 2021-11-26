@@ -11,23 +11,21 @@ namespace Persistance.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected readonly ApplicationContext _context = new ApplicationContext();
-        //public GenericRepository(ApplicationContext context)
-        //{
-        //    _context = context;
-        //}
+        protected readonly ApplicationContext _context;// = new ApplicationContext();
+        public GenericRepository(ApplicationContext context)
+        {
+            _context = context;
+        }
 
         public async Task<T> AddAsync(T entity)
         {
             await _context.Set<T>().AddAsync(entity);
-            await _context.SaveChangesAsync();
             return entity;
         }
 
         public async Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities)
         {
             await _context.Set<T>().AddRangeAsync(entities);
-            await _context.SaveChangesAsync();
             return entities;
         }
 
@@ -49,13 +47,11 @@ namespace Persistance.Repositories
         public async Task Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
-            await _context.SaveChangesAsync();
         }
 
         public async Task RemoveRange(IEnumerable<T> entities)
         {
             _context.Set<T>().RemoveRange(entities);
-            await _context.SaveChangesAsync();
         }
 
         public async Task Update(T entity)

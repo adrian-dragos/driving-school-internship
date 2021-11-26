@@ -15,6 +15,7 @@ using AutoMapper;
 using System.Reflection;
 using Application.DTOs;
 using Application.Dtos;
+using Microsoft.EntityFrameworkCore;
 
 Console.WriteLine("Hello, World!");
 using (var dbContext = new ApplicationContext())
@@ -23,8 +24,10 @@ using (var dbContext = new ApplicationContext())
 }
 
 var diCotainer = new ServiceCollection()
+    .AddDbContextFactory<ApplicationContext>()
     .AddAutoMapper(typeof(MappingProfile))
     .AddMediatR(typeof(AssemblyMarker).Assembly)
+    .AddTransient<IUnitOfWork, UnitOfWork>()
     .AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>))
     .AddScoped<IInstructorRepository, InstructorRepository>()
     .AddScoped<IBookingSessionRepository, BookingSessionRepository>()

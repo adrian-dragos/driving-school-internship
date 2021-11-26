@@ -11,7 +11,11 @@ namespace Persistance
 {
     public class InstructorRepository : GenericRepository<Instructor>, IInstructorRepository
     {
-        private ApplicationContext _context = new ApplicationContext();
+        private ApplicationContext _context;// = new ApplicationContext();
+
+        public InstructorRepository(ApplicationContext context) : base(context)
+        {
+        }
 
         public async Task CreateInstructor(Instructor instructor)
         {
