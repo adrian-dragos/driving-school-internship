@@ -68,14 +68,14 @@ namespace Presentation
             Console.WriteLine("Succesfull Initialization");
 
 
-            Console.WriteLine("Intialize BookingSession Database");
-            await InitializeBookginSessionDbAsync(mediator);
-            var bookingSessions = await mediator.Send(new GetBookingSessionListQuery());
-            foreach (var bookingSession in bookingSessions)
-            {
-                Console.WriteLine("\t" + bookingSession.StartTime);
-            }
-            Console.WriteLine("Succesfull BookingSession Initialization");
+            //Console.WriteLine("Intialize BookingSession Database");
+            //await InitializeBookginSessionDbAsync(mediator);
+            //var bookingSessions = await mediator.Send(new GetBookingSessionListQuery());
+            //foreach (var bookingSession in bookingSessions)
+            //{
+            //    Console.WriteLine("\t" + bookingSession.StartTime);
+            //}
+            //Console.WriteLine("Succesfull BookingSession Initialization");
 
 
             Console.WriteLine("Intialize BookingSession Database");

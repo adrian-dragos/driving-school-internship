@@ -5,8 +5,8 @@ using Persistance;
 using MediatR;
 using Application.Common;
 using Presentation;
-
-
+using Features.Application.BookingSessions.Commands.CreateBookginSession;
+using Application.Dtos;
 
 var services = new ServiceCollection();
 PersistanceService.ConfigurePersistenceServices(services);
@@ -24,3 +24,7 @@ using (var dbContext = new ApplicationContext())
         await DataBaseInitializer.InitializeAsync(mediator);
     }
 }
+
+
+
+

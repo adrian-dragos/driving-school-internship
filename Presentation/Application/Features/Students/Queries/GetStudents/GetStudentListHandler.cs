@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.Student;
 using Application.Interfaces;
 using AutoMapper;
 using MediatR;
