@@ -9,6 +9,6 @@ namespace Application.Dtos.BookingSession
     public class BookingSessionDto
     {
         public DateTime StartTime { get; set; }
-        public bool IsAvailable { get; set; } = false;
+        public bool IsAvailable { get; set; } = true;
     }
 }

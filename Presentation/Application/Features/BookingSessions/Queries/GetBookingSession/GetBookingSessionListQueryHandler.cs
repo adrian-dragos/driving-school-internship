@@ -1,4 +1,4 @@
-﻿using Application.Dtos;
+﻿using Application.Dtos.BookingSession;
 using Application.Interfaces;
 using AutoMapper;
 using MediatR;

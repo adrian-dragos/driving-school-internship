@@ -1,5 +1,6 @@
-﻿using Application.Dtos;
-using Application.DTOs;
+﻿using Application.Dtos.BookingSession;
+using Application.DTOs.Instructor;
+using Application.DTOs.Student;
 using AutoMapper;
 using Domain.Entities;
 using System;
