@@ -5,11 +5,9 @@ using Persistance;
 using MediatR;
 using Application.Common;
 using Presentation;
-using Features.Application.BookingSessions.Commands.CreateBookginSession;
-using Application.Dtos;
 using Application.Features.BookingSessions.Commands.ChangeBookingSessionAvailability;
 using Application.DTOs.BookingSession;
-using Features.Application.BookingSessions.Queries.GetBookingSessionList;
+using Application.Features.BookingSessions.Queries.GetBookingSession;
 
 var services = new ServiceCollection();
 PersistanceService.ConfigurePersistenceServices(services);
@@ -36,3 +34,5 @@ var bookginSession = new ChangeBookingSessionAvailabilityDto
 };
 
 var bookingSeesionId = await mediator.Send(new ChangeBookingSessionAvailabilityCommand { changeBookingSessionAvailabilityDto = bookginSession });
+var bookingSessionReceived = await mediator.Send(new GetBookingSessionQuery { Id = 4 });
+Console.WriteLine($"bookingSessionReceived = {bookingSessionReceived.Id} bookingSessionReceived.Avaibilaty = {bookingSessionReceived.IsAvailable}");
