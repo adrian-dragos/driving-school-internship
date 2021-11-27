@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs.Instructor
+
+namespace Application.DTOs.User.Student
 {
-    public class InstructorDto : BaseEntityDto
+    public class StudentDto : UserDto
     {
-        public string Name { get; set; }
+        public int? BookingSessionId { get; set; }
     }
 }

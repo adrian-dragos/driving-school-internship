@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Domain.Entities.Common;
+using Domain.Entities.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,18 +15,6 @@ namespace Domain.Entities
         public virtual ICollection<Instructor>? Insturctors { get; set; }
         public virtual ICollection<Student>? Students { get; set; }
         public static readonly int SessionDurationMin = 90;
-        
-        public BookingSession()
-        {
 
-        }
-
-        //public BookingSession(DateTime stratTime, int instructorId, int sudentId)
-        //{
-        //    StratTime = stratTime;
-        //    InstructorId = instructorId;
-        //    SudentId = sudentId;
-        //    IsAvailable = true;
-        //}
     }
 }

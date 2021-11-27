@@ -1,4 +1,4 @@
-﻿using Application.DTOs.Instructor;
+﻿using Application.DTOs.User.Instructor;
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;

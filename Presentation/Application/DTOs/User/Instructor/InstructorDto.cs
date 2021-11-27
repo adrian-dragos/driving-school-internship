@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs
+namespace Application.DTOs.User.Instructor
 {
-    public abstract class BaseEntityDto
+    public class InstructorDto : UserDto
     {
-        public int Id { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Application.DTOs.Instructor;
+﻿using Application.DTOs.User.Instructor;
 using MediatR;
 using System;
 using System.Collections.Generic;

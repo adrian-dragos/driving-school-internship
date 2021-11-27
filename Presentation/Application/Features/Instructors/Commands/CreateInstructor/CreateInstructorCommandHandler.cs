@@ -1,6 +1,6 @@
 ﻿using Application.Interfaces;
 using AutoMapper;
-using Domain.Entities;
+using Domain.Entities.User;
 using MediatR;
 using System;
 using System.Collections.Generic;

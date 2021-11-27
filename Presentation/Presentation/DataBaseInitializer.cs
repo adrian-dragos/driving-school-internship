@@ -1,6 +1,6 @@
 ﻿using Application.DTOs.BookingSession;
-using Application.DTOs.Instructor;
-using Application.DTOs.Student;
+using Application.DTOs.User.Instructor;
+using Application.DTOs.User.Student;
 using Features.Application.BookingSessions.Commands.CreateBookginSession;
 using Features.Application.BookingSessions.Queries.GetBookingSessionList;
 using Features.Application.Instructors.Commands.CreateInstructor;
@@ -24,7 +24,7 @@ namespace Presentation
         {
             for (int i = 1; i <= 3; i++)
             {
-                var instructor = new InstructorDto { Name = $"instructor{i}" };
+                var instructor = new InstructorDto { FirstName = $"instructor{i}" };
                 var instructorId = await mediator.Send(new CreateInstructorCommand { instructorDto = instructor });
             }
         }
@@ -48,7 +48,7 @@ namespace Presentation
             {
                 var student = new StudentDto
                 {
-                    Name = $"student{i}"
+                    FirstName = $"student{i}"
                 };
                 var studentId = await mediator.Send(new CreateStudentCommand { studentDto = student });
             }
@@ -64,7 +64,7 @@ namespace Presentation
             var instructors = await mediator.Send(new GetInstructorListQuery());
             foreach (var i in instructors)
             {
-                Console.WriteLine("\t" + i.Name);
+                Console.WriteLine("\t" + i.FirstName);
             }
             Console.WriteLine("Succesfull Initialization");
 
@@ -84,7 +84,7 @@ namespace Presentation
             var students = await mediator.Send(new GetStudentListQuery());
             foreach (var student in students)
             {
-                Console.WriteLine("\t" + student.Name);
+                Console.WriteLine("\t" + student.FirstName);
             }
             Console.WriteLine("Succesful Initialization");
         }

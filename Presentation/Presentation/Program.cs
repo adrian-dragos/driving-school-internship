@@ -40,7 +40,7 @@ var bookingSessionReceived = await mediator.Send(new GetBookingSessionQuery { Id
 Console.WriteLine($"bookingSessionReceived = {bookingSessionReceived.Id} bookingSessionReceived.Avaibilaty = {bookingSessionReceived.IsAvailable}");
 
 var instructor = await mediator.Send(new GetInstructorQuery { Id = 1 });
-Console.WriteLine($"instructorId = {instructor.Id} instructorName = {instructor.Name}");
+Console.WriteLine($"instructorId = {instructor.Id} instructorName = {instructor.FirstName}");
 
 var student = await mediator.Send(new GetStudentQuery { Id = 1 });
-Console.WriteLine($"instructorId = {student.Id} instructorName = {student.Name}");
+Console.WriteLine($"instructorId = {student.Id} instructorName = {student.FirstName}");

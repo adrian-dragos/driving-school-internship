@@ -1,5 +1,5 @@
 ﻿using Application.Interfaces;
-using Domain.Entities;
+using Domain.Entities.User;
 using Persistance.Repositories;
 using System;
 using System.Collections.Generic;

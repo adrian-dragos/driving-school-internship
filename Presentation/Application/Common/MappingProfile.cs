@@ -1,7 +1,4 @@
 ﻿using Application.DTOs.BookingSession;
-using Application.DTOs.Instructor;
-using Application.DTOs.Student;
-using Application.DTOs.BookingSession;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -9,6 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.DTOs.User.Instructor;
+using Application.DTOs.User.Student;
+using Domain.Entities.User;
 
 namespace Application.Common
 { 
