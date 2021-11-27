@@ -2,11 +2,11 @@
 using Application.DTOs.Instructor;
 using Application.DTOs.Student;
 using Features.Application.BookingSessions.Commands.CreateBookginSession;
-using Features.Application.BookingSessions.Queries.GetBookingSession;
+using Features.Application.BookingSessions.Queries.GetBookingSessionList;
 using Features.Application.Instructors.Commands.CreateInstructor;
 using Features.Application.Instructors.Quieries.GetInstructorsList;
 using Features.Application.Students.Commands.CreateStudent;
-using Features.Application.Students.Queries.GetStudent;
+using Features.Application.Students.Queries.GetStudentList;
 using MediatR;
 using Persistance;
 using System;

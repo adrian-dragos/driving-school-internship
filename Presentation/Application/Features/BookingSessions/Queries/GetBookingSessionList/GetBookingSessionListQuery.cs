@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Features.Application.BookingSessions.Queries.GetBookingSession
+namespace Features.Application.BookingSessions.Queries.GetBookingSessionList
 {
     public class GetBookingSessionListQuery : IRequest<IEnumerable <BookingSessionDto>>
     {

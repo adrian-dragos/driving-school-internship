@@ -9,7 +9,7 @@ using Features.Application.BookingSessions.Commands.CreateBookginSession;
 using Application.Dtos;
 using Application.Features.BookingSessions.Commands.ChangeBookingSessionAvailability;
 using Application.DTOs.BookingSession;
-using Features.Application.BookingSessions.Queries.GetBookingSession;
+using Features.Application.BookingSessions.Queries.GetBookingSessionList;
 
 var services = new ServiceCollection();
 PersistanceService.ConfigurePersistenceServices(services);
