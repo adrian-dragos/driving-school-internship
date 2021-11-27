@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs.Instructor
+namespace Application.DTOs
 {
-    public class InstructorDto : BaseEntityDto
+    public class BaseEntityDto
     {
-        public string Name { get; set; }
+        public int Id { get; set; }
     }
 }
