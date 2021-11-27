@@ -20,7 +20,7 @@ namespace Application.Common
             CreateMap<BookingSession, ChangeBookingSessionAvailabilityDto>().ReverseMap();
             
             CreateMap<Instructor, InstructorDto>().ReverseMap();
-            CreateMap<Student, InsructorDto>().ReverseMap();
+            CreateMap<Student, StudentDto>().ReverseMap();
            
         }
     }

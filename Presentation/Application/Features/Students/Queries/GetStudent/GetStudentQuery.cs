@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Features.Application.Students.Queries.GetStudentList
+namespace Application.Features.Students.Queries.GetStudent
 {
-    public class GetStudentListQuery : IRequest<IEnumerable<StudentDto>>
+    public class GetStudentQuery : IRequest<StudentDto>
     {
-        public StudentDto studentDto;
+        public int Id { get; set; } 
     }
 }

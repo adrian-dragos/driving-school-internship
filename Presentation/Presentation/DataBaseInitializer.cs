@@ -46,7 +46,7 @@ namespace Presentation
         {
             for (int i = 1; i <= 5; i++)
             {
-                var student = new InsructorDto
+                var student = new StudentDto
                 {
                     Name = $"student{i}"
                 };

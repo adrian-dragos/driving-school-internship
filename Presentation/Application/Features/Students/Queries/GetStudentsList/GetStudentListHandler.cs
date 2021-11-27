@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Features.Application.Students.Queries.GetStudentList
 {
-    public class GetStudentListHandler : IRequestHandler<GetStudentListQuery, IEnumerable<InsructorDto>>
+    public class GetStudentListHandler : IRequestHandler<GetStudentListQuery, IEnumerable<StudentDto>>
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -23,10 +23,10 @@ namespace Features.Application.Students.Queries.GetStudentList
             _repository = repository;
         }
 
-        public async Task<IEnumerable<InsructorDto>> Handle(GetStudentListQuery query, CancellationToken cancellationToken)
+        public async Task<IEnumerable<StudentDto>> Handle(GetStudentListQuery query, CancellationToken cancellationToken)
         {
             var student = await _repository.GetAll();
-            return _mapper.Map<List<InsructorDto>>(student);
+            return _mapper.Map<List<StudentDto>>(student);
         }
     }
 }
