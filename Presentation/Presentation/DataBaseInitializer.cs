@@ -2,6 +2,7 @@
 using Application.DTOs.Instructor;
 using Application.DTOs.Student;
 using Features.Application.BookingSessions.Commands.CreateBookginSession;
+using Features.Application.BookingSessions.Queries.GetBookingSession;
 using Features.Application.Instructors.Commands.CreateInstructor;
 using Features.Application.Instructors.Quieries.GetInstructorsList;
 using Features.Application.Students.Commands.CreateStudent;
@@ -68,14 +69,14 @@ namespace Presentation
             Console.WriteLine("Succesfull Initialization");
 
 
-            //Console.WriteLine("Intialize BookingSession Database");
-            //await InitializeBookginSessionDbAsync(mediator);
-            //var bookingSessions = await mediator.Send(new GetBookingSessionListQuery());
-            //foreach (var bookingSession in bookingSessions)
-            //{
-            //    Console.WriteLine("\t" + bookingSession.StartTime);
-            //}
-            //Console.WriteLine("Succesfull BookingSession Initialization");
+            Console.WriteLine("Intialize BookingSession Database");
+            await InitializeBookginSessionDbAsync(mediator);
+            var bookingSessions = await mediator.Send(new GetBookingSessionListQuery());
+            foreach (var bookingSession in bookingSessions)
+            {
+                Console.WriteLine("\t" + bookingSession.StartTime + "\t"  + bookingSession.IsAvailable);
+            }
+            Console.WriteLine("Succesfull BookingSession Initialization");
 
 
             Console.WriteLine("Intialize BookingSession Database");

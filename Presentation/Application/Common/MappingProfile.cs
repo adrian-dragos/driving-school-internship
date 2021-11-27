@@ -1,6 +1,7 @@
 ﻿using Application.Dtos.BookingSession;
 using Application.DTOs.Instructor;
 using Application.DTOs.Student;
+using Application.DTOs.BookingSession;
 using AutoMapper;
 using Domain.Entities;
 using System;
@@ -15,9 +16,12 @@ namespace Application.Common
     {
         public MappingProfile()
         {
-            CreateMap<BookingSession, BookingSessionDto>().ReverseMap();
+            CreateMap<BookingSession, BookingSessionDto>().ReverseMap(); 
+            CreateMap<BookingSession, ChangeBookingSessionAvailabilityDto>().ReverseMap();
+            
             CreateMap<Instructor, InstructorDto>().ReverseMap();
             CreateMap<Student, StudentDto>().ReverseMap();
+           
         }
     }
 }
