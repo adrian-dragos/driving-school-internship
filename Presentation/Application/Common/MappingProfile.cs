@@ -1,4 +1,4 @@
-﻿using Application.Dtos.BookingSession;
+﻿using Application.DTOs.BookingSession;
 using Application.DTOs.Instructor;
 using Application.DTOs.Student;
 using Application.DTOs.BookingSession;
@@ -20,7 +20,7 @@ namespace Application.Common
             CreateMap<BookingSession, ChangeBookingSessionAvailabilityDto>().ReverseMap();
             
             CreateMap<Instructor, InstructorDto>().ReverseMap();
-            CreateMap<Student, StudentDto>().ReverseMap();
+            CreateMap<Student, InsructorDto>().ReverseMap();
            
         }
     }

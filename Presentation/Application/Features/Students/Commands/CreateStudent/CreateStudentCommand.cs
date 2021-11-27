@@ -10,6 +10,6 @@ namespace Features.Application.Students.Commands.CreateStudent
 {
     public class CreateStudentCommand : IRequest<int>
     {
-        public StudentDto studentDto;
+        public InsructorDto studentDto;
     }
 }

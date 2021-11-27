@@ -1,4 +1,4 @@
-﻿using Application.Dtos.BookingSession;
+﻿using Application.DTOs.BookingSession;
 using Application.DTOs.Instructor;
 using Application.DTOs.Student;
 using Features.Application.BookingSessions.Commands.CreateBookginSession;
@@ -46,7 +46,7 @@ namespace Presentation
         {
             for (int i = 1; i <= 5; i++)
             {
-                var student = new StudentDto
+                var student = new InsructorDto
                 {
                     Name = $"student{i}"
                 };

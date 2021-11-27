@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs.Student
 {
-    public class StudentDto : BaseEntityDto
+    public class InsructorDto : BaseEntityDto
     {
         public string Name { get; set; }
         public int? BookingSessionId { get; set; }

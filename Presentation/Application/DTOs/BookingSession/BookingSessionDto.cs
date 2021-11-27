@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Dtos.BookingSession
+namespace Application.DTOs.BookingSession
 {
     public class BookingSessionDto : BaseEntityDto
     {

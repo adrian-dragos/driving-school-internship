@@ -8,6 +8,7 @@ using Presentation;
 using Application.Features.BookingSessions.Commands.ChangeBookingSessionAvailability;
 using Application.DTOs.BookingSession;
 using Application.Features.BookingSessions.Queries.GetBookingSession;
+using Application.Features.Instructors.Quieries.GetInstructor;
 
 var services = new ServiceCollection();
 PersistanceService.ConfigurePersistenceServices(services);
@@ -36,3 +37,6 @@ var bookginSession = new ChangeBookingSessionAvailabilityDto
 var bookingSeesionId = await mediator.Send(new ChangeBookingSessionAvailabilityCommand { changeBookingSessionAvailabilityDto = bookginSession });
 var bookingSessionReceived = await mediator.Send(new GetBookingSessionQuery { Id = 4 });
 Console.WriteLine($"bookingSessionReceived = {bookingSessionReceived.Id} bookingSessionReceived.Avaibilaty = {bookingSessionReceived.IsAvailable}");
+
+var instructor = await mediator.Send(new GetInstructorQuery { Id = 1 });
+Console.WriteLine($"instructorId = {instructor.Id} instructorName = {instructor.Name}");
