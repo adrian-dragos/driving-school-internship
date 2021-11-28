@@ -14,9 +14,6 @@ using Application.Features.Car.Queries.GetCar;
 using Application.DTOs.EntityDto.BookingSession;
 using Application.DTOs.EntityDtos.Car;
 using Application.Features.BookingSessions.Commands.CreateBookingSessionList;
-using Application.DTOs.EntityDtos.User.Instructor;
-using Features.Application.Instructors.Commands.CreateInstructor;
-using Features.Application.BookingSessions.Commands.CreateBookginSession;
 
 var services = new ServiceCollection();
 PersistanceService.ConfigurePersistenceServices(services);
@@ -69,7 +66,6 @@ for (int i = 1; i <= 2; i++)
         StartTime = DateTime.Now,
         IsAvailable = true,
         InstructorId = 1
-        //StudentId = 1
     });
 }
 
