@@ -17,9 +17,4 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Car\Queries\GetCar\" />
-    <Folder Include="Features\Car\Queries\GetCarList\" />
-  </ItemGroup>
-
 </Project>

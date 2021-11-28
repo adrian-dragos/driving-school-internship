@@ -3,6 +3,8 @@ using Application.DTOs.BookingSession;
 using Application.DTOs.User.Instructor;
 using Application.DTOs.User.Student;
 using Application.Features.Car.Commands.CreateCar;
+using Application.Features.Car.Queries.GetCar;
+using Application.Features.Car.Queries.GetCarList;
 using Features.Application.BookingSessions.Commands.CreateBookginSession;
 using Features.Application.BookingSessions.Queries.GetBookingSessionList;
 using Features.Application.Instructors.Commands.CreateInstructor;
@@ -107,6 +109,11 @@ namespace Presentation
 
             Console.WriteLine("Intialize Car Database");
             await IntitializeCarDbAsync(mediator);
+            var cars = await mediator.Send(new GetCarListQuery());
+            foreach (var car in cars)
+            {
+                Console.WriteLine("\t" + car.RegistrationNumber);
+            }
             Console.WriteLine("Succesful Initialization");
         }
     }
