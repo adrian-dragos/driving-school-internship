@@ -11,7 +11,7 @@ namespace Application.DTOs.EntityDto.BookingSession
     {
         public DateTime StartTime { get; set; }
         public bool IsAvailable { get; set; } = true;
-        public int InstructorId { get; set; }   
-        public int StudentId { get; set; }
+        public int? InstructorId { get; set; }   
+        public int? StudentId { get; set; }
     }
 }

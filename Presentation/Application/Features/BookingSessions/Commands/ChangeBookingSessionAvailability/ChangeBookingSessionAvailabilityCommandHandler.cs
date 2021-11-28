@@ -27,7 +27,7 @@ namespace Application.Features.BookingSessions.Commands.ChangeBookingSessionAvai
             var bookingSession = await _repository.GetByIdAsync(command.changeBookingSessionAvailabilityDto.Id);
             _mapper.Map(command.changeBookingSessionAvailabilityDto, bookingSession);
             await _repository.Update(bookingSession);
-            await _unitOfWork.Save();
+            await _unitOfWork.SaveAsync();
             return Unit.Value;
         }
     }

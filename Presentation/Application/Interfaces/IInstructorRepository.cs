@@ -9,7 +9,7 @@ namespace Application.Interfaces
 {
     public interface IInstructorRepository : IGenericRepository<Instructor>
     {
-        public Task CreateInstructor(Instructor instructor);
-        public IEnumerable<Instructor> GetInstructors();
+        Task CreateInstructor(Instructor instructor);
+        IEnumerable<Instructor> GetInstructors();
     }
 }

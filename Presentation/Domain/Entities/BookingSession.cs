@@ -11,9 +11,9 @@ namespace Domain.Entities
     public class BookingSession : BaseEntity
     {
         public DateTime StartTime { get; set; }
-        public bool IsAvailable { get; set; } = false;
+        public bool IsAvailable { get; set; } = true;
         public int? InstructorId { get; set; }
-        public virtual Instructor? GetInstructors { get; set; }
+        public virtual Instructor? Instructors { get; set; }
         public int? StudentId { get; set; }
         public virtual Student? GetStudents { get; set; }
         public static readonly int SessionDurationMin = 90;

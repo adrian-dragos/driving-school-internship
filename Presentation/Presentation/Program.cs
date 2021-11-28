@@ -13,6 +13,10 @@ using Application.Features.Car.Commands.ChangeCarAvailability;
 using Application.Features.Car.Queries.GetCar;
 using Application.DTOs.EntityDto.BookingSession;
 using Application.DTOs.EntityDtos.Car;
+using Application.Features.BookingSessions.Commands.CreateBookingSessionList;
+using Application.DTOs.EntityDtos.User.Instructor;
+using Features.Application.Instructors.Commands.CreateInstructor;
+using Features.Application.BookingSessions.Commands.CreateBookginSession;
 
 var services = new ServiceCollection();
 PersistanceService.ConfigurePersistenceServices(services);
@@ -57,3 +61,20 @@ var car = new ChangeCarAvailabilityDto
 var carId = await mediator.Send(new ChangeCarAvailabilityCommand { changeCarAvailabilityDto = car });
 var carReceived = await mediator.Send(new GetCarQuery { Id = 4 });
 Console.WriteLine($"carReceived = {car.Id} carReceived.Availability = {car.IsAvailable}");
+
+var bookingSessionList = new List<BookingSessionDto>();
+for (int i = 1; i <= 2; i++)
+{
+    bookingSessionList.Add(new BookingSessionDto {
+        StartTime = DateTime.Now,
+        IsAvailable = true,
+        InstructorId = 1
+        //StudentId = 1
+    });
+}
+
+var ids = await mediator.Send(new CreateBookingSessionListCommand { bookingSessionsDto = bookingSessionList });
+foreach (var id in ids)
+{
+    Console.WriteLine(id);
+}

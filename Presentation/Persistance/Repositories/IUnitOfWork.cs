@@ -22,9 +22,14 @@ namespace Persistance.Repositories
         public IInstructorRepository Instructors { get; private set; }
         public IStudentRepository Students { get; private set; }
         
-        public async Task Save()
+        public async Task SaveAsync()
         {
             await _context.SaveChangesAsync();
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
         }
         public void Dispose()
         {

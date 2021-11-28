@@ -27,7 +27,7 @@ namespace Features.Application.Instructors.Commands.CreateInstructor
         {
             var instructor = _mapper.Map<Instructor>(command.instructorDto);
             instructor = await _repository.AddAsync(instructor);
-            await _unitOfWork.Save();
+            await _unitOfWork.SaveAsync();
             return instructor.Id;
         }
     }

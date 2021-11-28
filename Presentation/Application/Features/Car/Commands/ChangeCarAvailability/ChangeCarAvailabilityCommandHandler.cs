@@ -27,7 +27,7 @@ namespace Application.Features.Car.Commands.ChangeCarAvailability
             var car = await _repository.GetByIdAsync(command.changeCarAvailabilityDto.Id);
             _mapper.Map(command.changeCarAvailabilityDto, car);
             await _repository.Update(car);
-            await _unitOfWork.Save();
+            await _unitOfWork.SaveAsync();
             return Unit.Value;
         }
     }

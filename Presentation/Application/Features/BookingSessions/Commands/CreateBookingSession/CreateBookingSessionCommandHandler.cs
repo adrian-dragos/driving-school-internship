@@ -27,7 +27,7 @@ namespace Features.Application.BookingSessions.Commands.CreateBookginSession
         {
             var bookginSession = _mapper.Map<BookingSession>(command.bookingSessionDto);
             bookginSession = await _repository.AddAsync(bookginSession);
-            await _unitOfWork.Save();
+            await _unitOfWork.SaveAsync();
             return bookginSession.Id;
         }
     }

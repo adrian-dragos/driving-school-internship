@@ -9,7 +9,7 @@ namespace Application.Interfaces
 {
     public interface IBookingSessionRepository : IGenericRepository<BookingSession>
     {
-        public Task CreateBookingSession(BookingSession bookingSession);
-        public IEnumerable<BookingSession> GetBookingSessions();
+        Task CreateBookingSession(BookingSession bookingSession);
+        IEnumerable<BookingSession> GetBookingSessions();
     }
 }

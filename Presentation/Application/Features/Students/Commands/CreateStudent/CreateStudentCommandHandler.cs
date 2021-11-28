@@ -27,7 +27,7 @@ namespace Features.Application.Students.Commands.CreateStudent
         {
             var student = _mapper.Map<Student>(command.studentDto);
             student = await _repository.AddAsync(student);
-            await _unitOfWork.Save();
+            await _unitOfWork.SaveAsync();
             return student.Id;
         }
     }

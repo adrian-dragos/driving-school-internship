@@ -27,7 +27,7 @@ namespace Application.Features.Car.Commands.CreateCar
         {
             var car = _mapper.Map<Domain.Entities.Car>(command.carDto);
             car = await _repository.AddAsync(car);
-            await _unitOfWork.Save();
+            await _unitOfWork.SaveAsync();
             return car.Id;
         }
     }

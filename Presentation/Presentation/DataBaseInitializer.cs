@@ -42,7 +42,7 @@ namespace Presentation
         private static async Task InitializeBookginSessionDbAsync(IMediator mediator)
         {
             var rand = new Random();
-            for (int i = 1; i <= 50; i++)
+            for (int i = 1; i <= 15; i++)
             {
                 var bookginSession = new BookingSessionDto
                 {
