@@ -20,6 +20,7 @@ namespace Persistance
                 .AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>))
                 .AddScoped<IInstructorRepository, InstructorRepository>()
                 .AddScoped<IBookingSessionRepository, BookingSessionRepository>()
+                .AddScoped<ICarRepository, CarRepository>()
                 .AddScoped<IStudentRepository, StudentRepository>();
             return services;
         }

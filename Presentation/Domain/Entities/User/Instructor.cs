@@ -9,7 +9,7 @@ namespace Domain.Entities.User
 {
     public class Instructor : User
     {
-       // public Car car { get; set; }
+        public Car? Car { get; set; }
         public int? BookingSessionId { get; set; }
         public virtual BookingSession? GetBookingSessions { get; set; }
     }

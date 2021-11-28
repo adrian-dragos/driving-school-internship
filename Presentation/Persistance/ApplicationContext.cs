@@ -14,6 +14,7 @@ namespace Persistance
         public DbSet<BookingSession> BookingSessions { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Car> Cars { get; set; }
 
         private readonly string _connectionString = @"Server=DESKTOP-912OTND;Database=Test1;Trusted_Connection=True;";
 

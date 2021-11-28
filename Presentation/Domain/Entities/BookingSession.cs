@@ -15,6 +15,5 @@ namespace Domain.Entities
         public virtual ICollection<Instructor>? Insturctors { get; set; }
         public virtual ICollection<Student>? Students { get; set; }
         public static readonly int SessionDurationMin = 90;
-
     }
 }

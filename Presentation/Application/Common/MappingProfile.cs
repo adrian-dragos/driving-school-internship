@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Application.DTOs.User.Instructor;
 using Application.DTOs.User.Student;
 using Domain.Entities.User;
+using Application.DTOs;
 
 namespace Application.Common
 { 
@@ -21,7 +22,9 @@ namespace Application.Common
             
             CreateMap<Instructor, InstructorDto>().ReverseMap();
             CreateMap<Student, StudentDto>().ReverseMap();
-           
+
+            CreateMap<Car, CarDto>().ReverseMap();
+
         }
     }
 }
