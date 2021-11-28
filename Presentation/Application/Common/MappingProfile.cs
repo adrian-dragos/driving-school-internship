@@ -11,7 +11,7 @@ using Application.DTOs.User.Student;
 using Domain.Entities.User;
 using Application.DTOs.Car;
 using Domain.Enums;
-using Application.DTOs;
+using Application.DTOs.EnumDtos;
 
 namespace Application.Common
 { 

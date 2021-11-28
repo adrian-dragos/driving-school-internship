@@ -10,7 +10,7 @@ using Features.Application.Instructors.Commands.CreateInstructor;
 using Features.Application.Instructors.Quieries.GetInstructorsList;
 using Features.Application.Students.Commands.CreateStudent;
 using Features.Application.Students.Queries.GetStudentList;
-using Application.DTOs;
+using Application.DTOs.EnumDtos;
 using MediatR;
 using Persistance;
 using System;
