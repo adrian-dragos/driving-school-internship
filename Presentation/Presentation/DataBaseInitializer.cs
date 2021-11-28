@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.Car;
 using Application.DTOs.BookingSession;
 using Application.DTOs.User.Instructor;
 using Application.DTOs.User.Student;
