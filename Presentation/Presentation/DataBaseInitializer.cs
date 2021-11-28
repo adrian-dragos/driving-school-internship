@@ -28,20 +28,31 @@ namespace Presentation
         {
             for (int i = 1; i <= 3; i++)
             {
-                var instructor = new InstructorDto { FirstName = $"instructor{i}" };
+                var instructor = new InstructorDto {
+                    FirstName = $"instructor{i}",
+                    LastName = $"instructor{i}",
+                    Email = $"instructor_email{i}",
+                    PhoneNumber = $"0{i}{i}{i}",
+                    Birthday = DateTime.Now
+                };
+
                 var instructorId = await mediator.Send(new CreateInstructorCommand { instructorDto = instructor });
             }
         }
 
         private static async Task InitializeBookginSessionDbAsync(IMediator mediator)
         {
-            for (int i = 1; i <= 10; i++)
+            var rand = new Random();
+            for (int i = 1; i <= 50; i++)
             {
                 var bookginSession = new BookingSessionDto
                 {
                     StartTime = DateTime.Now,
-                    IsAvailable = true
+                    IsAvailable = true,
+                    InstructorId = rand.Next(1, 3),
+                    StudentId = rand.Next(1, 5)
                 };
+
                 var bookingSeesionId = await mediator.Send(new CreateBookingSessionCommand { bookingSessionDto = bookginSession });
             }
         }
@@ -52,10 +63,15 @@ namespace Presentation
             {
                 var student = new StudentDto
                 {
-                    FirstName = $"student{i}"
+                    FirstName = $"student{i}",
+                    LastName = $"student{i}",
+                    Email = $"student_email{i}",
+                    PhoneNumber = $"0{i}{i}{i}",
+                    Birthday = DateTime.Now
                 };
                 var studentId = await mediator.Send(new CreateStudentCommand { studentDto = student });
             }
+
         }
 
         private static async Task IntitializeCarDbAsync(IMediator mediator)
@@ -88,25 +104,6 @@ namespace Presentation
             Console.WriteLine("Succesfull Initialization");
 
 
-            Console.WriteLine("Intialize BookingSession Database");
-            await InitializeBookginSessionDbAsync(mediator);
-            var bookingSessions = await mediator.Send(new GetBookingSessionListQuery());
-            foreach (var bookingSession in bookingSessions)
-            {
-                Console.WriteLine("\t" + bookingSession.StartTime + "\t"  + bookingSession.IsAvailable);
-            }
-            Console.WriteLine("Succesfull BookingSession Initialization");
-
-
-            Console.WriteLine("Intialize BookingSession Database");
-            await IntitializeStudentSessionDbAsync(mediator);
-            var students = await mediator.Send(new GetStudentListQuery());
-            foreach (var student in students)
-            {
-                Console.WriteLine("\t" + student.FirstName);
-            }
-            Console.WriteLine("Succesful Initialization");
-
             Console.WriteLine("Intialize Car Database");
             await IntitializeCarDbAsync(mediator);
             var cars = await mediator.Send(new GetCarListQuery());
@@ -115,6 +112,24 @@ namespace Presentation
                 Console.WriteLine("\t" + car.RegistrationNumber);
             }
             Console.WriteLine("Succesful Initialization");
+
+            Console.WriteLine("Intialize Students Database");
+            await IntitializeStudentSessionDbAsync(mediator);
+            var students = await mediator.Send(new GetStudentListQuery());
+            foreach (var student in students)
+            {
+                Console.WriteLine("\t" + student.FirstName);
+            }
+            Console.WriteLine("Succesful Initialization");
+
+            Console.WriteLine("Intialize BookingSession Database");
+            await InitializeBookginSessionDbAsync(mediator);
+            var bookingSessions = await mediator.Send(new GetBookingSessionListQuery());
+            foreach (var bookingSession in bookingSessions)
+            {
+                Console.WriteLine("\t" + bookingSession.StartTime + "\t" + bookingSession.IsAvailable);
+            }
+            Console.WriteLine("Succesfull BookingSession Initialization");
         }
     }
 }

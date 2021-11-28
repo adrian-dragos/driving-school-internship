@@ -9,7 +9,6 @@ namespace Domain.Entities.User
 {
     public class Student : User
     {
-        public int? BookingSessionId { get; set; }
-        public virtual BookingSession? GetBookingSessions { get; set; }
+        public virtual ICollection<BookingSession>? BookingSessions { get; set; }
     }
 }

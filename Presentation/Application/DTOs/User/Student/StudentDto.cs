@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Application.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,5 @@ namespace Application.DTOs.User.Student
 {
     public class StudentDto : UserDto
     {
-        public int? BookingSessionId { get; set; }
     }
 }
