@@ -1,20 +1,20 @@
-﻿using Application.DTOs.BookingSession;
-using AutoMapper;
+﻿using AutoMapper;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Application.DTOs.User.Instructor;
-using Application.DTOs.User.Student;
 using Domain.Entities.User;
-using Application.DTOs.Car;
 using Domain.Enums;
 using Application.DTOs.EnumDtos;
+using Application.DTOs.EntityDto.BookingSession;
+using Application.DTOs.EntityDtos.Car;
+using Application.DTOs.EntityDtos.User.Instructor;
+using Application.DTOs.EntityDtos.User.Student;
 
 namespace Application.Common
-{ 
+{
     public class MappingProfile : Profile
     {
         public MappingProfile()

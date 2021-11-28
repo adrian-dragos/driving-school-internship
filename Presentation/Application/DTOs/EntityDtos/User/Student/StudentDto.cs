@@ -1,12 +1,11 @@
-﻿using Application.Dtos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Application.DTOs.User.Student
+namespace Application.DTOs.EntityDtos.User.Student
 {
     public class StudentDto : UserDto
     {

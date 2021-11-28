@@ -1,5 +1,4 @@
-﻿using Application.DTOs.Car;
-using Application.Interfaces;
+﻿using Application.Interfaces;
 using AutoMapper;
 using MediatR;
 using System;

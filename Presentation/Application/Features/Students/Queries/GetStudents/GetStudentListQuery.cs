@@ -1,5 +1,5 @@
 ﻿using Application.DTOs;
-using Application.DTOs.User.Student;
+using Application.DTOs.EntityDtos.User.Student;
 using MediatR;
 using System;
 using System.Collections.Generic;

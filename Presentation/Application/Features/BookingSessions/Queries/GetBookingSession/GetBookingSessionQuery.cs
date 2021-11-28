@@ -1,4 +1,4 @@
-﻿using Application.DTOs.BookingSession;
+﻿using Application.DTOs.EntityDto.BookingSession;
 using MediatR;
 using System;
 using System.Collections.Generic;

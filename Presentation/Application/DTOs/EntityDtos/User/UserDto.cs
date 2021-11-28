@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs.User
+namespace Application.DTOs.EntityDtos.User
 {
     public abstract class UserDto : BaseEntityDto
     {

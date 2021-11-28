@@ -1,4 +1,4 @@
-﻿using Application.DTOs.Car;
+﻿using Application.DTOs.EntityDtos.Car;
 using MediatR;
 using System;
 using System.Collections.Generic;

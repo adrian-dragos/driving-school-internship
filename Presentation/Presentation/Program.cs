@@ -6,13 +6,13 @@ using MediatR;
 using Application.Common;
 using Presentation;
 using Application.Features.BookingSessions.Commands.ChangeBookingSessionAvailability;
-using Application.DTOs.BookingSession;
 using Application.Features.BookingSessions.Queries.GetBookingSession;
 using Application.Features.Instructors.Quieries.GetInstructor;
 using Application.Features.Students.Queries.GetStudent;
-using Application.DTOs.Car;
 using Application.Features.Car.Commands.ChangeCarAvailability;
 using Application.Features.Car.Queries.GetCar;
+using Application.DTOs.EntityDto.BookingSession;
+using Application.DTOs.EntityDtos.Car;
 
 var services = new ServiceCollection();
 PersistanceService.ConfigurePersistenceServices(services);

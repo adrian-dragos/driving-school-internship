@@ -1,8 +1,4 @@
-﻿using Application.DTOs.Car;
-using Application.DTOs.BookingSession;
-using Application.DTOs.User.Instructor;
-using Application.DTOs.User.Student;
-using Application.Features.Car.Commands.CreateCar;
+﻿using Application.Features.Car.Commands.CreateCar;
 using Application.Features.Car.Queries.GetCarList;
 using Features.Application.BookingSessions.Commands.CreateBookginSession;
 using Features.Application.BookingSessions.Queries.GetBookingSessionList;
@@ -18,6 +14,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.DTOs.EntityDto.BookingSession;
+using Application.DTOs.EntityDtos.Car;
+using Application.DTOs.EntityDtos.User.Instructor;
+using Application.DTOs.EntityDtos.User.Student;
 
 namespace Presentation
 {
