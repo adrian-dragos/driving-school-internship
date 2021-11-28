@@ -18,7 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Car\" />
+    <Folder Include="Features\Car\Queries\GetCar\" />
+    <Folder Include="Features\Car\Queries\GetCarList\" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,8 @@
-﻿using Application.DTOs.BookingSession;
+﻿using Application.DTOs;
+using Application.DTOs.BookingSession;
 using Application.DTOs.User.Instructor;
 using Application.DTOs.User.Student;
+using Application.Features.Car.Commands.CreateCar;
 using Features.Application.BookingSessions.Commands.CreateBookginSession;
 using Features.Application.BookingSessions.Queries.GetBookingSessionList;
 using Features.Application.Instructors.Commands.CreateInstructor;
@@ -54,6 +56,21 @@ namespace Presentation
             }
         }
 
+        private static async Task IntitializeCarDbAsync(IMediator mediator)
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                var car = new CarDto
+                {
+                    carFabricationTime = DateTime.Now,
+                    RegistrationNumber = $"TM {i}",
+                    IsAvaibale = true
+                };
+                var carId = await mediator.Send(new CreateCarCommand { carDto = car });
+            }
+
+        }
+
         public static async Task InitializeAsync(IMediator mediator)
         {
             Console.WriteLine("Intialize Database");
@@ -86,6 +103,10 @@ namespace Presentation
             {
                 Console.WriteLine("\t" + student.FirstName);
             }
+            Console.WriteLine("Succesful Initialization");
+
+            Console.WriteLine("Intialize Car Database");
+            await IntitializeCarDbAsync(mediator);
             Console.WriteLine("Succesful Initialization");
         }
     }
