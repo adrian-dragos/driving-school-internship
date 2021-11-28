@@ -10,6 +10,8 @@ using Application.DTOs.User.Instructor;
 using Application.DTOs.User.Student;
 using Domain.Entities.User;
 using Application.DTOs.Car;
+using Domain.Enums;
+using Application.DTOs;
 
 namespace Application.Common
 { 
@@ -25,6 +27,8 @@ namespace Application.Common
 
             CreateMap<Car, CarDto>().ReverseMap();
             CreateMap<Car, ChangeCarAvailabilityDto>().ReverseMap();
+            CreateMap<CarGear, CarGearDto>().ReverseMap();
+            CreateMap<CarModelType, CarModelTypeDto>().ReverseMap();
 
         }
     }

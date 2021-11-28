@@ -11,9 +11,9 @@ namespace Domain.Entities
 {
     public class Car : BaseEntity
     {
-        public CarModelType? CarModelType;
+        public CarModelType? CarModelType { get; set; }
         public CarGear? CarGear { get; set; }
-        public DateTime? carFabricationTime { get; set; }
+        public DateTime? CarFabricationTime { get; set; }
         public string? RegistrationNumber { get; set; }
         public bool? IsAvaibale { get; set; }
         

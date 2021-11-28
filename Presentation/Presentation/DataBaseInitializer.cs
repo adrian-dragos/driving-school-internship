@@ -3,7 +3,6 @@ using Application.DTOs.BookingSession;
 using Application.DTOs.User.Instructor;
 using Application.DTOs.User.Student;
 using Application.Features.Car.Commands.CreateCar;
-using Application.Features.Car.Queries.GetCar;
 using Application.Features.Car.Queries.GetCarList;
 using Features.Application.BookingSessions.Commands.CreateBookginSession;
 using Features.Application.BookingSessions.Queries.GetBookingSessionList;
@@ -11,6 +10,7 @@ using Features.Application.Instructors.Commands.CreateInstructor;
 using Features.Application.Instructors.Quieries.GetInstructorsList;
 using Features.Application.Students.Commands.CreateStudent;
 using Features.Application.Students.Queries.GetStudentList;
+using Application.DTOs;
 using MediatR;
 using Persistance;
 using System;
@@ -35,7 +35,6 @@ namespace Presentation
                     PhoneNumber = $"0{i}{i}{i}",
                     Birthday = DateTime.Now
                 };
-
                 var instructorId = await mediator.Send(new CreateInstructorCommand { instructorDto = instructor });
             }
         }
@@ -52,7 +51,6 @@ namespace Presentation
                     InstructorId = rand.Next(1, 3),
                     StudentId = rand.Next(1, 5)
                 };
-
                 var bookingSeesionId = await mediator.Send(new CreateBookingSessionCommand { bookingSessionDto = bookginSession });
             }
         }
@@ -71,7 +69,6 @@ namespace Presentation
                 };
                 var studentId = await mediator.Send(new CreateStudentCommand { studentDto = student });
             }
-
         }
 
         private static async Task IntitializeCarDbAsync(IMediator mediator)
@@ -80,13 +77,23 @@ namespace Presentation
             {
                 var car = new CarDto
                 {
-                    carFabricationTime = DateTime.Now,
+                    CarFabricationTime = DateTime.Now,
                     RegistrationNumber = $"TM {i}",
                     IsAvaibale = true
                 };
+                if (i < 4)
+                {
+                    car.CarModelType = CarModelTypeDto.DaciaLogan;
+                    car.CarGear = CarGearDto.Automatic;
+                    car.InstructorId = i;
+                }
+                else
+                {
+                    car.CarModelType = CarModelTypeDto.RenaultZoe;
+                    car.CarGear = CarGearDto.Manual;
+                }
                 var carId = await mediator.Send(new CreateCarCommand { carDto = car });
             }
-
         }
 
         public static async Task InitializeAsync(IMediator mediator)

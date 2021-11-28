@@ -8,10 +8,11 @@ namespace Application.DTOs.Car
 {
     public class CarDto : BaseEntityDto
     {
-        //public CarModelType? CarModelType;
-        //public CarGear? CarGear { get; set; }
-        public DateTime? carFabricationTime { get; set; }
+        public CarModelTypeDto? CarModelType;
+        public CarGearDto? CarGear { get; set; }
+        public DateTime? CarFabricationTime { get; set; }
         public string? RegistrationNumber { get; set; }
         public bool? IsAvaibale { get; set; }
+        public int? InstructorId { get; set; }
     }
 }
