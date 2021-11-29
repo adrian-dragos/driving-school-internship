@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    public interface ICarRepository : IGenericRepository<Car>
+    public interface ICarRepository : IBaseRepository<Car>
     {
     }
 }

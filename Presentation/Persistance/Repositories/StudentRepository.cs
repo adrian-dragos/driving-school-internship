@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Persistance.Repositories
 {
-    public class StudentRepository : GenericRepository<Student>, IStudentRepository
+    public class StudentRepository : BaseRepository<Student>, IStudentRepository
     {
         public StudentRepository(ApplicationContext context) : base(context)
         {

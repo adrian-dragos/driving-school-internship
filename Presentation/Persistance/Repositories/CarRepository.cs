@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Persistance.Repositories
 {
-    public class CarRepository : GenericRepository<Car>, ICarRepository
+    public class CarRepository : BaseRepository<Car>, ICarRepository
     {
         private ApplicationContext _context;
         public CarRepository(ApplicationContext context) : base(context)

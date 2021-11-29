@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Persistance.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         protected readonly ApplicationContext _context;
-        public GenericRepository(ApplicationContext context)
+        public BaseRepository(ApplicationContext context)
         {
             _context = context;
         }

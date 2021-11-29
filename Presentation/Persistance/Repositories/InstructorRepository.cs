@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Persistance
 {
-    public class InstructorRepository : GenericRepository<Instructor>, IInstructorRepository
+    public class InstructorRepository : BaseRepository<Instructor>, IInstructorRepository
     {
         private ApplicationContext _context;
 

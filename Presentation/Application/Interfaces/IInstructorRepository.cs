@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    public interface IInstructorRepository : IGenericRepository<Instructor>
+    public interface IInstructorRepository : IBaseRepository<Instructor>
     {
         Task CreateInstructor(Instructor instructor);
         IEnumerable<Instructor> GetInstructors();

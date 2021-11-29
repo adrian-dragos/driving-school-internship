@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    public interface IStudentRepository : IGenericRepository<Student>
+    public interface IStudentRepository : IBaseRepository<Student>
     {
     }
 }

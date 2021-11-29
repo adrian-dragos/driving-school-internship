@@ -17,7 +17,7 @@ namespace Persistance
         {
             services.AddDbContextFactory<ApplicationContext>()
                 .AddScoped<IUnitOfWork, UnitOfWork>()
-                .AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>))
+                .AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>))
                 .AddScoped<IInstructorRepository, InstructorRepository>()
                 .AddScoped<IBookingSessionRepository, BookingSessionRepository>()
                 .AddScoped<ICarRepository, CarRepository>()

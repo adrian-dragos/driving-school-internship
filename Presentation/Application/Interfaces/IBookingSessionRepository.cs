@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    public interface IBookingSessionRepository : IGenericRepository<BookingSession>
+    public interface IBookingSessionRepository : IBaseRepository<BookingSession>
     {
         Task CreateBookingSession(BookingSession bookingSession);
         IEnumerable<BookingSession> GetBookingSessions();
