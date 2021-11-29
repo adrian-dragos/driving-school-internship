@@ -20,17 +20,22 @@ namespace Application.Common
     {
         public MappingProfile()
         {
+            #region BookingSession Mappings
             CreateMap<BookingSession, BookingSessionDto>().ReverseMap(); 
             CreateMap<BookingSession, ChangeBookingSessionAvailabilityDto>().ReverseMap();
-            
+            #endregion BookingSession
+
+            #region Person Mappings
             CreateMap<Instructor, InstructorDto>().ReverseMap();
             CreateMap<Student, StudentDto>().ReverseMap();
+            #endregion Person
 
+            #region Car Mappings
             CreateMap<Car, CarDto>().ReverseMap();
             CreateMap<Car, ChangeCarAvailabilityDto>().ReverseMap();
             CreateMap<CarGear, CarGearDto>().ReverseMap();
             CreateMap<CarModelType, CarModelTypeDto>().ReverseMap();
-
+            #endregion Car
         }
     }
 }
