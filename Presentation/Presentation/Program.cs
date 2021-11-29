@@ -15,6 +15,7 @@ using Application.DTOs.EntityDto.BookingSession;
 using Application.DTOs.EntityDtos.Car;
 using Application.Features.BookingSessions.Commands.CreateBookingSessionList;
 
+
 var services = new ServiceCollection();
 PersistanceService.ConfigurePersistenceServices(services);
 ApplicationService.ConfigurePersistenceServices(services);

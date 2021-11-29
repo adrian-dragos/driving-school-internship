@@ -9,7 +9,6 @@ namespace Domain.Entities.Person
 {
     public class Student : Person
     {
-        public int? ceva { get; set; }
         public virtual ICollection<BookingSession>? BookingSessions { get; set; }
     }
 }

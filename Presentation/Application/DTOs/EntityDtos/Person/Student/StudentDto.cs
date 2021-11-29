@@ -9,6 +9,5 @@ namespace Application.DTOs.EntityDtos.Person.Student
 {
     public class StudentDto : PersonDto
     {
-        public int? ceva { get; set; }
     }
 }
