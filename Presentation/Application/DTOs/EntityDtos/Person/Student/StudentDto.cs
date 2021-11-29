@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Application.DTOs.EntityDtos.User.Student
+namespace Application.DTOs.EntityDtos.Person.Student
 {
-    public class StudentDto : UserDto
+    public class StudentDto : PersonDto
     {
     }
 }

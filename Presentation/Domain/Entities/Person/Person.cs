@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities.User
+namespace Domain.Entities.Person
 {
-    public abstract class User : BaseEntity
+    public abstract class Person : BaseEntity
     {
         public string? Email { get; set; }
         public string? FirstName { get; set; }

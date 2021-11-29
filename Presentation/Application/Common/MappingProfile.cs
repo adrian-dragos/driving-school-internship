@@ -5,13 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entities.User;
+using Domain.Entities.Person;
 using Domain.Enums;
 using Application.DTOs.EnumDtos;
 using Application.DTOs.EntityDto.BookingSession;
 using Application.DTOs.EntityDtos.Car;
-using Application.DTOs.EntityDtos.User.Instructor;
-using Application.DTOs.EntityDtos.User.Student;
+using Domain.Entities.Person;
+using Application.DTOs.EntityDtos.Person.Instructor;
+using Application.DTOs.EntityDtos.Person.Student;
 
 namespace Application.Common
 {

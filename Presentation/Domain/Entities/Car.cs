@@ -1,5 +1,5 @@
 ﻿using Domain.Entities.Common;
-using Domain.Entities.User;
+using Domain.Entities.Person;
 using Domain.Enums;
 using System;
 using System.Collections.Generic;

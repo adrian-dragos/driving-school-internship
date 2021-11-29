@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs.EntityDtos.User
+namespace Application.DTOs.EntityDtos.Person
 {
-    public abstract class UserDto : BaseEntityDto
+    public abstract class PersonDto : BaseEntityDto
     {
         public string? Email { get; set; }
         public string? FirstName { get; set; }

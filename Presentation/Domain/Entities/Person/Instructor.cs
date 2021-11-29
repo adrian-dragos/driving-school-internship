@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities.User
+namespace Domain.Entities.Person
 {
-    public class Student : User
+    public class Instructor : Person
     {
+        public Car? Car { get; set; }
         public virtual ICollection<BookingSession>? BookingSessions { get; set; }
     }
 }

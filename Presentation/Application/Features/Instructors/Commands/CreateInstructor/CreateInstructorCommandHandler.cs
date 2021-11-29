@@ -1,6 +1,6 @@
 ﻿using Application.Interfaces;
 using AutoMapper;
-using Domain.Entities.User;
+using Domain.Entities.Person;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Features.Application.Instructors.Commands.CreateInstructor
 {
- public class CreateInstructorCommandHandler : IRequestHandler<CreateInstructorCommand, int>
+    public class CreateInstructorCommandHandler : IRequestHandler<CreateInstructorCommand, int>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IInstructorRepository _repository;

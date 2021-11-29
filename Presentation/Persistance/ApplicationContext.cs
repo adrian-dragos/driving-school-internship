@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
-using Domain.Entities.User;
+using Domain.Entities.Person;
+using Domain.Entities.Person;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

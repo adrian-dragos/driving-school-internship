@@ -16,8 +16,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Application.DTOs.EntityDto.BookingSession;
 using Application.DTOs.EntityDtos.Car;
-using Application.DTOs.EntityDtos.User.Instructor;
-using Application.DTOs.EntityDtos.User.Student;
+using Application.DTOs.EntityDtos.Person.Instructor;
+using Application.DTOs.EntityDtos.Person.Student;
 
 namespace Presentation
 {

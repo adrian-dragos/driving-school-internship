@@ -1,4 +1,4 @@
-﻿using Application.DTOs.EntityDtos.User.Student;
+﻿using Application.DTOs.EntityDtos.Person.Student;
 using MediatR;
 using System;
 using System.Collections.Generic;

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs.EntityDtos.User.Instructor
+namespace Application.DTOs.EntityDtos.Person.Instructor
 {
-    public class InstructorDto : UserDto
+    public class InstructorDto : PersonDto
     {
         public CarDto CarDto { get; set; }
     }
