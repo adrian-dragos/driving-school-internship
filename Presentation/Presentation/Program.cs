@@ -23,15 +23,15 @@ ApplicationService.ConfigurePersistenceServices(services);
 var mediator = services.BuildServiceProvider().
                     GetRequiredService<IMediator>();
 
-using (var dbContext = new ApplicationContext())
+
+var dbContext = new ApplicationContext();
+dbContext.Database.EnsureDeleted();
+var isCreated = dbContext.Database.EnsureCreated();
+if (isCreated)
 {
-    dbContext.Database.EnsureDeleted();
-    var isCreated = dbContext.Database.EnsureCreated();
-    if (isCreated)
-    {
-        await DataBaseInitializer.InitializeAsync(mediator);
-    }
+    await DataBaseInitializer.InitializeAsync(mediator);
 }
+
 
 
 var bookginSession = new ChangeBookingSessionAvailabilityDto
@@ -45,7 +45,7 @@ var bookingSessionReceived = await mediator.Send(new GetBookingSessionQuery { Id
 Console.WriteLine($"bookingSessionReceived = {bookingSessionReceived.Id} bookingSessionReceived.Availability = {bookingSessionReceived.IsAvailable}");
 
 var instructor = await mediator.Send(new GetInstructorQuery { Id = 1 });
-Console.WriteLine($"instructorId = {instructor.Id} instructorName = {instructor.FirstName} instructorCarId = {instructor.CarDto.Id}");
+Console.WriteLine($"instructorId = {instructor.Id} instructorName = {instructor.FirstName}");
 
 var student = await mediator.Send(new GetStudentQuery { Id = 4 });
 Console.WriteLine($"studentId = {student.Id} studentName = {student.FirstName}");
