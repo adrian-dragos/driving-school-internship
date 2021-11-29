@@ -9,6 +9,7 @@ namespace Application.DTOs.EntityDtos.Person.Instructor
 {
     public class InstructorDto : PersonDto
     {
-        public CarDto CarDto { get; set; }
+        public int altceva { get; set; }
+        public CarDto? CarDto { get; set; }
     }
 }

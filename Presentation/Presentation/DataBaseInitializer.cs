@@ -49,7 +49,7 @@ namespace Presentation
                     StartTime = DateTime.Now,
                     IsAvailable = true,
                     InstructorId = rand.Next(1, 3),
-                    StudentId = rand.Next(1, 5)
+                    StudentId = rand.Next(4, 8)
                 };
                 var bookingSeesionId = await mediator.Send(new CreateBookingSessionCommand { bookingSessionDto = bookginSession });
             }

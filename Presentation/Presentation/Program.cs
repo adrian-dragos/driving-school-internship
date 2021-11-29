@@ -25,6 +25,7 @@ var mediator = services.BuildServiceProvider().
 
 using (var dbContext = new ApplicationContext())
 {
+    dbContext.Database.EnsureDeleted();
     var isCreated = dbContext.Database.EnsureCreated();
     if (isCreated)
     {
@@ -44,10 +45,10 @@ var bookingSessionReceived = await mediator.Send(new GetBookingSessionQuery { Id
 Console.WriteLine($"bookingSessionReceived = {bookingSessionReceived.Id} bookingSessionReceived.Availability = {bookingSessionReceived.IsAvailable}");
 
 var instructor = await mediator.Send(new GetInstructorQuery { Id = 1 });
-Console.WriteLine($"instructorId = {instructor.Id} instructorName = {instructor.FirstName}");
+Console.WriteLine($"instructorId = {instructor.Id} instructorName = {instructor.FirstName} instructorCarId = {instructor.CarDto.Id}");
 
-var student = await mediator.Send(new GetStudentQuery { Id = 1 });
-Console.WriteLine($"instructorId = {student.Id} instructorName = {student.FirstName}");
+var student = await mediator.Send(new GetStudentQuery { Id = 4 });
+Console.WriteLine($"studentId = {student.Id} studentName = {student.FirstName}");
 
 var car = new ChangeCarAvailabilityDto
 {
