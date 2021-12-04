@@ -3,7 +3,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Persistance;
 using MediatR;
-using Application.Common;
 using Presentation;
 using Application.Features.BookingSessions.Commands.ChangeBookingSessionAvailability;
 using Application.Features.BookingSessions.Queries.GetBookingSession;
@@ -14,7 +13,7 @@ using Application.Features.Car.Queries.GetCar;
 using Application.DTOs.EntityDto.BookingSession;
 using Application.DTOs.EntityDtos.Car;
 using Application.Features.BookingSessions.Commands.CreateBookingSessionList;
-
+using Application.Configuration;
 
 var services = new ServiceCollection();
 PersistanceService.ConfigurePersistenceServices(services);

@@ -10,18 +10,17 @@ using Domain.Enums;
 using Application.DTOs.EnumDtos;
 using Application.DTOs.EntityDto.BookingSession;
 using Application.DTOs.EntityDtos.Car;
-using Domain.Entities.Person;
 using Application.DTOs.EntityDtos.Person.Instructor;
 using Application.DTOs.EntityDtos.Person.Student;
 
-namespace Application.Common
+namespace Application.Configuration
 {
     public class MappingProfile : Profile
     {
         public MappingProfile()
         {
             #region BookingSession Mappings
-            CreateMap<BookingSession, BookingSessionDto>().ReverseMap(); 
+            CreateMap<BookingSession, BookingSessionDto>().ReverseMap();
             CreateMap<BookingSession, ChangeBookingSessionAvailabilityDto>().ReverseMap();
             #endregion BookingSession
 
