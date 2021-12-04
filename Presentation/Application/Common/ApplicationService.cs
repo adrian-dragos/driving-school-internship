@@ -10,7 +10,7 @@ namespace Application.Common
 {
     public static class ApplicationService
     {
-        public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services)
+        public static IServiceCollection ConfigureApplicationServices(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(MappingProfile))
                     .AddMediatR(typeof(AssemblyMarker).Assembly);

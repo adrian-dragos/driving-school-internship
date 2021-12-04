@@ -18,7 +18,7 @@ using Application.Features.BookingSessions.Commands.CreateBookingSessionList;
 
 var services = new ServiceCollection();
 PersistanceService.ConfigurePersistenceServices(services);
-ApplicationService.ConfigurePersistenceServices(services);
+ApplicationService.ConfigureApplicationServices(services);
 
 
 var mediator = services.BuildServiceProvider().
