@@ -56,6 +56,7 @@ namespace Persistance.Repositories
 
         public async Task Update(T entity)
         {
+            _context.Set<T>().Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
         }
     }
