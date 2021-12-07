@@ -39,6 +39,7 @@ namespace Application.Configuration
             #region Car Mappings
             CreateMap<Car, CarDto>().ReverseMap();
             CreateMap<Car, ChangeCarAvailabilityDto>().ReverseMap();
+            CreateMap<Car, CreateCarDto>().ReverseMap();
             CreateMap<CarGear, CarGearDto>().ReverseMap();
             CreateMap<CarModelType, CarModelTypeDto>().ReverseMap();
             #endregion Car

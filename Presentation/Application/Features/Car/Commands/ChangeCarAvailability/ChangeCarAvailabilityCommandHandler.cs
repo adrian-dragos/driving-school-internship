@@ -24,8 +24,8 @@ namespace Application.Features.Car.Commands.ChangeCarAvailability
 
         public async Task<Unit> Handle(ChangeCarAvailabilityCommand command, CancellationToken cancellationToken)
         {
-            var car = await _repository.GetByIdAsync(command.changeCarAvailabilityDto.Id);
-            _mapper.Map(command.changeCarAvailabilityDto, car);
+            var car = await _repository.GetByIdAsync(command.Id);
+            _mapper.Map(command.ChangeCarAvailabilityDto, car);
             await _repository.Update(car);
             await _unitOfWork.SaveAsync();
             return Unit.Value;

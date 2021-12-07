@@ -45,7 +45,7 @@ namespace PresentationApi.Controllers
         }
 
 
-        [HttpPut("{id}/car-status")]
+        [HttpPut("{id}")]
         public async Task<ActionResult> ChangeLessonAvalability(int id, [FromBody] ChangeBookingSessionAvailabilityDto bookingSessionDto)
         {
             await _mediator.Send(new ChangeBookingSessionAvailabilityCommand { Id = id, ChangeBookingSessionAvailabilityDto = bookingSessionDto });

@@ -76,11 +76,11 @@ namespace Presentation
         {
             for (int i = 1; i <= 5; i++)
             {
-                var car = new CarDto
+                var car = new CreateCarDto
                 {
                     CarFabricationTime = DateTime.Now,
                     RegistrationNumber = $"TM {i}",
-                    IsAvaibale = true
+                    IsAvailable = true
                 };
                 if (i < 4)
                 {

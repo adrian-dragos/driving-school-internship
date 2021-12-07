@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs.EntityDtos.Car
 {
-    public class ChangeCarAvailabilityDto : BaseEntityDto
+    public class ChangeCarAvailabilityDto
     {
         public bool IsAvailable { get; set; }
     }

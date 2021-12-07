@@ -13,6 +13,7 @@ using Application.Features.Car.Queries.GetCar;
 using Application.DTOs.EntityDtos.Car;
 using Application.Features.BookingSessions.Commands.CreateBookingSessionList;
 using Application.Configuration;
+using Application.DTOs.EntityDtos.BookingSession;
 
 Console.WriteLine("Hello World");
 //var services = new ServiceCollection();
@@ -37,10 +38,9 @@ Console.WriteLine("Hello World");
 //var bookginSession = new ChangeBookingSessionAvailabilityDto
 //{
 //    IsAvailable = false,
-//    Id = 4
 //};
 
-//var bookingSeesionId = await mediator.Send(new ChangeBookingSessionAvailabilityCommand { changeBookingSessionAvailabilityDto = bookginSession });
+//var bookingSeesionId = await mediator.Send(new ChangeBookingSessionAvailabilityCommand { Id = 4, ChangeBookingSessionAvailabilityDto = bookginSession });
 //var bookingSessionReceived = await mediator.Send(new GetBookingSessionQuery { Id = 4 });
 //Console.WriteLine($"bookingSessionReceived = {bookingSessionReceived.Id} bookingSessionReceived.Availability = {bookingSessionReceived.IsAvailable}");
 
@@ -53,12 +53,11 @@ Console.WriteLine("Hello World");
 //var car = new ChangeCarAvailabilityDto
 //{
 //    IsAvailable = false,
-//    Id = 2
 //};
 
-//var carId = await mediator.Send(new ChangeCarAvailabilityCommand { changeCarAvailabilityDto = car });
+//var carId = await mediator.Send(new ChangeCarAvailabilityCommand { Id = 1, ChangeCarAvailabilityDto = car });
 //var carReceived = await mediator.Send(new GetCarQuery { Id = 4 });
-//Console.WriteLine($"carReceived = {car.Id} carReceived.Availability = {car.IsAvailable}");
+//Console.WriteLine($"carReceived.Availability = {car.IsAvailable}");
 
 //var bookingSessionList = new List<BookingSessionDto>();
 //for (int i = 1; i <= 2; i++)

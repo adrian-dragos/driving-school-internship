@@ -44,8 +44,8 @@ namespace PresentationApi.Controllers
             return Ok(instructorId);
         }
 
-        [HttpPut("{id}/car-status")]
-        public async Task<ActionResult> UpdateCarStatus(int id, [FromBody] ChangeInstructorCarDto instructorDto)
+        [HttpPut("{id}/car")]
+        public async Task<ActionResult> UpdateCar(int id, [FromBody] ChangeInstructorCarDto instructorDto)
         {
             await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorCarDto = instructorDto });
             return NoContent();
@@ -57,5 +57,6 @@ namespace PresentationApi.Controllers
             await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorEmploymentStatus = instructorDto });
             return NoContent();
         }
+
     }
 }

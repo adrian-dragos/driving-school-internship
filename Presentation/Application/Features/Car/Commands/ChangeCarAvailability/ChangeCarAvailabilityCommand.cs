@@ -10,6 +10,7 @@ namespace Application.Features.Car.Commands.ChangeCarAvailability
 {
     public class ChangeCarAvailabilityCommand : IRequest<Unit>
     {
-        public ChangeCarAvailabilityDto changeCarAvailabilityDto { get; set; }
+        public int Id { get; set; }
+        public ChangeCarAvailabilityDto ChangeCarAvailabilityDto { get; set; }
     }
 }

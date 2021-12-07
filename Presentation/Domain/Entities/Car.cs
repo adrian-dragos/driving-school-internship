@@ -15,7 +15,7 @@ namespace Domain.Entities
         public CarGear? CarGear { get; set; }
         public DateTime? CarFabricationTime { get; set; }
         public string? RegistrationNumber { get; set; }
-        public bool? IsAvaibale { get; set; }
+        public bool? IsAvailable { get; set; }
         public Instructor? Instructor { get; set; }
     }
 }
