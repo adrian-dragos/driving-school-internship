@@ -1,4 +1,5 @@
 ﻿using Application.DTOs.EntityDtos.BookingSession;
+using Application.Features.BookingSessions.Commands.DeteleBookingSession;
 using Application.Features.BookingSessions.Queries.GetBookingSession;
 using Features.Application.BookingSessions.Commands.CreateBookginSession;
 using Features.Application.BookingSessions.Queries.GetBookingSessionList;
@@ -40,6 +41,13 @@ namespace PresentationApi.Controllers
         {
             var bookingSessionId = await _mediator.Send(new CreateBookingSessionCommand { BookingSessionDto = bookingSessionDto });
             return Ok(bookingSessionId);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            await _mediator.Send(new DeteleBookingSessionCommand { Id = id } );
+            return NoContent();
         }
 
 
