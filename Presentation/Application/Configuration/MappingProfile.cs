@@ -24,10 +24,14 @@ namespace Application.Configuration
             CreateMap<BookingSession, ChangeBookingSessionAvailabilityDto>().ReverseMap();
             #endregion BookingSession
 
-            #region Person Mappings
+            #region Instructor Mappings
             CreateMap<Instructor, InstructorDto>().ReverseMap();
+            CreateMap<Instructor, CreateInstructorDto>().ReverseMap();
+            #endregion Instructor
+
+            #region Student Mappings
             CreateMap<Student, StudentDto>().ReverseMap();
-            #endregion Person
+            #endregion Student
 
             #region Car Mappings
             CreateMap<Car, CarDto>().ReverseMap();

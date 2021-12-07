@@ -10,6 +10,6 @@ namespace Features.Application.Instructors.Commands.CreateInstructor
 {
     public class CreateInstructorCommand : IRequest<int>
     {
-        public InstructorDto InstructorDto { get; set; }
+        public CreateInstructorDto InstructorDto { get; set; }
     }
 }

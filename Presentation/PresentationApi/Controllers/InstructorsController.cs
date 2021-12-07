@@ -37,7 +37,7 @@ namespace PresentationApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] InstructorDto instructorDto)
+        public async Task<ActionResult> Post([FromBody] CreateInstructorDto instructorDto)
         {
             var response = await _mediator.Send(new CreateInstructorCommand{ InstructorDto = instructorDto });
             return Ok(response);

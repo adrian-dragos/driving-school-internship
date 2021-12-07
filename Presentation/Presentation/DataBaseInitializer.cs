@@ -28,7 +28,7 @@ namespace Presentation
         {
             for (int i = 1; i <= 3; i++)
             {
-                var instructor = new InstructorDto {
+                var instructor = new CreateInstructorDto {
                     FirstName = $"instructor{i}",
                     LastName = $"instructor{i}",
                     Email = $"instructor_email{i}",
