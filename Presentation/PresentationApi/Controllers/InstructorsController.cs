@@ -22,7 +22,6 @@ namespace PresentationApi.Controllers
             _mediator = mediator;
         }
 
-        // GET: api/<InstructorsController>
         [HttpGet]
         public async Task<ActionResult<List<InstructorDto>>> Get()
         {
@@ -30,7 +29,6 @@ namespace PresentationApi.Controllers
             return Ok(instructors);
         }
 
-        // GET api/<InstructorsController>/5
         [HttpGet("{id}")]
         public async Task<ActionResult<InstructorDto>> Get(int id)
         {
@@ -38,7 +36,6 @@ namespace PresentationApi.Controllers
             return Ok(instructor);
         }
 
-        // POST api/<InstructorsController>
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] InstructorDto instructorDto)
         {
