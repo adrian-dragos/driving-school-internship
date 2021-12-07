@@ -1,4 +1,4 @@
-using Application.Common;
+using Application.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,7 +28,7 @@ namespace PresentationApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.ConfigurePersistenceServices();
+            services.ConfigurePersistenceServices(Configuration);
             services.ConfigureApplicationServices();
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -40,8 +40,8 @@ namespace PresentationApi
             {
                 o.AddPolicy("CorsPolicy",
                     builder => builder.AllowAnyOrigin()
-                                        .AllowAnyMethod()
-                                        .AllowAnyHeader());
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
             });
         }
 

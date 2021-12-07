@@ -25,7 +25,7 @@ namespace Features.Application.Instructors.Commands.CreateInstructor
 
         public async Task<int> Handle(CreateInstructorCommand command, CancellationToken cancellationToken)
         {
-            var instructor = _mapper.Map<Instructor>(command.instructorDto);
+            var instructor = _mapper.Map<Instructor>(command.InstructorDto);
             instructor = await _repository.AddAsync(instructor);
             await _unitOfWork.SaveAsync();
             return instructor.Id;

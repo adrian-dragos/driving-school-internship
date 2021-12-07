@@ -35,7 +35,7 @@ namespace Presentation
                     PhoneNumber = $"0{i}{i}{i}",
                     Birthday = DateTime.Now
                 };
-                var instructorId = await mediator.Send(new CreateInstructorCommand { instructorDto = instructor });
+                var instructorId = await mediator.Send(new CreateInstructorCommand { InstructorDto = instructor });
             }
         }
 
