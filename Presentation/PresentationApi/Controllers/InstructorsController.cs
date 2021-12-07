@@ -53,7 +53,6 @@ namespace PresentationApi.Controllers
         //}
 
         [HttpPut("{id}")]
-        [Route("api/[controller]/UpdateEmploymentStatus")]
         public async Task<ActionResult> UpdateEmploymentStatus(int id, [FromBody] ChangeInstructorEmploymentStatusDto instructorDto)
         {
             await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorEmploymentStatus = instructorDto }) ;
