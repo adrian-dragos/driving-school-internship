@@ -24,8 +24,8 @@ namespace Application.Features.BookingSessions.Commands.ChangeBookingSessionAvai
 
         public async Task<Unit> Handle(ChangeBookingSessionAvailabilityCommand command, CancellationToken cancellationToken)
         {
-            var bookingSession = await _repository.GetByIdAsync(command.changeBookingSessionAvailabilityDto.Id);
-            _mapper.Map(command.changeBookingSessionAvailabilityDto, bookingSession);
+            var bookingSession = await _repository.GetByIdAsync(command.Id);
+            _mapper.Map(command.ChangeBookingSessionAvailabilityDto, bookingSession);
             await _repository.Update(bookingSession);
             await _unitOfWork.SaveAsync();
             return Unit.Value;

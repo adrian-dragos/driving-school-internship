@@ -10,6 +10,7 @@ namespace Application.Features.BookingSessions.Commands.ChangeBookingSessionAvai
 {
     public class ChangeBookingSessionAvailabilityCommand : IRequest<Unit>
     {
-        public ChangeBookingSessionAvailabilityDto changeBookingSessionAvailabilityDto { get; set; }
+        public int Id { get; set; }
+        public ChangeBookingSessionAvailabilityDto ChangeBookingSessionAvailabilityDto { get; set; }
     } 
 }

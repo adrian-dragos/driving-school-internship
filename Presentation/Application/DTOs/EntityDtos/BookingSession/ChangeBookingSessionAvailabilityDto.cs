@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs.EntityDtos.BookingSession
 {
-    public class ChangeBookingSessionAvailabilityDto : BaseEntityDto
+    public class ChangeBookingSessionAvailabilityDto
     {
         public bool IsAvailable { get; set; }
     }

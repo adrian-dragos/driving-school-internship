@@ -1,4 +1,5 @@
 ﻿using Application.DTOs.EntityDtos.BookingSession;
+using Application.Features.BookingSessions.Commands.ChangeBookingSessionAvailability;
 using Application.Features.BookingSessions.Commands.DeteleBookingSession;
 using Application.Features.BookingSessions.Queries.GetBookingSession;
 using Features.Application.BookingSessions.Commands.CreateBookginSession;
@@ -42,6 +43,15 @@ namespace PresentationApi.Controllers
             var bookingSessionId = await _mediator.Send(new CreateBookingSessionCommand { BookingSessionDto = bookingSessionDto });
             return Ok(bookingSessionId);
         }
+
+
+        [HttpPut("{id}/car-status")]
+        public async Task<ActionResult> ChangeLessonAvalability(int id, [FromBody] ChangeBookingSessionAvailabilityDto bookingSessionDto)
+        {
+            await _mediator.Send(new ChangeBookingSessionAvailabilityCommand { Id = id, ChangeBookingSessionAvailabilityDto = bookingSessionDto });
+            return NoContent();
+        }
+
 
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
