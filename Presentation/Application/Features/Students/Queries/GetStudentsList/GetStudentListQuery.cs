@@ -10,6 +10,6 @@ namespace Features.Application.Students.Queries.GetStudentList
 {
     public class GetStudentListQuery : IRequest<IEnumerable<StudentDto>>
     {
-        public StudentDto studentDto;
+        public StudentDto StudentDto { get; set; }
     }
 }

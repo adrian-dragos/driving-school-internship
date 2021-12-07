@@ -25,7 +25,7 @@ namespace Features.Application.Students.Commands.CreateStudent
 
         public async Task<int> Handle(CreateStudentCommand command, CancellationToken cancellationToken)
         {
-            var student = _mapper.Map<Student>(command.studentDto);
+            var student = _mapper.Map<Student>(command.StudentDto);
             student = await _repository.AddAsync(student);
             await _unitOfWork.SaveAsync();
             return student.Id;

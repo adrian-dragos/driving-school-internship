@@ -60,7 +60,7 @@ namespace Presentation
         {
             for (int i = 1; i <= 5; i++)
             {
-                var student = new StudentDto
+                var student = new CreateStudentDto
                 {
                     FirstName = $"student{i}",
                     LastName = $"student{i}",
@@ -68,7 +68,7 @@ namespace Presentation
                     PhoneNumber = $"0{i}{i}{i}",
                     Birthday = DateTime.Now
                 };
-                var studentId = await mediator.Send(new CreateStudentCommand { studentDto = student });
+                var studentId = await mediator.Send(new CreateStudentCommand { StudentDto = student });
             }
         }
 

@@ -34,6 +34,7 @@ namespace Application.Configuration
 
             #region Student Mappings
             CreateMap<Student, StudentDto>().ReverseMap();
+            CreateMap<Student, CreateStudentDto>().ReverseMap();
             #endregion Student
 
             #region Car Mappings
