@@ -10,7 +10,6 @@ using Application.Features.Instructors.Quieries.GetInstructor;
 using Application.Features.Students.Queries.GetStudent;
 using Application.Features.Car.Commands.ChangeCarAvailability;
 using Application.Features.Car.Queries.GetCar;
-using Application.DTOs.EntityDto.BookingSession;
 using Application.DTOs.EntityDtos.Car;
 using Application.Features.BookingSessions.Commands.CreateBookingSessionList;
 using Application.Configuration;

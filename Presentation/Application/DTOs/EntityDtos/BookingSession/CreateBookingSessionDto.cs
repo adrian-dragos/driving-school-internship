@@ -1,5 +1,4 @@
-﻿using Application.DTOs.EntityDtos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs.EntityDtos.BookingSession
 {
-    public class BookingSessionDto : BaseEntityDto
+    public class CreateBookingSessionDto
     {
         public DateTime StartTime { get; set; }
         public bool IsAvailable { get; set; } = true;

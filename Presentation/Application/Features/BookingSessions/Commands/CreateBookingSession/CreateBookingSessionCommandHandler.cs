@@ -25,7 +25,7 @@ namespace Features.Application.BookingSessions.Commands.CreateBookginSession
 
         public async Task<int> Handle(CreateBookingSessionCommand command, CancellationToken cancellationToken)
         {
-            var bookginSession = _mapper.Map<BookingSession>(command.bookingSessionDto);
+            var bookginSession = _mapper.Map<BookingSession>(command.BookingSessionDto);
             bookginSession = await _repository.AddAsync(bookginSession);
             await _unitOfWork.SaveAsync();
             return bookginSession.Id;

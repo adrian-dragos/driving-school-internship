@@ -14,10 +14,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Application.DTOs.EntityDto.BookingSession;
 using Application.DTOs.EntityDtos.Car;
 using Application.DTOs.EntityDtos.Person.Instructor;
 using Application.DTOs.EntityDtos.Person.Student;
+using Application.DTOs.EntityDtos.BookingSession;
 
 namespace Presentation
 {
@@ -45,14 +45,14 @@ namespace Presentation
             var rand = new Random();
             for (int i = 1; i <= 15; i++)
             {
-                var bookginSession = new BookingSessionDto
+                var bookginSession = new CreateBookingSessionDto
                 {
                     StartTime = DateTime.Now,
                     IsAvailable = true,
                     InstructorId = rand.Next(1, 3),
                     StudentId = rand.Next(4, 8)
                 };
-                var bookingSeesionId = await mediator.Send(new CreateBookingSessionCommand { bookingSessionDto = bookginSession });
+                var bookingSeesionId = await mediator.Send(new CreateBookingSessionCommand { BookingSessionDto = bookginSession });
             }
         }
 

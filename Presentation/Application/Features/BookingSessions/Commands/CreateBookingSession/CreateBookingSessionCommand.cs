@@ -1,4 +1,4 @@
-﻿using Application.DTOs.EntityDto.BookingSession;
+﻿using Application.DTOs.EntityDtos.BookingSession;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,6 +10,6 @@ namespace Features.Application.BookingSessions.Commands.CreateBookginSession
 {
     public class CreateBookingSessionCommand : IRequest<int>
     {
-        public BookingSessionDto bookingSessionDto;
+        public CreateBookingSessionDto BookingSessionDto { get; set; }
     }
 }

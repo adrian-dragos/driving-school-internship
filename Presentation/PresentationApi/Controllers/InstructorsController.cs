@@ -44,18 +44,17 @@ namespace PresentationApi.Controllers
             return Ok(instructorId);
         }
 
-        //[HttpPut("{id}")]
-        //[Route("api/[controller]/UpdateCarStatus")]
-        //public async Task<ActionResult> UpdateCarStatus(int id, [FromBody] ChangeInstructorCarDto instructorDto)
-        //{
-        //    await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorCarDto = instructorDto });
-        //    return NoContent();
-        //}
+        [HttpPut("{id}/car-status")]
+        public async Task<ActionResult> UpdateCarStatus(int id, [FromBody] ChangeInstructorCarDto instructorDto)
+        {
+            await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorCarDto = instructorDto });
+            return NoContent();
+        }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}/employment-status")]
         public async Task<ActionResult> UpdateEmploymentStatus(int id, [FromBody] ChangeInstructorEmploymentStatusDto instructorDto)
         {
-            await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorEmploymentStatus = instructorDto }) ;
+            await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorEmploymentStatus = instructorDto });
             return NoContent();
         }
     }
