@@ -1,4 +1,5 @@
 ﻿using Application.DTOs.EntityDtos.Person.Instructor;
+using Application.Features.Instructors.Commands.UpdateEmploymentStatus;
 using Application.Features.Instructors.Quieries.GetInstructor;
 using Features.Application.Instructors.Commands.CreateInstructor;
 using Features.Application.Instructors.Quieries.GetInstructorsList;
@@ -37,10 +38,26 @@ namespace PresentationApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreateInstructorDto instructorDto)
+        public async Task<ActionResult<int>> Post([FromBody] CreateInstructorDto instructorDto)
         {
-            var response = await _mediator.Send(new CreateInstructorCommand{ InstructorDto = instructorDto });
-            return Ok(response);
+            var instructorId = await _mediator.Send(new CreateInstructorCommand { InstructorDto = instructorDto });
+            return Ok(instructorId);
+        }
+
+        //[HttpPut("{id}")]
+        //[Route("api/[controller]/UpdateCarStatus")]
+        //public async Task<ActionResult> UpdateCarStatus(int id, [FromBody] ChangeInstructorCarDto instructorDto)
+        //{
+        //    await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorCarDto = instructorDto });
+        //    return NoContent();
+        //}
+
+        [HttpPut("{id}")]
+        [Route("api/[controller]/UpdateEmploymentStatus")]
+        public async Task<ActionResult> UpdateEmploymentStatus(int id, [FromBody] ChangeInstructorEmploymentStatusDto instructorDto)
+        {
+            await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorEmploymentStatus = instructorDto }) ;
+            return NoContent();
         }
     }
 }

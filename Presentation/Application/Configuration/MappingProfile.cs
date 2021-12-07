@@ -27,6 +27,7 @@ namespace Application.Configuration
             #region Instructor Mappings
             CreateMap<Instructor, InstructorDto>().ReverseMap();
             CreateMap<Instructor, CreateInstructorDto>().ReverseMap();
+            CreateMap<Instructor, ChangeInstructorEmploymentStatusDto>().ReverseMap();
             #endregion Instructor
 
             #region Student Mappings

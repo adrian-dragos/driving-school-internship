@@ -9,6 +9,7 @@ namespace Domain.Entities.Person
 {
     public class Instructor : Person
     {
+        public bool IsCurrentlyEmployed { get; set; }
         public int? CarId { get; set; }
         public virtual Car? Car { get; set; }
         public virtual ICollection<BookingSession>? BookingSessions { get; set; }
