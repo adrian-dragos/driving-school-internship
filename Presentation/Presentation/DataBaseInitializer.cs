@@ -29,6 +29,7 @@ namespace Presentation
             for (int i = 1; i <= 3; i++)
             {
                 var instructor = new CreateInstructorDto {
+                    CarId = i,
                     FirstName = $"instructor{i}",
                     LastName = $"instructor{i}",
                     Email = $"instructor_email{i}",
@@ -85,7 +86,6 @@ namespace Presentation
                 {
                     car.CarModelType = CarModelTypeDto.DaciaLogan;
                     car.CarGear = CarGearDto.Automatic;
-                    car.InstructorId = i;
                 }
                 else
                 {
@@ -100,17 +100,7 @@ namespace Presentation
         {
             Console.WriteLine("Intialize Database");
 
-
-            Console.WriteLine("Intialize Instructors Database");
-            await IntitializeInstructorDbAsync(mediator);
-            var instructors = await mediator.Send(new GetInstructorListQuery());
-            foreach (var i in instructors)
-            {
-                Console.WriteLine("\t" + i.FirstName);
-            }
-            Console.WriteLine("Succesfull Initialization");
-
-
+            #region WriteReadCars
             Console.WriteLine("Intialize Car Database");
             await IntitializeCarDbAsync(mediator);
             var cars = await mediator.Send(new GetCarListQuery());
@@ -119,7 +109,20 @@ namespace Presentation
                 Console.WriteLine("\t" + car.RegistrationNumber);
             }
             Console.WriteLine("Succesful Initialization");
+            #endregion WriteReadCars
 
+            #region WriteaReadInstructors
+            Console.WriteLine("Intialize Instructors Database");
+            await IntitializeInstructorDbAsync(mediator);
+            var instructors = await mediator.Send(new GetInstructorListQuery());
+            foreach (var i in instructors)
+            {
+                Console.WriteLine("\t" + i.FirstName);
+            }
+            Console.WriteLine("Succesfull Initialization");
+            #endregion WriteaReadInstructors
+
+            #region WriteaReadStudents
             Console.WriteLine("Intialize Students Database");
             await IntitializeStudentSessionDbAsync(mediator);
             var students = await mediator.Send(new GetStudentListQuery());
@@ -128,7 +131,9 @@ namespace Presentation
                 Console.WriteLine("\t" + student.FirstName);
             }
             Console.WriteLine("Succesful Initialization");
+            #endregion WriteaReadStudents
 
+            #region WriteaReadBookingSessions
             Console.WriteLine("Intialize BookingSession Database");
             await InitializeBookginSessionDbAsync(mediator);
             var bookingSessions = await mediator.Send(new GetBookingSessionListQuery());
@@ -137,6 +142,9 @@ namespace Presentation
                 Console.WriteLine("\t" + bookingSession.StartTime + "\t" + bookingSession.IsAvailable);
             }
             Console.WriteLine("Succesfull BookingSession Initialization");
+            #endregion WriteaReadBookingSessions
+
+            Console.WriteLine("Succesful intialization of  Database");
         }
     }
 }

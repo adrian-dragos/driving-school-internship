@@ -14,6 +14,6 @@ namespace Application.DTOs.EntityDtos.Person.Instructor
         public string? LastName { get; set; }
         public string? PhoneNumber { get; set; }
         public DateTime? Birthday { get; set; }
-        public CarDto? CarDto { get; set; }
+        public int? CarId { get; set; }        
     }
 }

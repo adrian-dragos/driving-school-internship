@@ -1,4 +1,5 @@
-﻿using Application.DTOs.EnumDtos;
+﻿using Application.DTOs.EntityDtos.Person.Instructor;
+using Application.DTOs.EnumDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,6 @@ namespace Application.DTOs.EntityDtos.Car
         public DateTime? CarFabricationTime { get; set; }
         public string? RegistrationNumber { get; set; }
         public bool? IsAvaibale { get; set; }
-        public int? InstructorId { get; set; }
+        public InstructorDto? Instructor { get; set; }
     }
 }
