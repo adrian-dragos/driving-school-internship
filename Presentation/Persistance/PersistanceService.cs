@@ -19,8 +19,7 @@ namespace Persistance
                 options.UseSqlServer(
                     configuration.GetConnectionString("DataBaseConnectionString")));
 
-            services//.AddDbContextFactory<ApplicationContext>()
-                .AddScoped<IUnitOfWork, UnitOfWork>()
+            services.AddScoped<IUnitOfWork, UnitOfWork>()
                 .AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>))
                 .AddScoped<IInstructorRepository, InstructorRepository>()
                 .AddScoped<IBookingSessionRepository, BookingSessionRepository>()

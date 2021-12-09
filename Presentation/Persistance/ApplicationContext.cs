@@ -27,15 +27,5 @@ namespace Persistance
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
         }
-
-        //public ApplicationContext()
-        //{
-
-        //}
-        //private readonly string _connectionString = @"Server=DESKTOP-912OTND;Database=Test1;Trusted_Connection=True;";
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(_connectionString);
-        //}
     }
 }
