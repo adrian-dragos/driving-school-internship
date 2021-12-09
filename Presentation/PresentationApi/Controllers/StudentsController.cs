@@ -22,21 +22,21 @@ namespace PresentationApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<StudentDto>>> Get()
+        public async Task<ActionResult<List<StudentDto>>> GetStudents()
         {
             var students = await _mediator.Send(new GetStudentListQuery());
             return Ok(students);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<StudentDto>> Get(int id)
+        [HttpGet("{id}", Name = "GetStudent")]
+        public async Task<ActionResult<StudentDto>> GetStudent(int id)
         {
             var student = await _mediator.Send(new GetStudentQuery { Id = id });
             return Ok(student);
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Post([FromBody] CreateStudentDto studentDto)
+        public async Task<ActionResult<int>> CreateStudent([FromBody] CreateStudentDto studentDto)
         {
             var studentId = await _mediator.Send(new CreateStudentCommand { StudentDto = studentDto });
             return Ok(studentId);

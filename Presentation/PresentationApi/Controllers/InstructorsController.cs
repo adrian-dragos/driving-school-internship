@@ -24,21 +24,21 @@ namespace PresentationApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<InstructorDto>>> Get()
+        public async Task<ActionResult<List<InstructorDto>>> GetInstructors()
         {
             var instructors = await _mediator.Send(new GetInstructorListQuery());
             return Ok(instructors);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<InstructorDto>> Get(int id)
+        public async Task<ActionResult<InstructorDto>> GetInstructor(int id)
         {
             var instructor = await _mediator.Send(new GetInstructorQuery { Id = id });
             return Ok(instructor);
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Post([FromBody] CreateInstructorDto instructorDto)
+        public async Task<ActionResult<int>> CreateInstructor([FromBody] CreateInstructorDto instructorDto)
         {
             var instructorId = await _mediator.Send(new CreateInstructorCommand { InstructorDto = instructorDto });
             return Ok(instructorId);
