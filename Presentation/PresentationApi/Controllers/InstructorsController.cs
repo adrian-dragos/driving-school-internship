@@ -44,14 +44,14 @@ namespace PresentationApi.Controllers
             return Ok(instructorId);
         }
 
-        [HttpPut("{id}/car")]
+        [HttpPatch("{id}/car")]
         public async Task<ActionResult> UpdateCar(int id, [FromBody] ChangeInstructorCarDto instructorDto)
         {
             await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorCarDto = instructorDto });
             return NoContent();
         }
 
-        [HttpPut("{id}/employment-status")]
+        [HttpPatch("{id}/employment-status")]
         public async Task<ActionResult> UpdateEmploymentStatus(int id, [FromBody] ChangeInstructorEmploymentStatusDto instructorDto)
         {
             await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorEmploymentStatus = instructorDto });
