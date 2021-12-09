@@ -25,7 +25,7 @@ namespace Application.Features.Car.Commands.CreateCar
 
         public async Task<int> Handle(CreateCarCommand command, CancellationToken cancellationToken)
         {
-            var car = _mapper.Map<Domain.Entities.Car>(command.carDto);
+            var car = _mapper.Map<Domain.Entities.Car>(command.CarDto);
             car = await _repository.AddAsync(car);
             await _unitOfWork.SaveAsync();
             return car.Id;

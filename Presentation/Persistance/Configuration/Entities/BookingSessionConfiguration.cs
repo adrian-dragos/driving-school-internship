@@ -13,7 +13,6 @@ namespace Persistance.Configuration.Entities
     {
         public void Configure(EntityTypeBuilder<BookingSession> builder)
         {
-            builder.ToTable("BookingSessions");
             builder.HasData(
             #region FullDayOfInstructor1
                 new BookingSession

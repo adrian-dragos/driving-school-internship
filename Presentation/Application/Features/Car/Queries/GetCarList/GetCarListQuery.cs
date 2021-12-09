@@ -10,6 +10,6 @@ namespace Application.Features.Car.Queries.GetCarList
 {
     public class GetCarListQuery : IRequest<IEnumerable<CarDto>>
     {
-        public CarDto carDto;
+        public CarDto CarDto;
     }
 }

@@ -12,8 +12,8 @@ using Persistance;
 namespace Persistance.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20211207190647_InitialCreation")]
-    partial class InitialCreation
+    [Migration("20211209094204_DatabaseCreation")]
+    partial class DatabaseCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,7 +50,7 @@ namespace Persistance.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("BookingSessions", (string)null);
+                    b.ToTable("BookingSessions");
 
                     b.HasData(
                         new
@@ -150,7 +150,7 @@ namespace Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cars", (string)null);
+                    b.ToTable("Cars");
 
                     b.HasData(
                         new

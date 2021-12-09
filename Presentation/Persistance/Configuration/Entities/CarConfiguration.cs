@@ -14,7 +14,6 @@ namespace Persistance.Configuration.Entities
     {
         public void Configure(EntityTypeBuilder<Car> builder)
         {
-            builder.ToTable("Cars");
             builder.HasData(
                 new Car
                 {

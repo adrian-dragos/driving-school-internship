@@ -48,7 +48,7 @@ namespace Persistance.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("BookingSessions", (string)null);
+                    b.ToTable("BookingSessions");
 
                     b.HasData(
                         new
@@ -148,7 +148,7 @@ namespace Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cars", (string)null);
+                    b.ToTable("Cars");
 
                     b.HasData(
                         new

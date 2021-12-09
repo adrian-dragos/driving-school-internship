@@ -10,6 +10,6 @@ namespace Application.Features.Car.Commands.CreateCar
 {
     public class CreateCarCommand : IRequest<int>
     {
-        public CreateCarDto carDto;
+        public CreateCarDto CarDto;
     }
 }

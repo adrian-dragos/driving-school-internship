@@ -38,7 +38,7 @@ namespace PresentationApi.Controllers
         [HttpPost]
         public async Task<ActionResult<int>> CreateCar([FromBody] CreateCarDto carDto)
         {
-            var carId = await _mediator.Send(new CreateCarCommand { carDto = carDto });
+            var carId = await _mediator.Send(new CreateCarCommand { CarDto = carDto });
             return Ok(carId);
         }
 

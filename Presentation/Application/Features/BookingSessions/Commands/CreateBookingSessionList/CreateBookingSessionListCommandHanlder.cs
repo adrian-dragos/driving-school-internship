@@ -25,7 +25,7 @@ namespace Application.Features.BookingSessions.Commands.CreateBookingSessionList
 
         public async Task<IEnumerable<int>> Handle(CreateBookingSessionListCommand command, CancellationToken cancellationToken)
         {
-            var bookingSessions = _mapper.Map<List<BookingSession>>(command.bookingSessionsDto);
+            var bookingSessions = _mapper.Map<List<BookingSession>>(command.BookingSessionsDto);
             var bookingSessionsCreated = await _bookingSessionRepository.AddRangeAsync(bookingSessions);
             var result = new List<int>();
             await _unitOfWork.SaveAsync();
