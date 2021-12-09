@@ -1,6 +1,8 @@
 using Application.Configuration;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Persistance;
+using PresentationApi.Common;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +37,7 @@ namespace PresentationApi
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PresentationApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Booking Api", Version = "v1" });
             });
 
             services.AddCors(o =>
@@ -51,10 +55,27 @@ namespace PresentationApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PresentationApi v1"));
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PresentationApi v1"));
+
+            app.UseExceptionHandler(error => {
+                error.Run(async context => {
+                    context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+                    context.Response.ContentType = "application/json";
+                    var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
+                    if (contextFeature != null)
+                    {
+                        Log.Error($"Something went wrong in the {contextFeature.Error}");
+                        await context.Response.WriteAsync(new Error
+                        {
+                            StatusCode = context.Response.StatusCode,
+                            Message = "Internal Server Error. Please Try Again Later."
+                        }.ToString());
+                    }
+                });
+            });
             app.UseHttpsRedirection();
 
             app.UseRouting();
