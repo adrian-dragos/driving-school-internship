@@ -1,7 +1,7 @@
 ﻿using Application.DTOs.EntityDtos.Person.Instructor;
+using Application.Features.Instructors.Commands.CreateInstructor;
 using Application.Features.Instructors.Commands.UpdateEmploymentStatus;
 using Application.Features.Instructors.Quieries.GetInstructor;
-using Features.Application.Instructors.Commands.CreateInstructor;
 using Features.Application.Instructors.Quieries.GetInstructorsList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

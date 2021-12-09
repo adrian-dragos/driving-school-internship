@@ -43,7 +43,7 @@ namespace PresentationApi.Controllers
         }
 
         [HttpPatch("{id}")]
-        public async Task<ActionResult> ChagneCarAvailability(int id, [FromBody] ChangeCarAvailabilityDto carDto)
+        public async Task<ActionResult> ChangeCarAvailability(int id, [FromBody] ChangeCarAvailabilityDto carDto)
         {
             await _mediator.Send(new ChangeCarAvailabilityCommand { Id = id, ChangeCarAvailabilityDto = carDto });
             return NoContent();

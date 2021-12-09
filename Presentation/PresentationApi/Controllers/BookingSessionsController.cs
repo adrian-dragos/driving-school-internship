@@ -38,7 +38,7 @@ namespace PresentationApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> CreatBookingSession([FromBody] CreateBookingSessionDto bookingSessionDto)
+        public async Task<ActionResult<int>> CreateBookingSession([FromBody] CreateBookingSessionDto bookingSessionDto)
         {
             var bookingSessionId = await _mediator.Send(new CreateBookingSessionCommand { BookingSessionDto = bookingSessionDto });
             return Ok(bookingSessionId);
@@ -46,7 +46,7 @@ namespace PresentationApi.Controllers
 
 
         [HttpPatch("{id}")]
-        public async Task<ActionResult> ChangeLessonAvalability(int id, [FromBody] ChangeBookingSessionAvailabilityDto bookingSessionDto)
+        public async Task<ActionResult> ChangeLessonAvailability(int id, [FromBody] ChangeBookingSessionAvailabilityDto bookingSessionDto)
         {
             await _mediator.Send(new ChangeBookingSessionAvailabilityCommand { Id = id, ChangeBookingSessionAvailabilityDto = bookingSessionDto });
             return NoContent();

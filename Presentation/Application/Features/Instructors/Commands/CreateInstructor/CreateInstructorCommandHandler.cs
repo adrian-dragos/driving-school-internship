@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.Features.Instructors.Commands.CreateInstructor;
+using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities.Person;
 using MediatR;
