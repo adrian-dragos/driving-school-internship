@@ -35,7 +35,7 @@ namespace Persistance.Configuration.Entities
                         PhoneNumber = "+40 715 675 614",
                         Birthday = new DateTime(1992, 12, 25),
                         IsCurrentlyEmployed = false,
-                        CarId = null,
+                        CarId = null
                     },
                     new Instructor
                     {
@@ -46,7 +46,7 @@ namespace Persistance.Configuration.Entities
                         PhoneNumber = "+40 722 101 021",
                         Birthday = new DateTime(1988, 08, 17),
                         IsCurrentlyEmployed = true,
-                        CarId = 5,
+                        CarId = 5
                     },
                     new Instructor
                     {
@@ -57,7 +57,7 @@ namespace Persistance.Configuration.Entities
                         PhoneNumber = "+40 751 551 100",
                         Birthday = new DateTime(1978, 11, 01),
                         IsCurrentlyEmployed = true,
-                        CarId = 1,
+                        CarId = 1
                     },
                     new Instructor
                     {
@@ -68,7 +68,7 @@ namespace Persistance.Configuration.Entities
                         PhoneNumber = "+40 712 229 545",
                         Birthday = new DateTime(1996, 05, 15),
                         IsCurrentlyEmployed = true,
-                        CarId = 3,
+                        CarId = 3
                     }
                 );
         }

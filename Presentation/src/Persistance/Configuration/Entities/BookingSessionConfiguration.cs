@@ -71,7 +71,7 @@ namespace Persistance.Configuration.Entities
                     StartTime = new DateTime(2021, 12, 12, 4, 30, 0),
                     IsAvailable = true,
                     InstructorId = 1,
-                    StudentId = null,
+                    StudentId = null
                 },
                 new BookingSession
                 {
@@ -79,7 +79,7 @@ namespace Persistance.Configuration.Entities
                     StartTime = new DateTime(2021, 12, 12, 1, 30, 0),
                     IsAvailable = true,
                     InstructorId = 3,
-                    StudentId = null,
+                    StudentId = null
                 },
                 new BookingSession
                 {
@@ -87,7 +87,7 @@ namespace Persistance.Configuration.Entities
                     StartTime = new DateTime(2021, 12, 12, 3, 00, 0),
                     IsAvailable = true,
                     InstructorId = 4,
-                    StudentId = null,
+                    StudentId = null
                 },
                 new BookingSession
                 {
@@ -95,7 +95,7 @@ namespace Persistance.Configuration.Entities
                     StartTime = new DateTime(2021, 12, 12, 4, 30, 0),
                     IsAvailable = true,
                     InstructorId = 5,
-                    StudentId = null,
+                    StudentId = null
                 }
                 );
         }

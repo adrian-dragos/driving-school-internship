@@ -22,7 +22,7 @@ namespace UnitTests
 		private readonly Mock<IMediator> _mockMediator = new Mock<IMediator>();
 
 
-        #region EachRequestIsCalledOnce
+        #region EachRequestIsCalledOnceTests
         [Fact]
 		public async Task GetCarListQuery_IsCalled()
 		{
@@ -89,9 +89,9 @@ namespace UnitTests
 
 			_mockMediator.Verify(x => x.Send(It.IsAny<ChangeCarAvailabilityCommand>(), It.IsAny<CancellationToken>()), Times.Once());
 		}
-		#endregion EachRequestIsCalledOnce
+		#endregion EachRequestIsCalledOnceTests
 
-		#region EachRequestReturnTheExpectedResponse
+		#region EachRequestReturnTheExpectedResponseTests
 		[Fact]
 		public async Task GetCars_ShouldReturnOkStatusCode()
 		{
@@ -200,7 +200,7 @@ namespace UnitTests
 			var noContentResult = result as NoContentResult;
 			Assert.Equal((int)HttpStatusCode.NoContent, noContentResult.StatusCode);
 		}
-		#endregion EachRequestReturnTheExpectedResponse
+		#endregion EachRequestReturnTheExpectedResponseTests
 
 		[Fact]
 		public async Task GetCarById_GetCarQueryWithCorrectCarIdIsCalled()
