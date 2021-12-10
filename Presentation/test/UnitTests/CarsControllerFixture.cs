@@ -17,7 +17,7 @@ using Xunit;
 
 namespace UnitTests
 {
-    public class CarControllerFixture
+    public class CarsControllerFixture
     {
 		private readonly Mock<IMediator> _mockMediator = new Mock<IMediator>();
 

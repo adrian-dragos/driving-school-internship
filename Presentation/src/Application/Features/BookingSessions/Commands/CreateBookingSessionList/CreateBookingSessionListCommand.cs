@@ -10,6 +10,6 @@ namespace Application.Features.BookingSessions.Commands.CreateBookingSessionList
 {
     public class CreateBookingSessionListCommand : IRequest<IEnumerable<int>>
     {
-        public IEnumerable<BookingSessionDto> BookingSessionsDto { get; set; }
+        public IEnumerable<CreateBookingSessionDto> BookingSessionsDto { get; set; }
     }
 }

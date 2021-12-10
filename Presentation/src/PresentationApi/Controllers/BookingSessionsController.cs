@@ -1,6 +1,7 @@
 ﻿using Application.DTOs.EntityDtos.BookingSession;
 using Application.Features.BookingSessions.Commands.ChangeBookingSessionAvailability;
 using Application.Features.BookingSessions.Commands.CreateBookingSession;
+using Application.Features.BookingSessions.Commands.CreateBookingSessionList;
 using Application.Features.BookingSessions.Commands.DeteleBookingSession;
 using Application.Features.BookingSessions.Queries.GetBookingSession;
 using Application.Features.BookingSessions.Queries.GetBookingSessionList;
@@ -42,6 +43,13 @@ namespace PresentationApi.Controllers
         {
             var bookingSessionId = await _mediator.Send(new CreateBookingSessionCommand { BookingSessionDto = bookingSessionDto });
             return Ok(bookingSessionId);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<int>> CreateBookingSessions([FromBody] IEnumerable<CreateBookingSessionDto> bookingSessionDto)
+        {
+            var bookingSessionsId = await _mediator.Send(new CreateBookingSessionListCommand { BookingSessionsDto = bookingSessionDto });
+            return Ok(bookingSessionsId);
         }
 
 
