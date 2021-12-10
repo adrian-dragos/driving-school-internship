@@ -38,14 +38,14 @@ namespace PresentationApi.Controllers
             return Ok(bookingSession);
         }
 
-        [HttpPost]
+        [HttpPost("booking-session")]
         public async Task<ActionResult<int>> CreateBookingSession([FromBody] CreateBookingSessionDto bookingSessionDto)
         {
             var bookingSessionId = await _mediator.Send(new CreateBookingSessionCommand { BookingSessionDto = bookingSessionDto });
             return Ok(bookingSessionId);
         }
 
-        [HttpPost]
+        [HttpPost("booking-sessions")]
         public async Task<ActionResult<int>> CreateBookingSessions([FromBody] IEnumerable<CreateBookingSessionDto> bookingSessionDto)
         {
             var bookingSessionsId = await _mediator.Send(new CreateBookingSessionListCommand { BookingSessionsDto = bookingSessionDto });
