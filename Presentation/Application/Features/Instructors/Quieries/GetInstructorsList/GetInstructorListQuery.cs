@@ -1,7 +1,7 @@
 ﻿using Application.DTOs.EntityDtos.Person.Instructor;
 using MediatR;
 
-namespace Features.Application.Instructors.Quieries.GetInstructorsList
+namespace Application.Features.Instructors.Quieries.GetInstructorsList
 {
     public class GetInstructorListQuery : IRequest<IEnumerable<InstructorDto>>
     {

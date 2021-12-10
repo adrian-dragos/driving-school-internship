@@ -2,7 +2,7 @@
 using Application.Features.Instructors.Commands.CreateInstructor;
 using Application.Features.Instructors.Commands.UpdateEmploymentStatus;
 using Application.Features.Instructors.Quieries.GetInstructor;
-using Features.Application.Instructors.Quieries.GetInstructorsList;
+using Application.Features.Instructors.Quieries.GetInstructorsList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

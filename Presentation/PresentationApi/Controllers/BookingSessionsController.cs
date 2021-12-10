@@ -1,9 +1,9 @@
 ﻿using Application.DTOs.EntityDtos.BookingSession;
 using Application.Features.BookingSessions.Commands.ChangeBookingSessionAvailability;
+using Application.Features.BookingSessions.Commands.CreateBookingSession;
 using Application.Features.BookingSessions.Commands.DeteleBookingSession;
 using Application.Features.BookingSessions.Queries.GetBookingSession;
-using Features.Application.BookingSessions.Commands.CreateBookginSession;
-using Features.Application.BookingSessions.Queries.GetBookingSessionList;
+using Application.Features.BookingSessions.Queries.GetBookingSessionList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

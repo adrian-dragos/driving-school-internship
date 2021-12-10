@@ -1,8 +1,7 @@
 ﻿using Application.DTOs.EntityDtos.Person.Student;
+using Application.Features.Students.Commands.CreateStudent;
 using Application.Features.Students.Queries.GetStudent;
-using Features.Application.Instructors.Quieries.GetInstructorsList;
-using Features.Application.Students.Commands.CreateStudent;
-using Features.Application.Students.Queries.GetStudentList;
+using Application.Features.Students.Queries.GetStudentsList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

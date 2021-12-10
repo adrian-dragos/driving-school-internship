@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Features.Application.Students.Commands.CreateStudent
+namespace Application.Features.Students.Commands.CreateStudent
 {
     public class CreateStudentCommandHandler : IRequestHandler<CreateStudentCommand, int>
     {

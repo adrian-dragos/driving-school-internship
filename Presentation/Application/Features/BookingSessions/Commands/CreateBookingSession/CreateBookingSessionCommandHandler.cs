@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Features.Application.BookingSessions.Commands.CreateBookginSession
+namespace Application.Features.BookingSessions.Commands.CreateBookingSession
 {
     public class CreateBookingSessionCommandHandler : IRequestHandler<CreateBookingSessionCommand, int>
     {
@@ -25,7 +25,7 @@ namespace Features.Application.BookingSessions.Commands.CreateBookginSession
 
         public async Task<int> Handle(CreateBookingSessionCommand command, CancellationToken cancellationToken)
         {
-            var bookginSession= _mapper.Map<BookingSession>(command.BookingSessionDto);
+            var bookginSession = _mapper.Map<BookingSession>(command.BookingSessionDto);
             bookginSession = await _repository.AddAsync(bookginSession);
             await _unitOfWork.SaveAsync();
             return bookginSession.Id;

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Features.Application.BookingSessions.Commands.CreateBookginSession
+namespace Application.Features.BookingSessions.Commands.CreateBookingSession
 {
     public class CreateBookingSessionCommand : IRequest<int>
     {

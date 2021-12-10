@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Features.Application.Students.Queries.GetStudentList
+namespace Application.Features.Students.Queries.GetStudentsList
 {
     public class GetStudentListQuery : IRequest<IEnumerable<StudentDto>>
     {

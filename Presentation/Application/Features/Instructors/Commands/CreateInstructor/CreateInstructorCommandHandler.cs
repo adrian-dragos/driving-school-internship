@@ -1,5 +1,4 @@
-﻿using Application.Features.Instructors.Commands.CreateInstructor;
-using Application.Interfaces;
+﻿using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities.Person;
 using MediatR;
@@ -9,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Features.Application.Instructors.Commands.CreateInstructor
+namespace Application.Features.Instructors.Commands.CreateInstructor
 {
     public class CreateInstructorCommandHandler : IRequestHandler<CreateInstructorCommand, int>
     {

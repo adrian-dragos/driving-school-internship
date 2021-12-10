@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Features.Application.BookingSessions.Queries.GetBookingSessionList
+namespace Application.Features.BookingSessions.Queries.GetBookingSessionList
 {
     public class GetBookingSessionListQueryHandler : IRequestHandler<GetBookingSessionListQuery, IEnumerable<BookingSessionDto>>
     {
@@ -24,7 +24,7 @@ namespace Features.Application.BookingSessions.Queries.GetBookingSessionList
         public async Task<IEnumerable<BookingSessionDto>> Handle(GetBookingSessionListQuery query, CancellationToken cancellationToken)
         {
             var bookingSession = await _repository.GetAll();
-            return _mapper.Map<List<BookingSessionDto>>(bookingSession);            
+            return _mapper.Map<List<BookingSessionDto>>(bookingSession);
         }
     }
 }
