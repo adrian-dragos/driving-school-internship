@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A8ACE5B0-4757-4460-8A7B-6E91181E69B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Domain\Domain.csproj", "{A8ACE5B0-4757-4460-8A7B-6E91181E69B6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistance", "Persistance\Persistance.csproj", "{9AB244F1-5718-464C-8B84-C78A51C830CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistance", "src\Persistance\Persistance.csproj", "{9AB244F1-5718-464C-8B84-C78A51C830CD}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CB62AF7B-7E72-4092-977B-7074A28E4015} = {CB62AF7B-7E72-4092-977B-7074A28E4015}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{CB62AF7B-7E72-4092-977B-7074A28E4015}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Application\Application.csproj", "{CB62AF7B-7E72-4092-977B-7074A28E4015}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A8ACE5B0-4757-4460-8A7B-6E91181E69B6} = {A8ACE5B0-4757-4460-8A7B-6E91181E69B6}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentationApi", "PresentationApi\PresentationApi.csproj", "{576896B5-59A7-4D6C-9572-024A0E2A0888}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentationApi", "src\PresentationApi\PresentationApi.csproj", "{576896B5-59A7-4D6C-9572-024A0E2A0888}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{F07E6DCC-DCAF-4DAD-8E44-A039711A2B65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "test\UnitTests\UnitTests.csproj", "{F07E6DCC-DCAF-4DAD-8E44-A039711A2B65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{882791FF-5666-448D-8F21-0AB622829518}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "test\IntegrationTests\IntegrationTests.csproj", "{882791FF-5666-448D-8F21-0AB622829518}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A1ED69A5-9B06-4490-8A42-77B468922FE1}"
 EndProject
