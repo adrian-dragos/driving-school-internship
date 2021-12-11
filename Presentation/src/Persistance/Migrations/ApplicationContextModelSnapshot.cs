@@ -319,7 +319,7 @@ namespace Persistance.Migrations
                         {
                             Id = 7,
                             Birthday = new DateTime(2003, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "grosu.narin41@gmail.com",
+                            Email = "grosu.marin41@gmail.com",
                             FirstName = "Marin",
                             LastName = "Grosu",
                             PhoneNumber = "+40 614 411 421"

@@ -12,8 +12,8 @@ using Persistance;
 namespace Persistance.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20211209094204_DatabaseCreation")]
-    partial class DatabaseCreation
+    [Migration("20211211151212_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -321,7 +321,7 @@ namespace Persistance.Migrations
                         {
                             Id = 7,
                             Birthday = new DateTime(2003, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "grosu.narin41@gmail.com",
+                            Email = "grosu.marin41@gmail.com",
                             FirstName = "Marin",
                             LastName = "Grosu",
                             PhoneNumber = "+40 614 411 421"

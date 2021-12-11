@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistance.Migrations
 {
-    public partial class DatabaseCreation : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -131,7 +131,7 @@ namespace Persistance.Migrations
                     { 4, new DateTime(1978, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "dionis.agapii@gmail.com", "Dionis", "Agapii", "+40 751 551 100" },
                     { 5, new DateTime(1996, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "condur.denis515@gmail.com", "Denis", "Codur", "+40 712 229 545" },
                     { 6, new DateTime(2000, 8, 28, 0, 0, 0, 0, DateTimeKind.Unspecified), "adrian.dragos28@gmail.com", "Adrian", "Dragos", "+40 060 066 144" },
-                    { 7, new DateTime(2003, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "grosu.narin41@gmail.com", "Marin", "Grosu", "+40 614 411 421" },
+                    { 7, new DateTime(2003, 4, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "grosu.marin41@gmail.com", "Marin", "Grosu", "+40 614 411 421" },
                     { 8, new DateTime(1999, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "ionut.remetea18@gmail.com", "Ionut", "Remetea", "+40 232 525 151" },
                     { 9, new DateTime(2002, 3, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "alexandru.lungu2002@gmail.com", "Alexandru", "Lungu", "+40 513 153 531" },
                     { 10, new DateTime(2003, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "paul.rus2003@gmail.com", "Paul", "Rus", "+40 474 366 386" }
