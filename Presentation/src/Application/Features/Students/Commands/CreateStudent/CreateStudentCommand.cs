@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Students.Commands.CreateStudent
 {
-    public class CreateStudentCommand : IRequest<int>
+    public class CreateStudentCommand : IRequest<StudentDto>
     {
         public CreateStudentDto StudentDto { get; set; }
     }
