@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.DTOs.EntityDtos.BookingSession;
+using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookingSessions.Commands.CreateBookingSessionList
 {
-    public class CreateBookingSessionListCommandHanlder : IRequestHandler<CreateBookingSessionListCommand, IEnumerable<int>>
+    public class CreateBookingSessionListCommandHanlder : IRequestHandler<CreateBookingSessionListCommand, IEnumerable<BookingSessionDto>>
     {
         private readonly IBookingSessionRepository _bookingSessionRepository;        
         private readonly IMapper _mapper;
@@ -23,17 +24,13 @@ namespace Application.Features.BookingSessions.Commands.CreateBookingSessionList
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<IEnumerable<int>> Handle(CreateBookingSessionListCommand command, CancellationToken cancellationToken)
+        public async Task<IEnumerable<BookingSessionDto>> Handle(CreateBookingSessionListCommand command, CancellationToken cancellationToken)
         {
             var bookingSessions = _mapper.Map<List<BookingSession>>(command.BookingSessionsDto);
             var bookingSessionsCreated = await _bookingSessionRepository.AddRangeAsync(bookingSessions);
             var result = new List<int>();
             await _unitOfWork.SaveAsync();
-            foreach (var b in bookingSessionsCreated)
-            {
-                result.Add(b.Id);
-            }
-            return result;
+            return _mapper.Map<List<BookingSessionDto>>(bookingSessionsCreated);
         }
     }
 }
