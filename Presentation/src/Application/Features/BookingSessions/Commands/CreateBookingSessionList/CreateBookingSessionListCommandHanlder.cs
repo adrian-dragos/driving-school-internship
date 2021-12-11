@@ -28,7 +28,6 @@ namespace Application.Features.BookingSessions.Commands.CreateBookingSessionList
         {
             var bookingSessions = _mapper.Map<List<BookingSession>>(command.BookingSessionsDto);
             var bookingSessionsCreated = await _bookingSessionRepository.AddRangeAsync(bookingSessions);
-            var result = new List<int>();
             await _unitOfWork.SaveAsync();
             return _mapper.Map<List<BookingSessionDto>>(bookingSessionsCreated);
         }
