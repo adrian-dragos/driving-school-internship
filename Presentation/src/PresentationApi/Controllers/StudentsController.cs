@@ -35,10 +35,10 @@ namespace PresentationApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> CreateStudent([FromBody] CreateStudentDto studentDto)
+        public async Task<ActionResult<StudentDto>> CreateStudent([FromBody] CreateStudentDto studentDto)
         {
-            var studentId = await _mediator.Send(new CreateStudentCommand { StudentDto = studentDto });
-            return Ok(studentId);
+            var student = await _mediator.Send(new CreateStudentCommand { StudentDto = studentDto });
+            return CreatedAtRoute("GetStudent", new { id = student.Id }, student);
         }
     }
 }
