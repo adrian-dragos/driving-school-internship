@@ -2,6 +2,7 @@
 using Application.Features.Students.Commands.CreateStudent;
 using Application.Features.Students.Queries.GetStudent;
 using Application.Features.Students.Queries.GetStudentsList;
+using Domain.Entities.Person;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -41,7 +42,7 @@ namespace UnitTests
             _mockMediator
                 .Setup(m => m.Send(It.IsAny<GetStudentQuery>(), It.IsAny<CancellationToken>()))
                 .Verifiable();
-
+            
             var controller = new StudentsController(_mockMediator.Object);
             await controller.GetStudent(2); ;
 
@@ -51,12 +52,7 @@ namespace UnitTests
         [Fact]
         public async Task CreateStudentCommand_IsCalled()
         {
-            _mockMediator
-                .Setup(m => m.Send(It.IsAny<CreateStudentCommand>(), It.IsAny<CancellationToken>()))
-                .Verifiable();
-
-            var controller = new StudentsController(_mockMediator.Object);
-            var studentDto = new CreateStudentDto
+            var createStudentDto = new CreateStudentDto
             {
                 FirstName = "Petru",
                 LastName = "Lucu",
@@ -64,8 +60,25 @@ namespace UnitTests
                 PhoneNumber = "+40 060 066 144",
                 Birthday = new DateTime(1945, 01, 21)
             };
-            await controller.CreateStudent(studentDto);
 
+            var studentDto = new StudentDto
+            {
+                Id = 1,
+                FirstName = "Petru",
+                LastName = "Lucu",
+                Email = "petru.lucu@gmail.com",
+                PhoneNumber = "+40 060 066 144",
+                Birthday = new DateTime(1945, 01, 21)
+            };
+
+            _mockMediator
+                .Setup(m => m.Send(It.IsAny<CreateStudentCommand>(), It.IsAny<CancellationToken>()))
+                .Returns(Task.FromResult(studentDto))
+                .Verifiable();
+
+            var controller = new StudentsController(_mockMediator.Object);
+            await controller.CreateStudent(createStudentDto);
+            
             _mockMediator.Verify(x => x.Send(It.IsAny<CreateStudentCommand>(), It.IsAny<CancellationToken>()), Times.Once());
         }
 
@@ -131,11 +144,20 @@ namespace UnitTests
 
 
         [Fact]
-        public async Task CreateStudent_ShouldReturnOkStatusCode()
+        public async Task CreateStudent_ShouldReturnCreatedStatusCode()
         {
             _mockMediator
                    .Setup(m => m.Send(It.IsAny<CreateStudentCommand>(), It.IsAny<CancellationToken>()))
-                   .ReturnsAsync(1);
+                   .ReturnsAsync(
+                        new StudentDto
+                           {
+                               Id = 9,
+                               FirstName = "Alexandru",
+                               LastName = "Lungu",
+                               Email = "alexandru.lungu2002@gmail.com",
+                               PhoneNumber = "+40 513 153 531",
+                               Birthday = new DateTime(2002, 03, 07)
+                           });
 
             var student = new CreateStudentDto
             {
@@ -148,8 +170,8 @@ namespace UnitTests
             var controller = new StudentsController(_mockMediator.Object);
             var result = await controller.CreateStudent(student);
 
-            var okResult = result.Result as OkObjectResult;
-            Assert.Equal((int)HttpStatusCode.OK, okResult.StatusCode);
+            var objectResponse = result.Result as ObjectResult;
+            Assert.Equal((int)HttpStatusCode.Created, objectResponse.StatusCode);
         }
 
         #endregion EachRequestReturnTheExpectedResponseTests
