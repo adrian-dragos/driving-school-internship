@@ -75,7 +75,7 @@ namespace Persistance.Configuration.Entities
                     RegistrationNumber = "AR 552",
                     IsAvailable = false,
                 }
-                ); ;
+                );
 
         }
     }

@@ -29,7 +29,7 @@ namespace Persistance.Configuration.Entities
                     Id = 7,
                     FirstName = "Marin",
                     LastName = "Grosu",
-                    Email = "grosu.narin41@gmail.com",
+                    Email = "grosu.marin41@gmail.com",
                     PhoneNumber = "+40 614 411 421",
                     Birthday = new DateTime(2003, 04, 18)
                 },
