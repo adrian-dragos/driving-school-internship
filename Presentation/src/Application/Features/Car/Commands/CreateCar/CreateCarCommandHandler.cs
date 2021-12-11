@@ -7,10 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.DTOs.EntityDtos.Car;
 
 namespace Application.Features.Car.Commands.CreateCar
 {
-    public class CreateBookingSessionCommandHandler : IRequestHandler<CreateCarCommand, int>
+    public class CreateBookingSessionCommandHandler : IRequestHandler<CreateCarCommand, CarDto>
     {
         private readonly ICarRepository _repository;
         private readonly IMapper _mapper;
@@ -23,12 +24,12 @@ namespace Application.Features.Car.Commands.CreateCar
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<int> Handle(CreateCarCommand command, CancellationToken cancellationToken)
+        public async Task<CarDto> Handle(CreateCarCommand command, CancellationToken cancellationToken)
         {
             var car = _mapper.Map<Domain.Entities.Car>(command.CarDto);
             car = await _repository.AddAsync(car);
             await _unitOfWork.SaveAsync();
-            return car.Id;
+            return _mapper.Map<CarDto>(car);
         }
     }
 }

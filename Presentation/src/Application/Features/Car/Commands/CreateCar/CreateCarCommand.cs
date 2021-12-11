@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Car.Commands.CreateCar
 {
-    public class CreateCarCommand : IRequest<int>
+    public class CreateCarCommand : IRequest<CarDto>
     {
         public CreateCarDto CarDto;
     }
