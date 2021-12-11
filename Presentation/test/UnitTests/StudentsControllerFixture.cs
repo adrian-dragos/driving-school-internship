@@ -24,7 +24,7 @@ namespace UnitTests
 
         #region EachRequestIsCalledOnceTests
         [Fact]
-        public async Task GetStudentListQuery_IsCalled()
+        public async Task GetStudentList_IsCalled()
         {
             _mockMediator
                 .Setup(m => m.Send(It.IsAny<GetStudentListQuery>(), It.IsAny<CancellationToken>()))
@@ -37,7 +37,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public async Task GetStudentQuery_IsCalled()
+        public async Task GetStudent_IsCalled()
         {
             _mockMediator
                 .Setup(m => m.Send(It.IsAny<GetStudentQuery>(), It.IsAny<CancellationToken>()))
@@ -50,7 +50,7 @@ namespace UnitTests
         }
 
         [Fact]
-        public async Task CreateStudentCommand_IsCalled()
+        public async Task CreateStudent_IsCalled()
         {
             var createStudentDto = new CreateStudentDto
             {
@@ -83,7 +83,6 @@ namespace UnitTests
         }
 
         #endregion EachRequestIsCalledOnceTests
-
 
         #region EachRequestReturnTheExpectedResponseTests
         [Fact]
@@ -142,7 +141,6 @@ namespace UnitTests
             Assert.Equal((int)HttpStatusCode.OK, okResult.StatusCode);
         }
 
-
         [Fact]
         public async Task CreateStudent_ShouldReturnCreatedStatusCode()
         {
@@ -173,7 +171,6 @@ namespace UnitTests
             var objectResponse = result.Result as ObjectResult;
             Assert.Equal((int)HttpStatusCode.Created, objectResponse.StatusCode);
         }
-
         #endregion EachRequestReturnTheExpectedResponseTests
     }
 }

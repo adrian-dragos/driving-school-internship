@@ -24,7 +24,7 @@ namespace UnitTests
 
         #region EachRequestIsCalledOnceTests
         [Fact]
-		public async Task GetCarListQuery_IsCalled()
+		public async Task GetCarList_IsCalled()
 		{
 			_mockMediator
 				.Setup(m => m.Send(It.IsAny<GetCarListQuery>(), It.IsAny<CancellationToken>()))
@@ -37,7 +37,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task GetCarQuery_IsCalled()
+		public async Task GetCar_IsCalled()
 		{
 			_mockMediator
 				.Setup(m => m.Send(It.IsAny<GetCarQuery>(), It.IsAny<CancellationToken>()))
@@ -50,7 +50,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task CreateCarCommand_IsCalled()
+		public async Task CreateCar_IsCalled()
 		{
 			var createStudentDto = new CreateCarDto
 			{
@@ -83,7 +83,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task ChangeCarAvailabilityCommand_IsCalled()
+		public async Task ChangeCarAvailability_IsCalled()
 		{
 			_mockMediator
 				.Setup(m => m.Send(It.IsAny<ChangeCarAvailabilityCommand>(), It.IsAny<CancellationToken>()))
@@ -157,7 +157,6 @@ namespace UnitTests
 			Assert.Equal((int)HttpStatusCode.OK, okResult.StatusCode);
 		}
 
-
 		[Fact]
 		public async Task CreateCar_ShouldReturnCreatedStatusCode()
 		{
@@ -189,7 +188,6 @@ namespace UnitTests
 			Assert.Equal((int)HttpStatusCode.Created, objectResponse.StatusCode);
 		}
 
-
 		[Fact]
 		public async Task ChangeCarAvailability_ShouldReturnNoContentStatusCode()
 		{
@@ -207,7 +205,6 @@ namespace UnitTests
 			var noContentResult = result as NoContentResult;
 			Assert.Equal((int)HttpStatusCode.NoContent, noContentResult.StatusCode);
 		}
-		#endregion EachRequestReturnTheExpectedResponseTests
 
 		[Fact]
 		public async Task GetCarById_GetCarQueryWithCorrectCarIdIsCalled()
@@ -236,5 +233,6 @@ namespace UnitTests
 
 			Assert.Equal(carId, 1);
 		}
+		#endregion EachRequestReturnTheExpectedResponseTests
 	}
 }

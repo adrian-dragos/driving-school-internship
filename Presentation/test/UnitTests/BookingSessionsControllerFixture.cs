@@ -26,7 +26,7 @@ namespace UnitTests
 
 		#region EachRequestIsCalledOnceTests
 		[Fact]
-		public async Task GetBookingSessionListQuery_IsCalled()
+		public async Task GetBookingSessionList_IsCalled()
 		{
 			_mockMediator
 				.Setup(m => m.Send(It.IsAny<GetBookingSessionListQuery>(), It.IsAny<CancellationToken>()))
@@ -39,7 +39,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task GetBookingSessionQuery_IsCalled()
+		public async Task GetBookingSession_IsCalled()
 		{
 			_mockMediator
 				.Setup(m => m.Send(It.IsAny<GetBookingSessionQuery>(), It.IsAny<CancellationToken>()))
@@ -52,7 +52,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task CreateBookingSessionCommand_IsCalled()
+		public async Task CreateBookingSession_IsCalled()
 		{
 			var createStudentDto = new CreateBookingSessionDto
 			{
@@ -83,7 +83,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task CreateBookingSessionsCommand_IsCalled()
+		public async Task CreateBookingSessions_IsCalled()
 		{
 			_mockMediator
 				.Setup(m => m.Send(It.IsAny<CreateBookingSessionListCommand>(), It.IsAny<CancellationToken>()))
@@ -113,7 +113,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task DeleteBookingSessionQuery_IsCalled()
+		public async Task DeleteBookingSession_IsCalled()
 		{
 			_mockMediator
 				.Setup(m => m.Send(It.IsAny<DeteleBookingSessionCommand>(), It.IsAny<CancellationToken>()))
@@ -176,7 +176,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task GetStudentById_ShouldReturnOkStatusCode()
+		public async Task GetBookingSessionById_ShouldReturnOkStatusCode()
 		{
 			_mockMediator
 				.Setup(m => m.Send(It.IsAny<GetBookingSessionQuery>(), It.IsAny<CancellationToken>()))
@@ -199,7 +199,7 @@ namespace UnitTests
 
 
 		[Fact]
-		public async Task CreateCar_ShouldReturnCreatedStatusCode()
+		public async Task CreateBookingSession_ShouldReturnCreatedStatusCode()
 		{
 			_mockMediator
 				   .Setup(m => m.Send(It.IsAny<CreateBookingSessionCommand>(), It.IsAny<CancellationToken>()))
@@ -293,7 +293,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task DeelteBookingSession_ShouldReturnNoContentStatusCode()
+		public async Task DeleteBookingSession_ShouldReturnNoContentStatusCode()
 		{
 			_mockMediator
 				   .Setup(m => m.Send(It.IsAny<DeteleBookingSessionCommand>(), It.IsAny<CancellationToken>()))

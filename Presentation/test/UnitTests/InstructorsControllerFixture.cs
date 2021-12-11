@@ -24,7 +24,7 @@ namespace UnitTests
 
 		#region EachRequestIsCalledOnceTests
 		[Fact]
-		public async Task GetInstructorListQuery_IsCalled()
+		public async Task GetInstructorList_IsCalled()
 		{
 			_mockMediator
 				.Setup(m => m.Send(It.IsAny<GetInstructorListQuery>(), It.IsAny<CancellationToken>()))
@@ -37,7 +37,7 @@ namespace UnitTests
 		}
 
 		[Fact]
-		public async Task GetInstructorQuery_IsCalled()
+		public async Task GetInstructor_IsCalled()
 		{
 			_mockMediator
 				.Setup(m => m.Send(It.IsAny<GetInstructorQuery>(), It.IsAny<CancellationToken>()))
@@ -50,7 +50,7 @@ namespace UnitTests
 		}
 
         [Fact]
-        public async Task CreateInstructorCommand_IsCalled()
+        public async Task CreateInstructor_IsCalled()
         {
             var createInstructorDto = new CreateInstructorDto
             {
@@ -88,7 +88,7 @@ namespace UnitTests
         }
 
         [Fact]
-		public async Task UpdateCar_IsCalled()
+		public async Task UpdateInstructorCar_IsCalled()
 		{
 			_mockMediator
 				.Setup(m => m.Send(It.IsAny<UpdateInstructorCommand>(), It.IsAny<CancellationToken>()))
@@ -120,7 +120,6 @@ namespace UnitTests
 
 			_mockMediator.Verify(x => x.Send(It.IsAny<UpdateInstructorCommand>(), It.IsAny<CancellationToken>()), Times.Once());
 		}
-
         #endregion EachRequestIsCalledOnceTests
 
         #region EachRequestReturnTheExpectedResponseTests
@@ -186,7 +185,6 @@ namespace UnitTests
             Assert.Equal((int)HttpStatusCode.OK, okResult.StatusCode);
         }
 
-
         [Fact]
         public async Task CreateInstructor_ShouldReturnCreatedStatusCode()
         {
@@ -211,8 +209,6 @@ namespace UnitTests
             Assert.Equal((int)HttpStatusCode.Created, okResult.StatusCode);
         }
 
-
-
         [Fact]
         public async Task ChangeInstructorEmploymentStatus_ShouldReturnNoContentStatusCode()
         {
@@ -230,7 +226,6 @@ namespace UnitTests
             var noContentResult = result as NoContentResult;
             Assert.Equal((int)HttpStatusCode.NoContent, noContentResult.StatusCode);
         }
-
 
         [Fact]
         public async Task ChangeInstructorCar_ShouldReturnNoContentStatusCode()
