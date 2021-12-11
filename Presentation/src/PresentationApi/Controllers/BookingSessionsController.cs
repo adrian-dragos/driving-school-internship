@@ -31,7 +31,7 @@ namespace PresentationApi.Controllers
             return Ok(bookingSession);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetBookingSession")]
         public async Task<ActionResult<BookingSessionDto>> GetBookingSession(int id)
         {
             var bookingSession = await _mediator.Send(new GetBookingSessionQuery { Id = id });
@@ -39,10 +39,10 @@ namespace PresentationApi.Controllers
         }
 
         [HttpPost("booking-session")]
-        public async Task<ActionResult<int>> CreateBookingSession([FromBody] CreateBookingSessionDto bookingSessionDto)
+        public async Task<ActionResult<BookingSessionDto>> CreateBookingSession([FromBody] CreateBookingSessionDto bookingSessionDto)
         {
-            var bookingSessionId = await _mediator.Send(new CreateBookingSessionCommand { BookingSessionDto = bookingSessionDto });
-            return Ok(bookingSessionId);
+            var bookingSession = await _mediator.Send(new CreateBookingSessionCommand { BookingSessionDto = bookingSessionDto });
+            return CreatedAtRoute("GetBookingSession", new { id = bookingSession.Id }, bookingSession);
         }
 
         [HttpPost("booking-sessions")]
