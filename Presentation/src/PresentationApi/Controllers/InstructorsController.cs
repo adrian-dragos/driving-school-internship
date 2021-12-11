@@ -30,7 +30,7 @@ namespace PresentationApi.Controllers
             return Ok(instructors);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetInstructor")]
         public async Task<ActionResult<InstructorDto>> GetInstructor(int id)
         {
             var instructor = await _mediator.Send(new GetInstructorQuery { Id = id });
@@ -38,14 +38,14 @@ namespace PresentationApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> CreateInstructor([FromBody] CreateInstructorDto instructorDto)
+        public async Task<ActionResult<InstructorDto>> CreateInstructor([FromBody] CreateInstructorDto instructorDto)
         {
-            var instructorId = await _mediator.Send(new CreateInstructorCommand { InstructorDto = instructorDto });
-            return Ok(instructorId);
+            var instructor = await _mediator.Send(new CreateInstructorCommand { InstructorDto = instructorDto });
+            return CreatedAtRoute("GetInstructor", new { id = instructor.Id }, instructor);
         }
 
         [HttpPatch("car/{id}")]
-        public async Task<ActionResult> UpdateCar(int id, [FromBody] ChangeInstructorCarDto instructorDto)
+        public async Task<ActionResult> UpdateInstructorCar(int id, [FromBody] ChangeInstructorCarDto instructorDto)
         {
             await _mediator.Send(new UpdateInstructorCommand { Id = id, ChangeInstructorCarDto = instructorDto });
             return NoContent();
