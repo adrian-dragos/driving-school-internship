@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookingSessions.Commands.CreateBookingSession
 {
-    public class CreateBookingSessionCommand : IRequest<int>
+    public class CreateBookingSessionCommand : IRequest<BookingSessionDto>
     {
         public CreateBookingSessionDto BookingSessionDto { get; set; }
     }

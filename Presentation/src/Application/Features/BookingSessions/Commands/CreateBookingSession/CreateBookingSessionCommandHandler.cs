@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.DTOs.EntityDtos.BookingSession;
+using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookingSessions.Commands.CreateBookingSession
 {
-    public class CreateBookingSessionCommandHandler : IRequestHandler<CreateBookingSessionCommand, int>
+    public class CreateBookingSessionCommandHandler : IRequestHandler<CreateBookingSessionCommand, BookingSessionDto>
     {
         private readonly IBookingSessionRepository _repository;
         private readonly IMapper _mapper;
@@ -23,12 +24,12 @@ namespace Application.Features.BookingSessions.Commands.CreateBookingSession
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<int> Handle(CreateBookingSessionCommand command, CancellationToken cancellationToken)
+        public async Task<BookingSessionDto> Handle(CreateBookingSessionCommand command, CancellationToken cancellationToken)
         {
             var bookginSession = _mapper.Map<BookingSession>(command.BookingSessionDto);
             bookginSession = await _repository.AddAsync(bookginSession);
             await _unitOfWork.SaveAsync();
-            return bookginSession.Id;
+            return _mapper.Map<BookingSessionDto>(bookginSession);
         }
     }
 }
