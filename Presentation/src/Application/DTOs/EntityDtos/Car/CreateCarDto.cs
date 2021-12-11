@@ -10,7 +10,7 @@ namespace Application.DTOs.EntityDtos.Car
 {
     public class CreateCarDto
     {
-        public CarModelTypeDto? CarModelType;
+        public CarModelTypeDto? CarModelType { get; set; }
         public CarGearDto? CarGear { get; set; }
         public DateTime? CarFabricationTime { get; set; }
         public string? RegistrationNumber { get; set; }
