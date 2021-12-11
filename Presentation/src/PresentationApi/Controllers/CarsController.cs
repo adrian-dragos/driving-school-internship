@@ -28,7 +28,7 @@ namespace PresentationApi.Controllers
             return Ok(cars);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetCar")]
         public async Task<ActionResult<CarDto>> GetCar(int id)
         {
             var car = await _mediator.Send(new GetCarQuery { Id = id });
@@ -36,10 +36,10 @@ namespace PresentationApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> CreateCar([FromBody] CreateCarDto carDto)
+        public async Task<ActionResult<CarDto>> CreateCar([FromBody] CreateCarDto carDto)
         {
-            var carId = await _mediator.Send(new CreateCarCommand { CarDto = carDto });
-            return Ok(carId);
+            var car = await _mediator.Send(new CreateCarCommand { CarDto = carDto });
+            return CreatedAtRoute("GetCar", new { id = car.Id }, car);
         }
 
         [HttpPatch("{id}")]
