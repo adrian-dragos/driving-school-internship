@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Instructors.Commands.CreateInstructor
 {
-    public class CreateInstructorCommand : IRequest<int>
+    public class CreateInstructorCommand : IRequest<InstructorDto>
     {
         public CreateInstructorDto InstructorDto { get; set; }
     }
