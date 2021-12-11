@@ -46,10 +46,10 @@ namespace PresentationApi.Controllers
         }
 
         [HttpPost("booking-sessions")]
-        public async Task<ActionResult<int>> CreateBookingSessions([FromBody] IEnumerable<CreateBookingSessionDto> bookingSessionDto)
+        public async Task<ActionResult<List<BookingSessionDto>>> CreateBookingSessions([FromBody] IEnumerable<CreateBookingSessionDto> bookingSessionDto)
         {
-            var bookingSessionsId = await _mediator.Send(new CreateBookingSessionListCommand { BookingSessionsDto = bookingSessionDto });
-            return Ok(bookingSessionsId);
+            var bookingSessions = await _mediator.Send(new CreateBookingSessionListCommand { BookingSessionsDto = bookingSessionDto });
+            return CreatedAtAction("CreateBookingSessions", bookingSessions);
         }
 
 
