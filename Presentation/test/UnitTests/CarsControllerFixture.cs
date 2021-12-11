@@ -52,23 +52,32 @@ namespace UnitTests
 		[Fact]
 		public async Task CreateCarCommand_IsCalled()
 		{
-			_mockMediator
-				.Setup(m => m.Send(It.IsAny<CreateCarCommand>(), It.IsAny<CancellationToken>()))
-				.Verifiable();
-
-			var controller = new CarsController(_mockMediator.Object);
-			var carDto = new CreateCarDto
+			var createStudentDto = new CreateCarDto
 			{
 				CarModelType = CarModelTypeDto.SkodaFabia,
 				CarGear = CarGearDto.Automatic,
-				CarFabricationTime = new DateTime(
-						Convert.ToInt32(2017),
-						Convert.ToInt32(03),
-						1),
+				CarFabricationTime = new DateTime(2017, 03, 1),
 				RegistrationNumber = "TM 055",
 				IsAvailable = false,
 			};
-			await controller.CreateCar(carDto);
+
+			var studentDto = new CarDto
+			{
+				Id = 1,
+				CarModelType = CarModelTypeDto.SkodaFabia,
+				CarGear = CarGearDto.Automatic,
+				CarFabricationTime = new DateTime(2017, 03, 1),
+				RegistrationNumber = "TM 055",
+				IsAvailable = false,
+			};
+
+			_mockMediator
+				.Setup(m => m.Send(It.IsAny<CreateCarCommand>(), It.IsAny<CancellationToken>()))
+				.Returns(Task.FromResult(studentDto))
+				.Verifiable();
+
+			var controller = new CarsController(_mockMediator.Object);
+			await controller.CreateCar(createStudentDto);
 
 			_mockMediator.Verify(x => x.Send(It.IsAny<CreateCarCommand>(), It.IsAny<CancellationToken>()), Times.Once());
 		}
@@ -103,10 +112,7 @@ namespace UnitTests
 							Id = 2,
 							CarModelType = CarModelTypeDto.DaciaSandero,
 							CarGear = CarGearDto.Manual,
-							CarFabricationTime = new DateTime(
-								Convert.ToInt32(2017),
-								Convert.ToInt32(02),
-								1),
+							CarFabricationTime = new DateTime(2017, 03, 1),
 							RegistrationNumber = "TM 824",
 							IsAvailable = false,
 						},
@@ -115,10 +121,7 @@ namespace UnitTests
 							Id = 2,
 							CarModelType = CarModelTypeDto.DaciaSandero,
 							CarGear = CarGearDto.Manual,
-							CarFabricationTime = new DateTime(
-								Convert.ToInt32(2017),
-								Convert.ToInt32(02),
-								1),
+							CarFabricationTime = new DateTime(2017, 03, 1),
 							RegistrationNumber = "TM 824",
 							IsAvailable = false,
 						}
@@ -142,10 +145,7 @@ namespace UnitTests
 							Id = 2,
 							CarModelType = CarModelTypeDto.DaciaSandero,
 							CarGear = CarGearDto.Manual,
-							CarFabricationTime = new DateTime(
-								Convert.ToInt32(2017),
-								Convert.ToInt32(02),
-								1),
+							CarFabricationTime = new DateTime(2017, 03, 1),
 							RegistrationNumber = "TM 824",
 							IsAvailable = false,
 						});
@@ -159,29 +159,36 @@ namespace UnitTests
 
 
 		[Fact]
-		public async Task CreateCar_ShouldReturnOkStatusCode()
+		public async Task CreateCar_ShouldReturnCreatedStatusCode()
 		{
 			_mockMediator
 				   .Setup(m => m.Send(It.IsAny<CreateCarCommand>(), It.IsAny<CancellationToken>()))
-				   .ReturnsAsync(1);
+				   .ReturnsAsync(
+						new CarDto
+						{
+							Id = 2,
+							CarModelType = CarModelTypeDto.DaciaSandero,
+							CarGear = CarGearDto.Manual,
+							CarFabricationTime = new DateTime(2017, 03, 1),
+							RegistrationNumber = "TM 824",
+							IsAvailable = false,
+						});
 
 			var car = new CreateCarDto
 			{
 				CarModelType = CarModelTypeDto.DaciaSandero,
 				CarGear = CarGearDto.Manual,
-				CarFabricationTime = new DateTime(
-								Convert.ToInt32(2017),
-								Convert.ToInt32(02),
-								1),
+				CarFabricationTime = new DateTime(2017, 03, 1),
 				RegistrationNumber = "TM 824",
 				IsAvailable = false,
 			};
 			var controller = new CarsController(_mockMediator.Object);
 			var result = await controller.CreateCar(car);
 
-			var okResult = result.Result as OkObjectResult;
-			Assert.Equal((int)HttpStatusCode.OK, okResult.StatusCode);
+			var objectResponse = result.Result as ObjectResult;
+			Assert.Equal((int)HttpStatusCode.Created, objectResponse.StatusCode);
 		}
+
 
 		[Fact]
 		public async Task ChangeCarAvailability_ShouldReturnNoContentStatusCode()
@@ -218,10 +225,7 @@ namespace UnitTests
 							Id = q.Id,
 							CarModelType = CarModelTypeDto.SkodaFabia,
 							CarGear = CarGearDto.Automatic,
-							CarFabricationTime = new DateTime(
-								Convert.ToInt32(2017),
-								Convert.ToInt32(03),
-								1),
+							CarFabricationTime = new DateTime(2017, 03, 1),
 							RegistrationNumber = "TM 055",
 							IsAvailable = false,
 						});
