@@ -49,30 +49,45 @@ namespace UnitTests
 			_mockMediator.Verify(x => x.Send(It.IsAny<GetInstructorQuery>(), It.IsAny<CancellationToken>()), Times.Once());
 		}
 
-		[Fact]
-		public async Task CreateInstructorCommand_IsCalled()
-		{
-			_mockMediator
-				.Setup(m => m.Send(It.IsAny<CreateInstructorCommand>(), It.IsAny<CancellationToken>()))
-				.Verifiable();
+        [Fact]
+        public async Task CreateInstructorCommand_IsCalled()
+        {
+            var createInstructorDto = new CreateInstructorDto
+            {
+                FirstName = "Mihai",
+                LastName = "Ionascu",
+                Email = "mihai.ionascu23@gmail.com",
+                PhoneNumber = "+40 742 950 144",
+                Birthday = new DateTime(1982, 02, 27),
+                IsCurrentlyEmployed = true,
+                CarId = 4
+            };
 
-			var controller = new InstructorsController(_mockMediator.Object);
-			var instructorDto = new CreateInstructorDto
-			{
-				FirstName = "Radu",
-				LastName = "Mazur",
-				Email = "radu.mazur88@gmail.com",
-				PhoneNumber = "+40 722 101 021",
-				Birthday = new DateTime(1988, 08, 17),
-				IsCurrentlyEmployed = true,
-				CarId = 5,
-			};
-			await controller.CreateInstructor(instructorDto);
+            var instructorDto = new InstructorDto
+            {
+                Id = 1,
+                FirstName = "Mihai",
+                LastName = "Ionascu",
+                Email = "mihai.ionascu23@gmail.com",
+                PhoneNumber = "+40 742 950 144",
+                Birthday = new DateTime(1982, 02, 27),
+                IsCurrentlyEmployed = true,
+                CarId = 4
+            };
 
-			_mockMediator.Verify(x => x.Send(It.IsAny<CreateInstructorCommand>(), It.IsAny<CancellationToken>()), Times.Once());
-		}
+            _mockMediator
+             .Setup(m => m.Send(It.IsAny<CreateInstructorCommand>(), It.IsAny<CancellationToken>()))
+             .Returns(Task.FromResult(instructorDto))
+             .Verifiable();
 
-		[Fact]
+
+            var controller = new InstructorsController(_mockMediator.Object);
+            await controller.CreateInstructor(createInstructorDto);
+
+            _mockMediator.Verify(x => x.Send(It.IsAny<CreateInstructorCommand>(), It.IsAny<CancellationToken>()), Times.Once());
+        }
+
+        [Fact]
 		public async Task UpdateCar_IsCalled()
 		{
 			_mockMediator
@@ -84,7 +99,7 @@ namespace UnitTests
             {
 				CarId = 2
 			};
-			await controller.UpdateCar(1, instructorDto);
+			await controller.UpdateInstructorCar(1, instructorDto);
 
 			_mockMediator.Verify(x => x.Send(It.IsAny<UpdateInstructorCommand>(), It.IsAny<CancellationToken>()), Times.Once());
 		}
@@ -173,11 +188,11 @@ namespace UnitTests
 
 
         [Fact]
-        public async Task CreateInstructor_ShouldReturnOkStatusCode()
+        public async Task CreateInstructor_ShouldReturnCreatedStatusCode()
         {
             _mockMediator
                    .Setup(m => m.Send(It.IsAny<CreateInstructorCommand>(), It.IsAny<CancellationToken>()))
-                   .ReturnsAsync(1);
+                   .ReturnsAsync(new InstructorDto());
 
             var instructor = new CreateInstructorDto
             {
@@ -192,8 +207,8 @@ namespace UnitTests
             var controller = new InstructorsController(_mockMediator.Object);
             var result = await controller.CreateInstructor(instructor);
 
-            var okResult = result.Result as OkObjectResult;
-            Assert.Equal((int)HttpStatusCode.OK, okResult.StatusCode);
+            var okResult = result.Result as ObjectResult;
+            Assert.Equal((int)HttpStatusCode.Created, okResult.StatusCode);
         }
 
 
@@ -229,7 +244,7 @@ namespace UnitTests
                 CarId = 1
             };
             var controller = new InstructorsController(_mockMediator.Object);
-            var result = await controller.UpdateCar(1, instructor);
+            var result = await controller.UpdateInstructorCar(1, instructor);
 
             var noContentResult = result as NoContentResult;
             Assert.Equal((int)HttpStatusCode.NoContent, noContentResult.StatusCode);
