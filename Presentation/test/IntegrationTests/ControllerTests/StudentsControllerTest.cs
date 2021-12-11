@@ -111,5 +111,11 @@ namespace IntegrationTests.ControllerTests
             Assert.AreEqual(newStudent.Email, student.Email);
             Assert.AreEqual(newStudent.Birthday, student.Birthday);
         }
+
+        [ClassCleanup]
+        public static void ClassCleanup()
+        {
+            _factory.Dispose();
+        }
     }
 }
