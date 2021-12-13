@@ -163,10 +163,11 @@ namespace IntegrationTests.ControllerTests
             Assert.AreEqual(HttpStatusCode.InternalServerError, response.StatusCode);
         }
 
+        [TestMethod]
         public async Task DeleteBookingSession_ShouldReturnNoContentResponse()
         {
             var client = _factory.CreateClient();
-            var response = await client.DeleteAsync($"api/bookingsessions");
+            var response = await client.DeleteAsync($"api/bookingsessions/1");
             Assert.IsTrue(response.StatusCode == HttpStatusCode.NoContent);
         }
 
