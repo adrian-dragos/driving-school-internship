@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'UserInterface';
+  name = 'Donald Trump';
+  sidenavIsOpened: boolean = true;
+
+  toggleSideBar() {
+    this.sidenavIsOpened = !this.sidenavIsOpened;
+  }
 }
