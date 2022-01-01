@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+
+import { Component} from '@angular/core';
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,6 +9,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  
+
   title = 'UserInterface';
   name = 'Donald Trump';
   sidenavIsOpened: boolean = true;
@@ -17,5 +22,15 @@ export class AppComponent {
 
   toggleMenu() {
     this.openedAvatar = !this.openedAvatar;
+  }
+
+
+
+
+  doSomething() {
+    let element = (<HTMLElement>document.getElementById('dropDown'));
+    element.click();
+    console.log("vasea");
+    //this.dropDown.nativeElement.innerHTML.triggerHandler('click');
   }
 }
