@@ -1,6 +1,4 @@
-
 import { Component} from '@angular/core';
-
 
 
 @Component({
@@ -24,13 +22,12 @@ export class AppComponent {
     this.openedAvatar = !this.openedAvatar;
   }
 
-
-
-
   doSomething() {
     let element = (<HTMLElement>document.getElementById('dropDown'));
     element.click();
-    console.log("vasea");
-    //this.dropDown.nativeElement.innerHTML.triggerHandler('click');
   }
+
+  refreshPage(): void {
+    window.location.reload();
+}
 }
