@@ -1,5 +1,5 @@
 .custom-sidenav-container { 
-    top: 64px !important;
+    top: 50px !important;
 } 
 
 .mat-toolbar-row-display {
@@ -13,7 +13,7 @@
 }  
 
 .custom-div-sidenav-container { 
-    bottom: 0;
+    bottom: 0px;
     height: 100%;
  }
  
@@ -64,3 +64,33 @@
         border-color: #cdd8dd;
     }
 }
+
+a {
+    text-decoration: none
+}
+
+a:link, a:visited{
+    color: #20a8d8;
+    font-weight: bold;
+}
+
+.footer-div {
+    position: relative;
+    right: 0px;
+    bottom: 0px;
+    border: 1px solid #ced5d9;
+    background-color: #f0f3f5;
+    padding: 25px;
+    padding-bottom: 13px;
+    margin-top: 0px;
+}
+
+.side-nav-text {
+    color: black; 
+    font-weight: lighter;
+}
+
+.sidenav-icons {
+    color: black;
+}
+

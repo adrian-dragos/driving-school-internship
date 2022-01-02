@@ -9,14 +9,10 @@ import { Component} from '@angular/core';
 export class AppComponent {
   
 
-  title = 'UserInterface';
+  title: string = "Planificare Lecții";
   name = 'Donald Trump';
-  sidenavIsOpened: boolean = true;
   openedAvatar: boolean = false;
 
-  toggleSideBar() {
-    this.sidenavIsOpened = !this.sidenavIsOpened;
-  }
 
   toggleMenu() {
     this.openedAvatar = !this.openedAvatar;
@@ -29,5 +25,5 @@ export class AppComponent {
 
   refreshPage(): void {
     window.location.reload();
-}
+  }
 }

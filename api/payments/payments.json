@@ -1,0 +1,23 @@
+[
+    {
+      "date": "2021-04-23T18:25:43.511Z",
+      "sum": "50",
+      "service": "Practică",
+      "paymentMethod": "Credit Card",
+      "payer": "Donald Trump"
+    },
+    {
+        "date": "2021-02-23T18:25:43.511Z",
+        "sum": "200",
+        "service": "Practică",
+        "paymentMethod": "Credit Card",
+        "payer": "Donald Trump"
+      },
+      {
+        "date": "2021-01-23T18:25:43.511Z",
+        "sum": "1000",
+        "service": "Practică",
+        "paymentMethod": "Credit Card",
+        "payer": "Admin"
+      }
+  ]
