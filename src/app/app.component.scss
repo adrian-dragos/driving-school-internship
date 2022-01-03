@@ -75,14 +75,17 @@ a:link, a:visited{
 }
 
 .footer-div {
-    position: relative;
+    position: inherit;
     right: 0px;
     bottom: 0px;
+    width: 100%;
     border: 1px solid #ced5d9;
     background-color: #f0f3f5;
     padding: 25px;
     padding-bottom: 13px;
     margin-top: 0px;
+    display: block;
+    flex: 1 0 auto;
 }
 
 .side-nav-text {

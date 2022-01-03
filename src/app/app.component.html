@@ -24,7 +24,7 @@
           </button>
 
           <mat-menu #menu="matMenu"  class="mat-menu-display">
-            <button mat-menu-item routerLink='/account'>              
+            <button mat-menu-item routerLink='/account/personal-data'>              
               <span>Date Personale</span>
             </button>
             <button mat-menu-item>
@@ -80,7 +80,7 @@
           </span>
         </a>
 
-        <a mat-list-item routerLink='/account'> 
+        <a mat-list-item routerLink='/account/personal-data'> 
           <mat-icon class='sidenav-icons'>
             tag_faces
           </mat-icon>
@@ -96,9 +96,9 @@
       <section>
         <router-outlet>
         </router-outlet>
-      </section>
+      </section> 
 
-      <footer style="bottom: 0px;">
+      <footer contentEditable style="bottom: 0px;">
         <div class="footer-div">
           <span> <b>Copyright © 2022 </b> <a href="/">Five Dollars</a>. Toate drepturile rezervate. </span>
         </div>

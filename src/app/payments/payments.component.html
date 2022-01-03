@@ -1,30 +1,37 @@
-<div class="main-div">
-    
-    <span class="title">
-            Lista Plăților
-    </span>  
-    
-    <hr>
-    
+<div class="main-main-div">
 
-    <table class='table'>
-        <thead>
+  <div class="main-div">
+      <span class="title">
+              Lista Plăților
+      </span>  
+      
+      <hr>
+      <div>
+        <table class="table">
+          <thead>
           <tr>
-            <th>Data</th>
-            <th>Suma</th>
-            <th>Serviciu achitat</th>
-            <th>Metoda de plată</th>
-            <th>Cine a adăugat plata</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>a</td>
-                <td>b</td>
-                <td>c</td>
-                <td>d</td>
-                <td>e</td> 
-            </tr>    
-        </tbody>
-      </table>
+              <th scope="col">Date</th>
+              <th scope="col">Suma</th>
+              <th scope="col">Serviciul achitat</th>
+              <th scope="col">Metoda </th>
+              <th scope="col">Cine a adăugat plata </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let payment of payments'>
+              <td>{{ payment.date | date:'medium'}}</td>
+              <td>{{ payment.sum }} lei</td>
+              <td>{{ payment.service }}</td>
+              <td>
+                  <span class="payment-method-text">
+                      &nbsp;&nbsp;{{ payment.paymentMethod }}&nbsp;&nbsp;
+                  </span>
+              </td>
+              <td>{{ payment.payer }}</td>
+            </tr>
+          </tbody>
+        </table>  
+      </div>
+    
+  </div>
 </div>

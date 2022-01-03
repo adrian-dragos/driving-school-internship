@@ -11,12 +11,15 @@
     background-color: #ffffff;
 }
 
+.main-main-div {
+    display: flex;
+    min-height: 88.5vh;
+    flex-direction: column;
+}
 
-
-
-
-
-.table {
-    width: 100%;
-    border-bottom: 1 solid black;
+.payment-method-text {
+    background-color: #20a8d8;
+    font-size: x-small;
+    color: white;
+    margin-right: 10px;
 }

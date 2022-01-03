@@ -1,1 +1,27 @@
-<p>account works!</p>
+<div class="main-div">
+    <nav class="navbar navbar-dark my-custom-nav">
+        <div class="btn-group">
+            <button mat-button routerLink='/account/personal-data' (click)="changeTitleToPersonalData()">Date Personale</button>
+            <button mat-button routerLink='edit' (click)="changeTitleToEdit()">Editați contul</button>
+            <button mat-button routerLink='upload' (click)="changeTitleToUpload()">Încărcați documente</button>
+            <button mat-button routerLink='change-password'  (click)="changeTitleToChangePassword()">Modifică parola</button>   
+        </div>
+    </nav>
+
+
+    <div class="main-container">
+        <div class="title-container">
+            <div class="title">
+                {{title}}
+            </div>
+        </div>
+
+        <div class="body-container">
+
+            <section>
+                <router-outlet>
+                </router-outlet>
+              </section>       
+        </div>
+    </div>
+</div>
