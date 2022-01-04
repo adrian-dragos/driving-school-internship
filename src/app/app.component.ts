@@ -12,6 +12,7 @@ export class AppComponent {
   title: string = "Planificare Lecții";
   name = 'Donald Trump';
   openedAvatar: boolean = false;
+  loged: boolean = false;
 
 
   toggleMenu() {
