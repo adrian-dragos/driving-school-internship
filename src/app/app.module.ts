@@ -20,6 +20,7 @@ import { PersonalDataComponent } from './account/personal-data/personal-data.com
 import { EditComponent } from './account/edit/edit.component';
 import { UploadComponent } from './account/upload/upload.component';
 import { LoginComponentComponent } from './login/login-component.component';
+import { MainAppComponent } from './main-app/main-app.component';
 
 
 
@@ -35,7 +36,8 @@ import { LoginComponentComponent } from './login/login-component.component';
     PersonalDataComponent,
     EditComponent,
     UploadComponent,
-    LoginComponentComponent
+    LoginComponentComponent,
+    MainAppComponent
   ],
   imports: [
     BrowserModule,
@@ -46,20 +48,27 @@ import { LoginComponentComponent } from './login/login-component.component';
     HttpClientModule,
     MaterialExampleModule,
     RouterModule.forRoot([
-      { 
-        path: 'account', component: AccountComponent,
+      { path: 'main', redirectTo: 'main/account/personal-data'},
+      { path: 'main/account', redirectTo: 'main/account/personal-data'},
+      {
+        path: 'main', component: MainAppComponent,
         children: [
-          { path: 'personal-data', component: PersonalDataComponent},
-          { path: 'edit', component: EditComponent},
-          { path: 'upload', component: UploadComponent},
-          { path: 'change-password', component: ModifyPasswordComponent},
+        { 
+          path: 'account', component: AccountComponent,
+          children: [
+            { path: 'personal-data', component: PersonalDataComponent},
+            { path: 'edit', component: EditComponent},
+            { path: 'upload', component: UploadComponent},
+            { path: 'change-password', component: ModifyPasswordComponent},
+          ]
+        },
+        { path: 'lessons', component: LessonsComponent},
+        { path: 'practice', component: SchedulComponent},
+        { path: 'payments', component: PaymentsComponent },
+        { path: 'reviews', component: ReviewsComponent},
         ]
       },
       { path: 'login', component: LoginComponentComponent},
-      { path: 'lessons', component: LessonsComponent},
-      { path: 'practice', component: SchedulComponent},
-      { path: 'payments', component: PaymentsComponent },
-      { path: 'reviews', component: ReviewsComponent},
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', redirectTo: 'login', pathMatch: 'full' }
     ])
