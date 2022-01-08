@@ -78,7 +78,7 @@ a:link, a:visited{
     position: inherit;
     right: 0px;
     bottom: 0px;
-    width: 100%;
+    width: 95%;
     border: 1px solid #ced5d9;
     background-color: #f0f3f5;
     padding: 25px;
@@ -95,5 +95,12 @@ a:link, a:visited{
 
 .sidenav-icons {
     color: black;
+}
+
+
+.expansion-panel {
+    border: none !important;
+    margin: 0px !important;
+    padding: 0 !important;
 }
 

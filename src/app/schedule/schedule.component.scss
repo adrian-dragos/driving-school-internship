@@ -6,22 +6,42 @@
     border: 1px solid #cdd8dd;
     margin: 25px;
     margin-bottom: 2px;
+    background-color: white;
 }
 
-.div-title {
-    font-size: x-large;
-    text-align: left;
-    border: 1px solid #cdd8dd;
-    background-color: #f0f3f5;
-    line-height: 1.5;
-    text-align: left;
-}
 
-.div-content{
-    border: 1px solid #cdd8dd;
-}
-
-.center {
+.title {
     margin: auto;
     padding: 10px;
-  }
+    padding-bottom: 1px;
+    line-height: 1.5;
+    text-align: left;
+    font-size: large;
+
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.30fr 1fr;
+    grid-gap: 20px;
+    background-color: white;
+    height: 95%;
+    width: 100%;
+}
+
+
+.grid-child-left {
+    // border: 2px solid red;
+    padding: 20px;
+}
+
+.grid-child-right {
+    // border: 2px solid red;
+    padding: 20px;
+}
+
+
+.inline-calendar-card {
+    height: inherit;
+}

@@ -12,11 +12,11 @@
           <h1> <a style="cursor: pointer" (click)="refreshPage()">FiveDollars</a></h1>
           <span class="example-spacer"></span>
           
-          <mat-icon mat-card-avata class="avatar-icon-display"  (click)="doSomething()">
+          <mat-icon id="avatar" mat-card-avata class="avatar-icon-display"  (click)="doSomething()">
             account_circle
           </mat-icon> 
   
-          <span class="avatar-name" (click)="doSomething()">
+          <span id="avatar-name" class="avatar-name" (click)="doSomething()" (mouseover)='over()' (mouseout)='out()'>
             {{name}}
           </span>
           
@@ -25,12 +25,12 @@
                 <mat-icon id='dropDown'>arrow_drop_down</mat-icon> 
               </button>
   
-              <mat-menu #menu="matMenu"  class="mat-menu-display">
+              <mat-menu #menu="matMenu"  class="mat-menu-display" >
                 <button mat-menu-item routerLink='./account/personal-data'>              
                   <span>Date Personale</span>
                 </button>
-                <button mat-menu-item routerLink='/login'>
-                  <mat-icon mat-card-avata class="icon-display" class='logout-icon'>exit_to_app</mat-icon> 
+                <button mat-menu-item routerLink='/login' (click)="openLogoutBar()">
+                  <mat-icon mat-card-avata class="icon-display" class='logout-icon'> exit_to_app </mat-icon> 
                   <span>Ieșire</span>
                 </button>
               </mat-menu>

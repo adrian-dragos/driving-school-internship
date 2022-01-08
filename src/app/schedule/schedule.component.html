@@ -1,36 +1,31 @@
 <div style="height: 86vh;">
+
+
     <div class="div-container">
-      <div class="div-title">
-        <div class="center"> 
-          <b>Planificare lecții practice</b>
+      
+      
+        <div class="title"> 
+          Planificare lecții practice
           </div>   
-        </div> 
-
-        <div class="container" style="background-color: white; width: 100%; position: relative;">
-            <div class="row">
-                <div class="col-md-8">col-sm-8</div>
-                <div class="col-md-4">col-sm-4</div>
-            </div>
-            <div class="row">
-                <div class="col-md">col-sm</div>
-                <div class="col-md">col-sm</div>
-                <div class="col-md">col-sm</div>
-            </div>
-        </div>
         
-        <!-- <div>
-          <div style="padding: 20px; padding-left: 0px; height: 250px; width: 250px;">
-            <mat-card class="demo-inline-calendar-card">
-              <mat-calendar></mat-calendar>
-            </mat-card> 
-          </div> 
-      </div>
+        <hr style="margin-left: 10px; margin-right: 10px;">
 
-      <div>
-        <div style="padding: 100px;">
-          vasea
+
+        <div class="grid-container">
+          <div class="grid-child-left">
+            <mat-card class="inline-calendar-card">
+              <mat-calendar [(selected)]="selected"></mat-calendar>
+            </mat-card>
+          </div>
+          <div class="grid-child-right">
+            <div class="title">
+              Locuri Libere 
+            </div>
+            <hr style="margin-left: 10px; margin-right: 10px;">
+
         </div>
-      </div> -->
-
     </div>
   </div>
+
+  
+</div>

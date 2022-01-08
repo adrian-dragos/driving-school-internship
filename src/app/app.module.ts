@@ -19,7 +19,7 @@ import { ModifyPasswordComponent } from './account/modify-password/modify-passwo
 import { PersonalDataComponent } from './account/personal-data/personal-data.component';
 import { EditComponent } from './account/edit/edit.component';
 import { UploadComponent } from './account/upload/upload.component';
-import { LoginComponentComponent } from './login/login-component.component';
+import { LoginComponent } from './login/login-component.component';
 import { MainAppComponent } from './main-app/main-app.component';
 
 
@@ -36,7 +36,7 @@ import { MainAppComponent } from './main-app/main-app.component';
     PersonalDataComponent,
     EditComponent,
     UploadComponent,
-    LoginComponentComponent,
+    LoginComponent,
     MainAppComponent
   ],
   imports: [
@@ -68,7 +68,7 @@ import { MainAppComponent } from './main-app/main-app.component';
         { path: 'reviews', component: ReviewsComponent},
         ]
       },
-      { path: 'login', component: LoginComponentComponent},
+      { path: 'login', component: LoginComponent},
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', redirectTo: 'login', pathMatch: 'full' }
     ])
