@@ -1,5 +1,5 @@
 <div class="main-container">
-    <form>
+    <form [formGroup]="reviewForm">
 
         <div class="review-container">
             <div class="title-title">
@@ -27,39 +27,103 @@
             <p>
                 <b>Instructor:</b> Soficiuc Dorin<br>
                 <b>Mașina:</b> Dacia Sandero
+                <br>
+                <br>
+                Cum evaluezi instructorul?
             </p>
 
-            <button class="green-circle" type="submit"></button>
-            <ul>
-                <li>Excelent!</li>
-                <li>Instructorul NU a stat și s-a uitat în telefon.</li>
-                <li>Instructorul Nu a fumat în timpul orelor.</li>
-                <li>Mașina curată.</li>
-                <li>Atitudine bună.</li>
-            </ul>
+            
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight"> 
+                    <button 
+                    class="rounded-circle green-circle" 
+                    (click)="changeColorGreenButton()" 
+                    [ngStyle]="{'background-color': greenButtonColor }">
+                    </button>
+                </div>
+                <div class="p-2 bd-highlight"> 
+                    <ul class="list">
+                        <li>Excelent!</li>
+                        <li>Instructorul NU a stat și s-a uitat în telefon.</li>
+                        <li>Instructorul Nu a fumat în timpul orelor.</li>
+                        <li>Mașina curată.</li>
+                        <li>Atitudine bună.</li>
+                    </ul>
+                </div>
+            </div>
+            
 
-            <button class="yellow-circle" type="submit"></button>
-            <ul>
-                <li>Bine!</li>
-                <li>Instructorul a stat și s-a uitat în telefon.</li>
-                <li>Instructorul a fost amabil.</li>
-                <li>Instructorul a fumat în timpul orelor.</li>
-                <li>Mașina prăfuită.</li>
-            </ul>
-            <button class="red-circle" type="submit"></button>
-            <ul>
-                <li>Nesatisfăcător!</li>
-                <li>Mașina prăfuită sau murdară.</li>
-                <li>Instructorul a stat și s-a uitat în telefon.</li>
-                <li>Instructorul a fost nervos, a ridicat vocea.</li>
-                <li>Instructorul a fumat în timpul orelor.</li>
-            </ul>
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <button
+                    class="rounded-circle yellow-circle" 
+                    (click)="changeColorYellowButton()" 
+                    [ngStyle]="{'background-color': yellowButtonColor }">
+                </button>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <ul class="list">
+                        <li>Bine!</li>
+                        <li>Instructorul a stat și s-a uitat în telefon.</li>
+                        <li>Instructorul a fost amabil.</li>
+                        <li>Instructorul a fumat în timpul orelor.</li>
+                        <li>Mașina prăfuită.</li>
+                    </ul>
+                </div>
+                
+              </div>
+
+
+            <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                    <button 
+                    class="rounded-circle red-circle" 
+                    (click)="changeColorRedButton()" 
+                    [ngStyle]="{'background-color': redButtonColor }">
+                </button>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <ul class="list">
+                        <li>Nesatisfăcător!</li>
+                        <li>Mașina prăfuită sau murdară.</li>
+                        <li>Instructorul a stat și s-a uitat în telefon.</li>
+                        <li>Instructorul a fost nervos, a ridicat vocea.</li>
+                        <li>Instructorul a fumat în timpul orelor.</li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <p 
+              class="invalid-form"
+              *ngIf="showError"
+              >
+              Vă rugăm frumos să selectați o culoare care descrie cel mai bine instructorul.
+            </p>
+
+            <div style="padding-bottom: 10px;">
+                <label for="description">Descriere</label>
+                <textarea 
+                class="form-control" 
+                id="description" 
+                rows="3"
+                formControlName="description"></textarea>
+              </div>
+              <span 
+              class="invalid-form"
+              *ngIf="!showError && !reviewForm.controls.description?.valid && (reviewForm.controls.description?.dirty || reviewForm.controls.description?.touched)"
+              >
+              Vă rugăm frumos să lasați o scurtă descriere.
+            </span>
         </div>
     </form>
 
-    <!-- <div class="send-container">
-        <button mat-raised-button color="primary" style="margin-left: 40%; margin-right: 40%; margin-top: 10px">
-            Trimit Evaluarea
+    <div class="send-container">
+        <button 
+        mat-raised-button color="primary" 
+        style="margin-left: 40%; margin-right: 40%; margin-top: 15px; height: 30px;"
+        (click)=onSumbit()>
+            Trimite Evaluarea
         </button>
-    </div> -->
+    </div>
 </div>
