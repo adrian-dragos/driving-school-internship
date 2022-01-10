@@ -14,18 +14,59 @@
         <div class="grid-container">
           <div class="grid-child-left">
             <mat-card class="inline-calendar-card">
-              <mat-calendar [(selected)]="selected"></mat-calendar>
+              <mat-calendar [(selected)]="selected" (click)="filterListByDate()"></mat-calendar>
             </mat-card>
           </div>
           <div class="grid-child-right">
             <div class="title">
               Locuri Libere 
             </div>
+            <div>
+              {{selected | date:'shortDate'}}
+            </div>
+  
             <hr style="margin-left: 10px; margin-right: 10px;">
+            
 
+            <table class="my-table">
+              <tr class="my-table-row">
+                <th class="my-table-head">
+                  Data/Ora
+                </th>
+                <th class="my-table-head">
+                  Instructor
+                </th>
+              </tr>
+
+              <tr 
+              class="my-row " 
+              *ngFor="let lesson of filteredLessons" 
+              (click)="changeBackgroundColor(lesson)"
+              [class.lesson-selected]="lesson.isSelected"
+              (click)="toggleLessonsSelection(lesson)">
+                <td class="my-table-cell hand-pointer">
+                    {{lesson.date | date:'medium'}}
+                <td class="my-table-cell">
+                    {{lesson.instructor}} /
+                    {{lesson.car}} /
+                    {{lesson.gearType}}
+                </td>
+                <td class="my-table-cell hand-pointer">
+                  <mat-icon [class.tarsh-can-white]="!lesson.isSelected" [class.tarsh-can-red]="lesson.isSelected">delete</mat-icon>  
+                </td>
+                
+              </tr>
+              <tr *ngIf="filteredLessons.length == 0">
+                <td class="my-table-cell" collspan="2">
+                  Nu sunt lecții libere.
+                </td>
+              </tr>
+            </table>
         </div>
     </div>
   </div>
 
   
 </div>
+
+

@@ -1,5 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
+
 .div-container {
     width: 95%;
     height: 95%;
@@ -44,4 +45,40 @@
 
 .inline-calendar-card {
     height: inherit;
+}
+
+
+.my-table {
+    border: 1px solid#cecece;
+    width: 100%;
+}
+
+.my-table-row {
+    border: 1px solid #cecece;
+}
+
+.my-table-cell {
+    border-bottom: 1px solid #cecece;
+    border-top: 1px solid #cecece;
+    padding: 5px;
+}
+
+.hand-pointer {
+    cursor: pointer;
+}
+
+.my-table-head {
+    padding: 10px;
+}
+
+.lesson-selected {
+    background-color: #cdedd8;
+}
+
+.tarsh-can-white {
+    color: white;
+}
+
+.tarsh-can-red {
+    color: red;
 }

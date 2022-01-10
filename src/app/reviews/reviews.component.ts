@@ -82,7 +82,7 @@ export class ReviewsComponent implements OnInit {
     if (this.redButton || this.yellowButton || this.greenButton) {      
       this.showError = false;
       this.goToSchedule();
-      this._snackBar.open("Evaluarea efectuată cu succes. Vă mulțumim pentru evaluarea dumneavoastră.", "", {
+      this._snackBar.open("Evaluarea efectuată cu succes. Vă mulțumim pentru evaluarea dvs.", "", {
         duration: 5000, 
         panelClass: ['green-snackbar', ]   
       });

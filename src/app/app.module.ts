@@ -21,6 +21,7 @@ import { EditComponent } from './account/edit/edit.component';
 import { UploadComponent } from './account/upload/upload.component';
 import { LoginComponent } from './login/login-component.component';
 import { MainAppComponent } from './main-app/main-app.component';
+import { CancelLessonDialogComponent } from './schedule/cancel-lesson-dialog/cancel-lesson-dialog.component';
 
 
 
@@ -37,7 +38,8 @@ import { MainAppComponent } from './main-app/main-app.component';
     EditComponent,
     UploadComponent,
     LoginComponent,
-    MainAppComponent
+    MainAppComponent,
+    CancelLessonDialogComponent
   ],
   imports: [
     BrowserModule,
