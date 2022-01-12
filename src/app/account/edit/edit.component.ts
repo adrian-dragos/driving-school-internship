@@ -74,7 +74,7 @@ export class EditComponent implements OnInit {
     let birthday = this.toDate(this.editForm.get('birthday').value);    
     let gearType = this.editForm.get('gearType').value;
     console.log("birthday" + birthday);
-    let person = new Person(email, this.appService.globalId, firstName, lastName, phoneNumber, birthday, gearType);
+    let person = new Person(email, this.appService.globalId, firstName, lastName, phoneNumber, birthday, gearType, null);
 
     await this.appService.modifyUserPersonalData(person)
       .subscribe(

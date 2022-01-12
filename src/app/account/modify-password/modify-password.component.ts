@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AppService } from 'src/app/app.service';
 import { CustomValidators } from 'src/app/login/custom-validators/custom-validators';
+import { Person } from 'src/app/Person';
 
 
 @Component({
@@ -11,7 +13,7 @@ import { CustomValidators } from 'src/app/login/custom-validators/custom-validat
 })
 export class ModifyPasswordComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(private _snackBar: MatSnackBar, private appService : AppService) {}
 
   modifyPasswordForm: FormGroup;
   submitted: boolean = false;
@@ -42,25 +44,54 @@ export class ModifyPasswordComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    console.log("onModifyPassword");
-    this.modifyPasswordForm.markAllAsTouched();
-    console.log(this.modifyPasswordForm);
-    this.submitted = true;
+  async onSubmit() {
 
-    if (this.modifyPasswordForm.valid){
-      this._snackBar.open("Parola a fost modificată", "", {
-        duration: 4000, 
-        panelClass: ['green-snackbar', ]   
-      });
 
-      this.modifyPasswordForm.reset();
-      this.modifyPasswordForm.get('_oldPassword').clearValidators();
-      this.modifyPasswordForm.get('_oldPassword').updateValueAndValidity();
-      this.modifyPasswordForm.get('_newPassword').clearValidators();
-      this.modifyPasswordForm.get('_newPassword').updateValueAndValidity();
-      this.modifyPasswordForm.get('confirmPassword').clearValidators();
-      this.modifyPasswordForm.get('confirmPassword').updateValueAndValidity();        
-    }
+    await this.appService.getGlobalUserById()
+    .subscribe(
+      (response) => {                           //next() callback
+        console.log("onModifyPassword");
+        this.modifyPasswordForm.markAllAsTouched();
+        console.log(response.password + " " + this.modifyPasswordForm.get("_oldPassword").value);
+        this.submitted = true;
+
+        if (response.password != this.modifyPasswordForm.get("_oldPassword").value) {
+          this._snackBar.open("Parola veche este incorectă.", "", {
+            duration: 4000, 
+            panelClass: ['blue-snackbar', ]   
+          });
+        }
+        else if (this.modifyPasswordForm.valid){
+          this._snackBar.open("Parola a fost modificată", "", {
+            duration: 4000, 
+            panelClass: ['green-snackbar', ]   
+          });
+          this.sendToServer();
+          this.modifyPasswordForm.reset();
+          this.modifyPasswordForm.get('_oldPassword').clearValidators();
+          this.modifyPasswordForm.get('_oldPassword').updateValueAndValidity();
+          this.modifyPasswordForm.get('_newPassword').clearValidators();
+          this.modifyPasswordForm.get('_newPassword').updateValueAndValidity();
+          this.modifyPasswordForm.get('confirmPassword').clearValidators();
+          this.modifyPasswordForm.get('confirmPassword').updateValueAndValidity();        
+        }
+       
+      })
+  }
+
+  async sendToServer() {
+    let person = new Person(null, this.appService.globalId, null, null, null, null, null, this.modifyPasswordForm.get('_newPassword').value);
+
+    await this.appService.modifyUserPersonalData(person)
+      .subscribe(
+        (response) => {     
+          console.log("respone on register on server: ");
+          console.log(response);   
+        })
+
+    this._snackBar.open("Modificarea a fost efectuată!", "", {
+      duration: 4000, 
+      panelClass: ['green-snackbar', ]   
+    });  
   }
 }
