@@ -21,9 +21,6 @@
             <div class="title">
               Locuri Libere 
             </div>
-            <div>
-              {{selected | date:'shortDate'}}
-            </div>
   
             <hr style="margin-left: 10px; margin-right: 10px;">
             
@@ -45,7 +42,7 @@
               [class.lesson-selected]="lesson.isSelected"
               (click)="toggleLessonsSelection(lesson)">
                 <td class="my-table-cell hand-pointer">
-                    {{lesson.date | date:'medium'}}
+                    {{lesson.date | date:'LLL dd, yyyy HH:mm'}}
                 <td class="my-table-cell">
                     {{lesson.instructor}} /
                     {{lesson.car}} /

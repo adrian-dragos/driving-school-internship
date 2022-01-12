@@ -1,18 +1,24 @@
-import { Component} from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AppService } from '../app.service';
 
 @Component({
   templateUrl: './main-app.component.html',
   styleUrls: ['./main-app.component.scss']
 })
-export class MainAppComponent {
+export class MainAppComponent implements OnInit {
 
   title: string = "Planificare Lecții";
-  name = 'Donald Trump';
+  name = '';
   openedAvatar: boolean = false;
   loged: boolean = false;
   
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(private appService: AppService, private _snackBar: MatSnackBar) {}
+
+
+  ngOnInit(): void {
+    this.getName();
+  }
 
   toggleMenu() {
     this.openedAvatar = !this.openedAvatar;
@@ -46,4 +52,16 @@ export class MainAppComponent {
       panelClass: ['green-snackbar', ]   
     });
   }
+
+  async getName() {
+    await this.appService.getGlobalUserById()
+    .subscribe(
+      (response) => {                           //next() callback
+        console.log('response received main app')
+        if (response.firstName != undefined) {        
+          this.name = response.firstName + " " + response.lastName;        
+        }
+    })
+  }
+
 }

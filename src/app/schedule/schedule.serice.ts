@@ -10,13 +10,6 @@ export class ScheduleService {
 
     constructor(private http: HttpClient) { }
 
-    // getPayments() : Observable<IPayments[]> {
-    //   return this.http.get<IPayments[]>(this.paymentUrl).pipe(
-    //     tap(data => console.log('All: ', JSON.stringify(data))),
-    //     catchError(this.handleError)
-    //   );
-    // }
-
     getLessons() : ILesson[] {
       return [
         {

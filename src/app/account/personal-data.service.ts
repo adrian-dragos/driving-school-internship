@@ -1,35 +1,37 @@
 import { ContentObserver } from "@angular/cdk/observers";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable, throwError } from "rxjs";
+import { catchError, tap } from 'rxjs/operators';
+import { AppService } from "../app.service";
 import { IPersonalData } from "./personal-data";
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class PersonalDataService {
-    private paymentUrl = 'api/payments/payments.json';
-    private personalData = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-        birthday: null,
-        gearType: ''
+export class PersonalDataService {    
+
+
+    private Url = 'https://localhost:44340/api/Students/';
+
+    constructor(private http: HttpClient, private appService : AppService) { }
+
+    getUserPersonalData(): Observable<any> {
+      return this.http.get(this.Url + "email?email=" + encodeURIComponent(this.appService.globalEmail));
     }
 
-    constructor(private http: HttpClient) { }
 
-    // getPayments() : Observable<IPayments[]> {
-    //   return this.http.get<IPayments[]>(this.paymentUrl).pipe(
-    //     tap(data => console.log('All: ', JSON.stringify(data))),
-    //     catchError(this.handleError)
-    //   );
-    // }
+    private personalData = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      birthday: null,
+      gearType: ''
+    }
 
     getPersonalData() : IPersonalData {
-      console.log("get persoanal data");
-      console.log(this.personalData);
       return this.personalData;
     }
 
@@ -40,9 +42,9 @@ export class PersonalDataService {
         this.personalData.phoneNumber = data.phoneNumber;
         this.personalData.birthday = data.birthday;
         this.personalData.gearType = data.gearType;
-        
-        console.log("set personal data");
-        console.log(this.personalData);
     }
+
     
+
+   
 }
