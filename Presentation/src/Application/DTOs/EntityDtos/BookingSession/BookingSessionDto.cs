@@ -13,5 +13,6 @@ namespace Application.DTOs.EntityDtos.BookingSession
         public bool IsAvailable { get; set; } = true;
         public int? InstructorId { get; set; }
         public int? StudentId { get; set; }
+        public int? ReviewId { get; set; }
     }
 }

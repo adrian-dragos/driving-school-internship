@@ -144,58 +144,58 @@ namespace UnitTests
 		#endregion EachRequestIsCalledOnceTests
 
 		#region EachRequestReturnTheExpectedResponseTests
-		[Fact]
-		public async Task GetBookingSessions_ShouldReturnOkStatusCode()
-		{
-			_mockMediator
-				.Setup(m => m.Send(It.IsAny<GetBookingSessionListQuery>(), It.IsAny<CancellationToken>()))
-				.ReturnsAsync(new List<BookingSessionDto>() {
-					new BookingSessionDto
-					{
-						Id = 8,
-						StartTime = new DateTime(2021, 12, 12, 1, 30, 0),
-						IsAvailable = true,
-						InstructorId = 3,
-						StudentId = null
-					},
-					new BookingSessionDto
-					{
-						Id = 9,
-						StartTime = new DateTime(2021, 12, 12, 3, 00, 0),
-						IsAvailable = true,
-						InstructorId = 4,
-						StudentId = null
-					}
-				});
+		//[Fact]
+		//public async Task GetBookingSessions_ShouldReturnOkStatusCode()
+		//{
+		//	_mockMediator
+		//		.Setup(m => m.Send(It.IsAny<GetBookingSessionListQuery>(), It.IsAny<CancellationToken>()))
+		//		.ReturnsAsync(new List<BookingSessionDto>() {
+		//			new BookingSessionDto
+		//			{
+		//				Id = 8,
+		//				StartTime = new DateTime(2021, 12, 12, 1, 30, 0),
+		//				IsAvailable = true,
+		//				InstructorId = 3,
+		//				StudentId = null
+		//			},
+		//			new BookingSessionDto
+		//			{
+		//				Id = 9,
+		//				StartTime = new DateTime(2021, 12, 12, 3, 00, 0),
+		//				IsAvailable = true,
+		//				InstructorId = 4,
+		//				StudentId = null
+		//			}
+		//		});
 
-			var controller = new BookingSessionsController(_mockMediator.Object);
-			var result = await controller.GetBookingSessions();
+		//	var controller = new BookingSessionsController(_mockMediator.Object);
+		//	var result = await controller.GetBookingSessions();
 
-			var okResult = result.Result as OkObjectResult;
-			Assert.Equal((int)HttpStatusCode.OK, okResult.StatusCode);
-		}
+		//	var okResult = result.Result as OkObjectResult;
+		//	Assert.Equal((int)HttpStatusCode.OK, okResult.StatusCode);
+		//}
 
-		[Fact]
-		public async Task GetBookingSessionById_ShouldReturnOkStatusCode()
-		{
-			_mockMediator
-				.Setup(m => m.Send(It.IsAny<GetBookingSessionQuery>(), It.IsAny<CancellationToken>()))
-				.ReturnsAsync(
-					new BookingSessionDto
-					{
-						Id = 8,
-						StartTime = new DateTime(2021, 12, 12, 1, 30, 0),
-						IsAvailable = true,
-						InstructorId = 3,
-						StudentId = null
-					});
+		//[Fact]
+		//public async Task GetBookingSessionById_ShouldReturnOkStatusCode()
+		//{
+		//	_mockMediator
+		//		.Setup(m => m.Send(It.IsAny<GetBookingSessionQuery>(), It.IsAny<CancellationToken>()))
+		//		.ReturnsAsync(
+		//			new BookingSessionDto
+		//			{
+		//				Id = 8,
+		//				StartTime = new DateTime(2021, 12, 12, 1, 30, 0),
+		//				IsAvailable = true,
+		//				InstructorId = 3,
+		//				StudentId = null
+		//			});
 
-			var controller = new BookingSessionsController(_mockMediator.Object);
-			var result = await controller.GetBookingSession(1);
+		//	var controller = new BookingSessionsController(_mockMediator.Object);
+		//	var result = await controller.GetBookingSession(1);
 
-			var okResult = result.Result as OkObjectResult;
-			Assert.Equal((int)HttpStatusCode.OK, okResult.StatusCode);
-		}
+		//	var okResult = result.Result as OkObjectResult;
+		//	Assert.Equal((int)HttpStatusCode.OK, okResult.StatusCode);
+		//}
 
 
 		[Fact]

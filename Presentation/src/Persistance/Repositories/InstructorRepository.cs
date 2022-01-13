@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Domain.Entities.Person;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,9 @@ namespace Persistance.Repositories
             _context.SaveChanges();
         }
 
-        public IEnumerable<Instructor> GetInstructors()
+        public  async Task<Instructor> GetInstructorByEmail(string email)
         {
-            return _context.Instructors.ToList();
+            return await _context.Set<Instructor>().Where(i => i.Email == email).FirstOrDefaultAsync<Instructor>();
         }
     }
 }

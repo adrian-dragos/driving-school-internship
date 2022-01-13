@@ -25,14 +25,14 @@ namespace PresentationApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<BookingSessionDto>>> GetBookingSessions()
+        public async Task<ActionResult<List<BookinSessionInstructorNameCarDto>>> GetBookingSessions()
         {
             var bookingSession = await _mediator.Send(new GetBookingSessionListQuery());
             return Ok(bookingSession);
         }
 
         [HttpGet("{id}", Name = "GetBookingSession")]
-        public async Task<ActionResult<BookingSessionDto>> GetBookingSession(int id)
+        public async Task<ActionResult<BookingSessionWithNamesDto>> GetBookingSession(int id)
         {
             var bookingSession = await _mediator.Send(new GetBookingSessionQuery { Id = id });
             return Ok(bookingSession);

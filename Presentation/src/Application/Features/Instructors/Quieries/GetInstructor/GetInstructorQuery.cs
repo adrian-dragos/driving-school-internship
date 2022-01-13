@@ -11,5 +11,7 @@ namespace Application.Features.Instructors.Quieries.GetInstructor
     public class GetInstructorQuery : IRequest<InstructorDto>
     {
         public int Id { get; set; }   
+
+        public string Email { get; set; }
     }
 }

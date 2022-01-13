@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace Persistance.Repositories
 
         public BookingSessionRepository(ApplicationContext context) : base(context)
         {
+            _context = context;
         }
 
         public async Task CreateBookingSession(BookingSession bookingSession)
@@ -26,5 +28,11 @@ namespace Persistance.Repositories
         {
             return _context.BookingSessions;
         }
+
+        public async Task<IEnumerable<BookingSession>> GetBookingSessionWithStudentId(int id)
+        {
+            return await _context.BookingSessions.Where(b => b.StudentId ==id).OrderByDescending(x => x.StartTime).ToListAsync(); ;
+        }
     }
 }
+    

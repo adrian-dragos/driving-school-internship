@@ -17,21 +17,25 @@ namespace Persistance.Configuration.Entities
             builder.HasData(
                 new Student
                 {
-                    Id = 6,
+                    Id = 6,                   
                     FirstName = "Adrian",
                     LastName = "Dragos",
                     Email = "adrian.dragos28@gmail.com",
+                    Password = "Student1",
                     PhoneNumber = "+40 060 066 144",
-                    Birthday = new DateTime(2000, 08, 28)
+                    Birthday = new DateTime(2000, 08, 28),
+                    GearType = "Mecanică"
                 },
                 new Student
                 {
                     Id = 7,
+                    Password = "User1",
                     FirstName = "Marin",
                     LastName = "Grosu",
                     Email = "grosu.marin41@gmail.com",
                     PhoneNumber = "+40 614 411 421",
-                    Birthday = new DateTime(2003, 04, 18)
+                    Birthday = new DateTime(2003, 04, 18),
+                    GearType = "Automată"
                 },
                 new Student
                 {
@@ -39,8 +43,10 @@ namespace Persistance.Configuration.Entities
                     FirstName = "Ionut",
                     LastName = "Remetea",
                     Email = "ionut.remetea18@gmail.com",
+                    Password = "Student1",
                     PhoneNumber = "+40 232 525 151",
-                    Birthday = new DateTime(1999, 05, 21)
+                    Birthday = new DateTime(1999, 05, 21),
+                    GearType = "Mecanică"
                 },
                 new Student
                 {
@@ -48,8 +54,10 @@ namespace Persistance.Configuration.Entities
                     FirstName = "Alexandru",
                     LastName = "Lungu",
                     Email = "alexandru.lungu2002@gmail.com",
+                    Password = "Student1",
                     PhoneNumber = "+40 513 153 531",
-                    Birthday = new DateTime(2002, 03, 07)
+                    Birthday = new DateTime(2002, 03, 07),
+                    GearType = "Mecanică"
                 },
                 new Student
                 {
@@ -57,10 +65,12 @@ namespace Persistance.Configuration.Entities
                     FirstName = "Paul",
                     LastName = "Rus",
                     Email = "paul.rus2003@gmail.com",
+                    Password = "Student1",
                     PhoneNumber = "+40 474 366 386",
-                    Birthday = new DateTime(2003, 08, 01)
+                    Birthday = new DateTime(2003, 08, 01),
+                    GearType = "Mecanică"
                 }
-                );
+            );
         }
     }
 }

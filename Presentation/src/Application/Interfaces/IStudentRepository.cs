@@ -9,5 +9,6 @@ namespace Application.Interfaces
 {
     public interface IStudentRepository : IBaseRepository<Student>
     {
+        public Task<Student> GetStudentByEmail(string email);
     }
 }

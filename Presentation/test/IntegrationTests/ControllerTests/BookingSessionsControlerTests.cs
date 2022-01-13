@@ -49,20 +49,20 @@ namespace IntegrationTests.ControllerTests
             var bookingSession = bookingSessions.FirstOrDefault(b => b.Id == 6);
         }
 
-        [TestMethod]
-        public async Task GetBookingSessionsById_ShouldReturnExistingBookingSession()
-        {
-            var client = _factory.CreateClient();
-            var response = await client.GetAsync("api/bookingsessions/7");
+        //[TestMethod]
+        //public async Task GetBookingSessionsById_ShouldReturnExistingBookingSession()
+        //{
+        //    var client = _factory.CreateClient();
+        //    var response = await client.GetAsync("api/bookingsessions/7");
 
-            var result = await response.Content.ReadAsStringAsync();
-            var bookingSession = JsonConvert.DeserializeObject<BookingSessionDto>(result);
+        //    var result = await response.Content.ReadAsStringAsync();
+        //    var bookingSession = JsonConvert.DeserializeObject<BookingSessionDto>(result);
 
-            Assert.AreEqual(new DateTime(2021, 12, 12, 4, 30, 0), bookingSession.StartTime);
-            Assert.AreEqual(true, bookingSession.IsAvailable);
-            Assert.AreEqual(1, bookingSession.InstructorId);
-            Assert.AreEqual(null, bookingSession.StudentId);
-        }
+        //    Assert.AreEqual(new DateTime(2021, 12, 12, 4, 30, 0), bookingSession.StartTime);
+        //    Assert.AreEqual(true, bookingSession.IsAvailable);
+        //    Assert.AreEqual(1, bookingSession.InstructorId);
+        //    Assert.AreEqual(null, bookingSession.StudentId);
+        //}
 
         [TestMethod]
         public async Task PostBookingSession_ShouldReturnCreatedResponse()

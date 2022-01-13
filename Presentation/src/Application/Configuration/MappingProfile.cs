@@ -12,6 +12,7 @@ using Application.DTOs.EntityDtos.Car;
 using Application.DTOs.EntityDtos.Person.Instructor;
 using Application.DTOs.EntityDtos.Person.Student;
 using Application.DTOs.EntityDtos.BookingSession;
+using Application.DTOs.EntityDtos.Review;
 
 namespace Application.Configuration
 {
@@ -21,6 +22,8 @@ namespace Application.Configuration
         {
             #region BookingSession Mappings
             CreateMap<BookingSession, BookingSessionDto>().ReverseMap();
+            CreateMap<BookingSession, BookinSessionInstructorNameCarDto>().ReverseMap();
+            CreateMap<BookingSession, BookingSessionWithNamesDto>().ReverseMap();
             CreateMap<BookingSession, CreateBookingSessionDto>().ReverseMap();
             CreateMap<BookingSession, ChangeBookingSessionAvailabilityDto>().ReverseMap();
             #endregion BookingSession
@@ -35,6 +38,7 @@ namespace Application.Configuration
             #region Student Mappings
             CreateMap<Student, StudentDto>().ReverseMap();
             CreateMap<Student, CreateStudentDto>().ReverseMap();
+            CreateMap<Student, UpdateStudentProfileDto>().ReverseMap().ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
             #endregion Student
 
             #region Car Mappings
@@ -44,6 +48,10 @@ namespace Application.Configuration
             CreateMap<CarGear, CarGearDto>().ReverseMap();
             CreateMap<CarModelType, CarModelTypeDto>().ReverseMap();
             #endregion Car
+
+            #region Review Mappings
+            CreateMap<Review, ReviewDto>().ReverseMap();
+            #endregion Review
         }
     }
 }

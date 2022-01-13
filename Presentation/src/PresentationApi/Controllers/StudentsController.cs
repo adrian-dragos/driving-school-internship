@@ -1,5 +1,8 @@
-﻿using Application.DTOs.EntityDtos.Person.Student;
+﻿using Application.DTOs.EntityDtos.BookingSession;
+using Application.DTOs.EntityDtos.Person.Student;
+using Application.Features.BookingSessions.Queries.GetStudentBookingListSessions;
 using Application.Features.Students.Commands.CreateStudent;
+using Application.Features.Students.Commands.UpdateStudent;
 using Application.Features.Students.Queries.GetStudent;
 using Application.Features.Students.Queries.GetStudentsList;
 using MediatR;
@@ -34,11 +37,35 @@ namespace PresentationApi.Controllers
             return Ok(student);
         }
 
+        [HttpGet("email")]
+        public async Task<ActionResult<StudentDto>> GetStudentByEmail(string email)
+        {
+            var student = await _mediator.Send(new GetStudentQuery { Email = email });
+            return Ok(student);
+        }
+
+        [HttpGet("bookingSessions")]
+        public async Task<ActionResult<BookingSessionWithNamesDto>> GetStudentBookingSessions(int id)
+        {
+            var student = await _mediator.Send(new GetStudentBookingSessionListQuery { Id = id });
+            return Ok(student);
+        }
+
         [HttpPost]
         public async Task<ActionResult<StudentDto>> CreateStudent([FromBody] CreateStudentDto studentDto)
         {
             var student = await _mediator.Send(new CreateStudentCommand { StudentDto = studentDto });
             return CreatedAtRoute("GetStudent", new { id = student.Id }, student);
+        }
+
+
+
+
+        [HttpPatch("student")]
+        public async Task<ActionResult> UpdateStudent([FromBody] UpdateStudentProfileDto studentDto)
+        {
+            await _mediator.Send(new UpdateStudentCommand { StudentDto = studentDto });
+            return NoContent();
         }
     }
 }

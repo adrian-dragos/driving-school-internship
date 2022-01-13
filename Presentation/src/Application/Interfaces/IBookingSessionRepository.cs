@@ -11,5 +11,7 @@ namespace Application.Interfaces
     {
         Task CreateBookingSession(BookingSession bookingSession);
         IEnumerable<BookingSession> GetBookingSessions();
+
+        Task<IEnumerable<BookingSession>> GetBookingSessionWithStudentId(int id);
     }
 }

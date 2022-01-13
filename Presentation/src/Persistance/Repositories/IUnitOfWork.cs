@@ -16,12 +16,15 @@ namespace Persistance.Repositories
             BookingSessions = new BookingSessionRepository(_context);
             Instructors = new InstructorRepository(_context);
             Students = new StudentRepository(_context);
+            Cars = new CarRepository(_context);
         }
 
         public IBookingSessionRepository BookingSessions { get; private set; }
         public IInstructorRepository Instructors { get; private set; }
         public IStudentRepository Students { get; private set; }
-        
+        public ICarRepository Cars { get; private set; }
+
+
         public async Task SaveAsync()
         {
             await _context.SaveChangesAsync();

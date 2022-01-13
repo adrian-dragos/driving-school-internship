@@ -18,15 +18,15 @@ namespace Persistance.Configuration.Entities
                 new BookingSession
                 {
                     Id = 1,
-                    StartTime = new DateTime(2021, 12, 12, 7, 0, 0),
-                    IsAvailable = true,
+                    StartTime = new DateTime(2022, 1, 14, 7, 0, 0),
+                    IsAvailable = false,
                     InstructorId = 1,
-                    StudentId = null,
+                    StudentId = 7,
                 },
                 new BookingSession
                 {
                     Id = 2,
-                    StartTime = new DateTime(2021, 12, 12, 8, 30, 0),
+                    StartTime = new DateTime(2022, 1, 14, 8, 30, 0),
                     IsAvailable = true,
                     InstructorId = 1,
                     StudentId = null,
@@ -34,7 +34,7 @@ namespace Persistance.Configuration.Entities
                 new BookingSession
                 {
                     Id = 3,
-                    StartTime =  new DateTime(2021, 12, 12, 10, 0, 0),
+                    StartTime =  new DateTime(2022, 1, 14, 10, 0, 0),
                     IsAvailable = true,
                     InstructorId = 1,
                     StudentId = null,
@@ -42,7 +42,7 @@ namespace Persistance.Configuration.Entities
                 new BookingSession
                 {
                     Id = 4,
-                    StartTime = new DateTime(2021, 12, 12, 11, 30, 0),
+                    StartTime = new DateTime(2022, 1, 14, 11, 30, 0),
                     IsAvailable = true,
                     InstructorId = 1,
                     StudentId = null,
@@ -50,7 +50,7 @@ namespace Persistance.Configuration.Entities
                 new BookingSession
                 {
                     Id = 5,
-                    StartTime = new DateTime(2021, 12, 12, 1, 30, 0),
+                    StartTime = new DateTime(2022, 1, 14, 1, 30, 0),
                     IsAvailable = true,
                     InstructorId = 1,
                     StudentId = null,
@@ -58,7 +58,7 @@ namespace Persistance.Configuration.Entities
                 new BookingSession
                 {
                     Id = 6,
-                    StartTime = new DateTime(2021, 12, 12, 3, 00, 0),
+                    StartTime = new DateTime(2022, 1, 14, 3, 00, 0),
                     IsAvailable = true,
                     InstructorId = 1,
                     StudentId = null,
@@ -68,36 +68,36 @@ namespace Persistance.Configuration.Entities
                 new BookingSession
                 {
                     Id = 7,
-                    StartTime = new DateTime(2021, 12, 12, 4, 30, 0),
-                    IsAvailable = true,
-                    InstructorId = 1,
-                    StudentId = null
+                    StartTime = new DateTime(2022, 1, 11, 4, 30, 0),
+                    IsAvailable = false,
+                    InstructorId = 2,
+                    StudentId = 7
                 },
                 new BookingSession
                 {
                     Id = 8,
-                    StartTime = new DateTime(2021, 12, 12, 1, 30, 0),
-                    IsAvailable = true,
-                    InstructorId = 3,
-                    StudentId = null
+                    StartTime = new DateTime(2022, 1, 16, 1, 30, 0),
+                    IsAvailable = false,
+                    InstructorId = 2,
+                    StudentId = 7
                 },
                 new BookingSession
                 {
                     Id = 9,
-                    StartTime = new DateTime(2021, 12, 12, 3, 00, 0),
-                    IsAvailable = true,
+                    StartTime = new DateTime(2022, 1, 12, 3, 00, 0),
+                    IsAvailable = false,
                     InstructorId = 4,
-                    StudentId = null
+                    StudentId = 7
                 },
                 new BookingSession
                 {
                     Id = 10,
-                    StartTime = new DateTime(2021, 12, 12, 4, 30, 0),
+                    StartTime = new DateTime(2022, 1, 14, 11, 30, 0),
                     IsAvailable = true,
                     InstructorId = 5,
                     StudentId = null
                 }
-                );
+            );
         }
     }
 }

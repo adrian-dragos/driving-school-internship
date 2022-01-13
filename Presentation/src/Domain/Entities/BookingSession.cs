@@ -13,6 +13,8 @@ namespace Domain.Entities
         public DateTime StartTime { get; set; }
         public bool IsAvailable { get; set; } = true;
         public int? InstructorId { get; set; }
+        public int? ReviewId { get; set; }
+        public virtual Review Review { get; set; }
         public virtual Instructor? Instructors { get; set; }
         public int? StudentId { get; set; }
         public virtual Student? GetStudents { get; set; }

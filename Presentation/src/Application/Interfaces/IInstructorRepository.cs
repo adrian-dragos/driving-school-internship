@@ -10,6 +10,7 @@ namespace Application.Interfaces
     public interface IInstructorRepository : IBaseRepository<Instructor>
     {
         Task CreateInstructor(Instructor instructor);
-        IEnumerable<Instructor> GetInstructors();
+
+        public Task<Instructor> GetInstructorByEmail(string email);
     }
 }

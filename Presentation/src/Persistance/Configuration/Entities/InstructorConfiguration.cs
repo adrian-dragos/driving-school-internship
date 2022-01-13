@@ -21,10 +21,12 @@ namespace Persistance.Configuration.Entities
                         FirstName = "Mihai",
                         LastName = "Ionascu",
                         Email = "mihai.ionascu23@gmail.com",
+                        Password = "Instructor1",
                         PhoneNumber = "+40 742 950 144",
                         Birthday = new DateTime(1982, 02, 27),
                         IsCurrentlyEmployed = true,
-                        CarId = 4
+                        CarId = 4,
+                        GearType = "Mecanică"
                     },
                     new Instructor
                     {
@@ -32,10 +34,12 @@ namespace Persistance.Configuration.Entities
                         FirstName = "Cristian",
                         LastName = "Ceboatari",
                         Email = "cristian.ceb@gmail.com",
+                        Password = "Instructor1",
                         PhoneNumber = "+40 715 675 614",
                         Birthday = new DateTime(1992, 12, 25),
-                        IsCurrentlyEmployed = false,
-                        CarId = null
+                        IsCurrentlyEmployed = true,
+                        CarId = 2,
+                        GearType = "Automată"
                     },
                     new Instructor
                     {
@@ -44,9 +48,11 @@ namespace Persistance.Configuration.Entities
                         LastName = "Mazur",
                         Email = "radu.mazur88@gmail.com",
                         PhoneNumber = "+40 722 101 021",
+                        Password = "Instructor1",
                         Birthday = new DateTime(1988, 08, 17),
                         IsCurrentlyEmployed = true,
-                        CarId = 5
+                        CarId = 5,
+                        GearType = "Automată"
                     },
                     new Instructor
                     {
@@ -54,10 +60,12 @@ namespace Persistance.Configuration.Entities
                         FirstName = "Dionis",
                         LastName = "Agapii",
                         Email = "dionis.agapii@gmail.com",
+                        Password = "Instructor1",
                         PhoneNumber = "+40 751 551 100",
                         Birthday = new DateTime(1978, 11, 01),
                         IsCurrentlyEmployed = true,
-                        CarId = 1
+                        CarId = 1,
+                        GearType = "Automată"
                     },
                     new Instructor
                     {
@@ -66,9 +74,11 @@ namespace Persistance.Configuration.Entities
                         LastName = "Codur",
                         Email = "condur.denis515@gmail.com",
                         PhoneNumber = "+40 712 229 545",
+                        Password = "Instructor1",
                         Birthday = new DateTime(1996, 05, 15),
                         IsCurrentlyEmployed = true,
-                        CarId = 3
+                        CarId = 3,
+                        GearType = "Automată"
                     }
                 );
         }

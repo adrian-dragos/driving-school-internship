@@ -11,6 +11,7 @@ namespace Application.Interfaces
         IBookingSessionRepository BookingSessions { get; }
         IInstructorRepository Instructors { get; }
         IStudentRepository Students { get; }
+        ICarRepository Cars { get; }
         Task SaveAsync();
         void Save();
     }

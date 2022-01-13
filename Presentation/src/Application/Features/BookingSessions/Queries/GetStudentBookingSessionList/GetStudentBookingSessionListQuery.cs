@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.BookingSessions.Queries.GetBookingSession
+namespace Application.Features.BookingSessions.Queries.GetStudentBookingListSessions
 {
-    public class GetBookingSessionQuery : IRequest<BookingSessionWithNamesDto>
+    public class GetStudentBookingSessionListQuery : IRequest<IEnumerable<BookingSessionWithNamesDto>>
     {
         public int Id { get; set; }
     }

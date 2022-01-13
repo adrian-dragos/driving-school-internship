@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookingSessions.Queries.GetBookingSessionList
 {
-    public class GetBookingSessionListQuery : IRequest<IEnumerable<BookingSessionDto>>
+    public class GetBookingSessionListQuery : IRequest<IEnumerable<BookinSessionInstructorNameCarDto>>
     {
         public BookingSessionDto BookingSessionDto { get; set; }
     }

@@ -16,5 +16,7 @@ namespace Application.DTOs.EntityDtos.Person.Instructor
         public DateTime? Birthday { get; set; }
         public int? CarId { get; set; }
         public bool IsCurrentlyEmployed { get; set; } = false;
+        public string? Password { get; set; }
+        public string? GearType { get; set; }
     }
 }

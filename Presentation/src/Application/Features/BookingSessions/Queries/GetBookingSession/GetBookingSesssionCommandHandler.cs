@@ -10,21 +10,32 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookingSessions.Queries.GetBookingSession
 {
-    public class GetBookingSessionQueryHandler : IRequestHandler<GetBookingSessionQuery, BookingSessionDto>
+    public class GetBookingSessionQueryHandler : IRequestHandler<GetBookingSessionQuery, BookingSessionWithNamesDto>
     {
-        private readonly IBookingSessionRepository _repostitory;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public GetBookingSessionQueryHandler(IBookingSessionRepository repostitory, IMapper mapper)
+        public GetBookingSessionQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _repostitory = repostitory;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
-        public async Task<BookingSessionDto> Handle(GetBookingSessionQuery query, CancellationToken cancellationToken)
+        public async Task<BookingSessionWithNamesDto> Handle(GetBookingSessionQuery query, CancellationToken cancellationToken)
         {
-            var bookingSession = await _repostitory.GetByIdAsync(query.Id);
-            return _mapper.Map<BookingSessionDto>(bookingSession);
+            var bookingSession = await _unitOfWork.BookingSessions.GetByIdAsync(query.Id);
+            var result = _mapper.Map<BookingSessionWithNamesDto>(bookingSession);
+            var student = await _unitOfWork.Students.GetByIdAsync((result.StudentId).GetValueOrDefault());
+            var instructor = await _unitOfWork.Instructors.GetByIdAsync((result.InstructorId).GetValueOrDefault());
+
+
+            result.StudentFirstName = student.FirstName;
+            result.StudentLastName = student.LastName;
+
+            result.InstructorFirstName = instructor.FirstName;
+            result.InstructorLastName = instructor.LastName;
+
+            return result;
         }
     }
 }

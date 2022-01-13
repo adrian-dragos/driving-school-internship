@@ -6,11 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Students.Queries.GetStudent
+namespace Application.Features.Students.Commands.UpdateStudent
 {
-    public class GetStudentQuery : IRequest<StudentDto>
+    public class UpdateStudentCommand : IRequest<Unit>
     {
-        public int Id { get; set; } 
-        public string Email { get; set; }
+        public UpdateStudentProfileDto StudentDto { get; set; }
     }
 }

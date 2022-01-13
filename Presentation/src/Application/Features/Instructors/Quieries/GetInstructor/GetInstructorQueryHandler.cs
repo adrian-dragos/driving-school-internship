@@ -1,6 +1,7 @@
 ﻿using Application.DTOs.EntityDtos.Person.Instructor;
 using Application.Interfaces;
 using AutoMapper;
+using Domain.Entities.Person;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,17 @@ namespace Application.Features.Instructors.Quieries.GetInstructor
 
         public async Task<InstructorDto> Handle(GetInstructorQuery query, CancellationToken cancellationToken)
         {
-            var instructor = await _repostitory.GetByIdAsync(query.Id);
+
+            Instructor instructor;
+            if (query.Email == null)
+            {
+                instructor = await _repostitory.GetByIdAsync(query.Id);
+            }
+            else
+            {
+                instructor = await _repostitory.GetInstructorByEmail(query.Email);
+            }
+            
             return _mapper.Map<InstructorDto>(instructor);
         }
     }

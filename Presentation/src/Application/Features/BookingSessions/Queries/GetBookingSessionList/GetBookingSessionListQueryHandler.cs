@@ -1,4 +1,5 @@
 ﻿using Application.DTOs.EntityDtos.BookingSession;
+using Application.DTOs.EnumDtos;
 using Application.Interfaces;
 using AutoMapper;
 using MediatR;
@@ -10,21 +11,33 @@ using System.Threading.Tasks;
 
 namespace Application.Features.BookingSessions.Queries.GetBookingSessionList
 {
-    public class GetBookingSessionListQueryHandler : IRequestHandler<GetBookingSessionListQuery, IEnumerable<BookingSessionDto>>
+    public class GetBookingSessionListQueryHandler : IRequestHandler<GetBookingSessionListQuery, IEnumerable<BookinSessionInstructorNameCarDto>>
     {
-        private readonly IBookingSessionRepository _repository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public GetBookingSessionListQueryHandler(IBookingSessionRepository repository, IMapper mapper)
+        public GetBookingSessionListQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _repository = repository;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<BookingSessionDto>> Handle(GetBookingSessionListQuery query, CancellationToken cancellationToken)
+        public async Task<IEnumerable<BookinSessionInstructorNameCarDto>> Handle(GetBookingSessionListQuery query, CancellationToken cancellationToken)
         {
-            var bookingSession = await _repository.GetAll();
-            return _mapper.Map<List<BookingSessionDto>>(bookingSession);
+            var bookingSessions = await _unitOfWork.BookingSessions.GetAll();
+            var result = _mapper.Map<List<BookinSessionInstructorNameCarDto>>(bookingSessions);
+
+            foreach (var bookingSession in result)
+            {
+                var instructor = await _unitOfWork.Instructors.GetByIdAsync(bookingSession.InstructorId.GetValueOrDefault());
+                bookingSession.InstructorFirstName = instructor.FirstName;
+                bookingSession.InstructorLastName = instructor.LastName;
+
+                var car  = await _unitOfWork.Cars.GetByIdAsync(instructor.CarId.GetValueOrDefault());
+                bookingSession.CarModel =  _mapper.Map<CarModelTypeDto>(car.CarModelType); 
+                bookingSession.CarGear = _mapper.Map<CarGearDto>(car.CarGear);
+            }
+            return result;
         }
     }
 }
