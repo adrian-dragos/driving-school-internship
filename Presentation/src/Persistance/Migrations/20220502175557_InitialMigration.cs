@@ -87,7 +87,8 @@ namespace Persistance.Migrations
                 name: "Students",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    GearTypeEnum = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -174,14 +175,14 @@ namespace Persistance.Migrations
 
             migrationBuilder.InsertData(
                 table: "Students",
-                column: "Id",
-                values: new object[]
+                columns: new[] { "Id", "GearTypeEnum" },
+                values: new object[,]
                 {
-                    6,
-                    7,
-                    8,
-                    9,
-                    10
+                    { 6, 0 },
+                    { 7, 1 },
+                    { 8, 0 },
+                    { 9, 0 },
+                    { 10, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -193,12 +194,31 @@ namespace Persistance.Migrations
                     { 2, 1, true, null, new DateTime(2022, 1, 14, 8, 30, 0, 0, DateTimeKind.Unspecified), null },
                     { 3, 1, true, null, new DateTime(2022, 1, 14, 10, 0, 0, 0, DateTimeKind.Unspecified), null },
                     { 4, 1, true, null, new DateTime(2022, 1, 14, 11, 30, 0, 0, DateTimeKind.Unspecified), null },
-                    { 5, 1, true, null, new DateTime(2022, 1, 14, 1, 30, 0, 0, DateTimeKind.Unspecified), null },
-                    { 6, 1, true, null, new DateTime(2022, 1, 14, 3, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 7, 2, false, null, new DateTime(2022, 1, 11, 4, 30, 0, 0, DateTimeKind.Unspecified), 7 },
-                    { 8, 2, false, null, new DateTime(2022, 1, 16, 1, 30, 0, 0, DateTimeKind.Unspecified), 7 },
-                    { 9, 4, false, null, new DateTime(2022, 1, 12, 3, 0, 0, 0, DateTimeKind.Unspecified), 7 },
-                    { 10, 5, true, null, new DateTime(2022, 1, 14, 11, 30, 0, 0, DateTimeKind.Unspecified), null }
+                    { 5, 1, true, null, new DateTime(2022, 1, 14, 13, 30, 0, 0, DateTimeKind.Unspecified), null },
+                    { 6, 1, true, null, new DateTime(2022, 1, 14, 15, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 7, 2, false, null, new DateTime(2022, 1, 16, 16, 30, 0, 0, DateTimeKind.Unspecified), 7 },
+                    { 8, 2, false, null, new DateTime(2022, 1, 16, 13, 30, 0, 0, DateTimeKind.Unspecified), 7 },
+                    { 9, 4, false, null, new DateTime(2022, 1, 12, 15, 0, 0, 0, DateTimeKind.Unspecified), 7 },
+                    { 10, 5, true, null, new DateTime(2022, 1, 14, 11, 30, 0, 0, DateTimeKind.Unspecified), null },
+                    { 11, 5, true, null, new DateTime(2022, 1, 13, 18, 30, 0, 0, DateTimeKind.Unspecified), null },
+                    { 12, 3, true, null, new DateTime(2022, 1, 15, 10, 30, 0, 0, DateTimeKind.Unspecified), null },
+                    { 13, 2, true, null, new DateTime(2022, 1, 15, 15, 30, 0, 0, DateTimeKind.Unspecified), null },
+                    { 14, 1, true, null, new DateTime(2022, 1, 15, 12, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 15, 4, true, null, new DateTime(2022, 1, 15, 16, 30, 0, 0, DateTimeKind.Unspecified), null },
+                    { 16, 2, true, null, new DateTime(2022, 1, 16, 14, 30, 0, 0, DateTimeKind.Unspecified), null },
+                    { 17, 2, true, null, new DateTime(2022, 1, 16, 13, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 18, 1, true, null, new DateTime(2022, 1, 16, 10, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 19, 2, true, null, new DateTime(2022, 1, 15, 15, 30, 0, 0, DateTimeKind.Unspecified), null },
+                    { 20, 1, true, null, new DateTime(2022, 1, 15, 12, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 21, 1, true, null, new DateTime(2022, 1, 17, 14, 30, 0, 0, DateTimeKind.Unspecified), null },
+                    { 22, 4, true, null, new DateTime(2022, 1, 17, 13, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 23, 5, true, null, new DateTime(2022, 1, 17, 10, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 24, 2, true, null, new DateTime(2022, 1, 17, 16, 30, 0, 0, DateTimeKind.Unspecified), null },
+                    { 25, 5, true, null, new DateTime(2022, 1, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 26, 3, true, null, new DateTime(2022, 1, 18, 14, 30, 0, 0, DateTimeKind.Unspecified), null },
+                    { 27, 4, true, null, new DateTime(2022, 1, 18, 13, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 28, 2, true, null, new DateTime(2022, 1, 18, 12, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { 29, 1, true, null, new DateTime(2022, 1, 18, 16, 30, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.CreateIndex(

@@ -4,6 +4,7 @@ using Application.Features.BookingSessions.Commands.CreateBookingSession;
 using Application.Features.BookingSessions.Commands.CreateBookingSessionList;
 using Application.Features.BookingSessions.Commands.DeteleBookingSession;
 using Application.Features.BookingSessions.Queries.GetBookingSession;
+using Application.Features.BookingSessions.Queries.GetBookingSessionInstructorNameCarNumber;
 using Application.Features.BookingSessions.Queries.GetBookingSessionList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -30,11 +31,20 @@ namespace PresentationApi.Controllers
             var bookingSession = await _mediator.Send(new GetBookingSessionListQuery());
             return Ok(bookingSession);
         }
+       
 
         [HttpGet("{id}", Name = "GetBookingSession")]
         public async Task<ActionResult<BookingSessionWithNamesDto>> GetBookingSession(int id)
         {
             var bookingSession = await _mediator.Send(new GetBookingSessionQuery { Id = id });
+            return Ok(bookingSession);
+        }
+
+
+        [HttpGet("bsincn/{id}")]
+        public async Task<ActionResult<BookingSessionInstructrorNameCarNumberDto>> GetBoookingSessionInstructorNameCarNumber(int id)
+        {
+            var bookingSession = await _mediator.Send(new GetBoookingSessionInstructorNameCarNumberQuery { Id = id });
             return Ok(bookingSession);
         }
 

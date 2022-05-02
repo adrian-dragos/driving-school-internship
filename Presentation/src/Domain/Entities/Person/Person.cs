@@ -1,4 +1,5 @@
 ﻿using Domain.Entities.Common;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace Domain.Entities.Person
         public string? PhoneNumber { get; set; }
         public DateTime? Birthday { get; set; }
         public string? GearType { get; set; }
+
     }
 
 }

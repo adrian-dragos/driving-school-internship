@@ -23,13 +23,14 @@ namespace Application.Configuration
             #region BookingSession Mappings
             CreateMap<BookingSession, BookingSessionDto>().ReverseMap();
             CreateMap<BookingSession, BookinSessionInstructorNameCarDto>().ReverseMap();
+            CreateMap<BookingSession, BookingSessionInstructrorNameCarNumberDto>().ReverseMap();
             CreateMap<BookingSession, BookingSessionWithNamesDto>().ReverseMap();
             CreateMap<BookingSession, CreateBookingSessionDto>().ReverseMap();
             CreateMap<BookingSession, ChangeBookingSessionAvailabilityDto>().ReverseMap();
-            #endregion BookingSession
+        #endregion BookingSession
 
-            #region Instructor Mappings
-            CreateMap<Instructor, InstructorDto>().ReverseMap();
+        #region Instructor Mappings
+        CreateMap<Instructor, InstructorDto>().ReverseMap();
             CreateMap<Instructor, CreateInstructorDto>().ReverseMap();
             CreateMap<Instructor, ChangeInstructorCarDto>().ReverseMap();
             CreateMap<Instructor, ChangeInstructorEmploymentStatusDto>().ReverseMap();

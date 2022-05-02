@@ -92,21 +92,21 @@ namespace Persistance.Migrations
                             Id = 5,
                             InstructorId = 1,
                             IsAvailable = true,
-                            StartTime = new DateTime(2022, 1, 14, 1, 30, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2022, 1, 14, 13, 30, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
                             InstructorId = 1,
                             IsAvailable = true,
-                            StartTime = new DateTime(2022, 1, 14, 3, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2022, 1, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
                             InstructorId = 2,
                             IsAvailable = false,
-                            StartTime = new DateTime(2022, 1, 11, 4, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 1, 16, 16, 30, 0, 0, DateTimeKind.Unspecified),
                             StudentId = 7
                         },
                         new
@@ -114,7 +114,7 @@ namespace Persistance.Migrations
                             Id = 8,
                             InstructorId = 2,
                             IsAvailable = false,
-                            StartTime = new DateTime(2022, 1, 16, 1, 30, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 1, 16, 13, 30, 0, 0, DateTimeKind.Unspecified),
                             StudentId = 7
                         },
                         new
@@ -122,7 +122,7 @@ namespace Persistance.Migrations
                             Id = 9,
                             InstructorId = 4,
                             IsAvailable = false,
-                            StartTime = new DateTime(2022, 1, 12, 3, 0, 0, 0, DateTimeKind.Unspecified),
+                            StartTime = new DateTime(2022, 1, 12, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             StudentId = 7
                         },
                         new
@@ -131,6 +131,139 @@ namespace Persistance.Migrations
                             InstructorId = 5,
                             IsAvailable = true,
                             StartTime = new DateTime(2022, 1, 14, 11, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            InstructorId = 5,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 13, 18, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            InstructorId = 3,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 15, 10, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 13,
+                            InstructorId = 2,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 15, 15, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 14,
+                            InstructorId = 1,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 15, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 15,
+                            InstructorId = 4,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 15, 16, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 16,
+                            InstructorId = 2,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 16, 14, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 17,
+                            InstructorId = 2,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 18,
+                            InstructorId = 1,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 19,
+                            InstructorId = 2,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 15, 15, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 20,
+                            InstructorId = 1,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 15, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 21,
+                            InstructorId = 1,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 17, 14, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 22,
+                            InstructorId = 4,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 17, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 23,
+                            InstructorId = 5,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 17, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 24,
+                            InstructorId = 2,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 17, 16, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 25,
+                            InstructorId = 5,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 18, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 26,
+                            InstructorId = 3,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 18, 14, 30, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 27,
+                            InstructorId = 4,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 18, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 28,
+                            InstructorId = 2,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 18, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 29,
+                            InstructorId = 1,
+                            IsAvailable = true,
+                            StartTime = new DateTime(2022, 1, 18, 16, 30, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -353,6 +486,9 @@ namespace Persistance.Migrations
                 {
                     b.HasBaseType("Domain.Entities.Person.Person");
 
+                    b.Property<int?>("GearTypeEnum")
+                        .HasColumnType("int");
+
                     b.ToTable("Students", (string)null);
 
                     b.HasData(
@@ -365,7 +501,8 @@ namespace Persistance.Migrations
                             GearType = "Mecanică",
                             LastName = "Dragos",
                             Password = "Student1",
-                            PhoneNumber = "+40 060 066 144"
+                            PhoneNumber = "+40 060 066 144",
+                            GearTypeEnum = 0
                         },
                         new
                         {
@@ -376,7 +513,8 @@ namespace Persistance.Migrations
                             GearType = "Automată",
                             LastName = "Grosu",
                             Password = "User1",
-                            PhoneNumber = "+40 614 411 421"
+                            PhoneNumber = "+40 614 411 421",
+                            GearTypeEnum = 1
                         },
                         new
                         {
@@ -387,7 +525,8 @@ namespace Persistance.Migrations
                             GearType = "Mecanică",
                             LastName = "Remetea",
                             Password = "Student1",
-                            PhoneNumber = "+40 232 525 151"
+                            PhoneNumber = "+40 232 525 151",
+                            GearTypeEnum = 0
                         },
                         new
                         {
@@ -398,7 +537,8 @@ namespace Persistance.Migrations
                             GearType = "Mecanică",
                             LastName = "Lungu",
                             Password = "Student1",
-                            PhoneNumber = "+40 513 153 531"
+                            PhoneNumber = "+40 513 153 531",
+                            GearTypeEnum = 0
                         },
                         new
                         {
@@ -409,7 +549,8 @@ namespace Persistance.Migrations
                             GearType = "Mecanică",
                             LastName = "Rus",
                             Password = "Student1",
-                            PhoneNumber = "+40 474 366 386"
+                            PhoneNumber = "+40 474 366 386",
+                            GearTypeEnum = 0
                         });
                 });
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Application.DTOs.EnumDtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,6 @@ namespace Application.DTOs.EntityDtos.Person.Student
         public string? PhoneNumber { get; set; }
         public DateTime? Birthday { get; set; }
         public string? GearType { get; set; }
+        public CarGearDto? GearTypeEnum { get; set; }
     }
 }
