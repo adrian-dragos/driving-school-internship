@@ -1,0 +1,100 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.main-container {
+    width: 95%;
+    border: 1px solid #f2f2f2;
+    border-top: 2px solid #4dbd74;  
+    background-color: white;  
+    margin: 20px;
+}
+
+.review-container {
+    position: relative;
+    width: 100%;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+.send-container {
+    position: relative;
+    width: 100%;
+    border: 1px solid #f2f2f2;
+    background-color: #f0f3f5;
+    height: 60px;
+}
+
+.title-title {
+    text-align: center;
+    font-size: 2.1875rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.5rem!important;
+}
+
+.title-instruction {
+    color: rgb(77, 77, 77);
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.title-anonym {
+    color: rgb(12, 12, 12);
+    font-size: 1.7125rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.content-title {
+    margin-bottom: 0.5rem!important;
+    margin-top: 0;
+    display: block;
+    font-weight: 570;
+    font-size: 20px;
+}
+
+.green-circle {
+    margin-top: 10px;
+    height: 90px;
+    width: 90px;
+    background-color: #acf1ac;
+    border-radius: 50%;
+    border: black;
+}
+
+.yellow-circle {
+    margin-top: 10px;
+    height: 90px;
+    width: 90px;
+    background-color: #fbfbbf;
+    border: black;
+    border-radius: 50%;
+}
+
+.red-circle {
+    margin-top: 10px;
+    height: 90px;
+    width: 90px;
+    background-color: #fcc2c2;
+    border: black;
+    border-radius: 50%;
+}
+
+.list {
+    list-style: none; 
+    border-left: 5px solid #d2d2d2; 
+    padding-left: 5px;
+}
+
+.block {
+    display: inline-block;
+}
+
+.invalid-form {
+    color: red;
+}
+
+
+

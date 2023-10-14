@@ -1,0 +1,118 @@
+<!-- code for app -->
+<div>
+    <div>
+      <!-- code for toolbar -->
+      <mat-toolbar color="primary" class="mat-toolbar-display">
+        <mat-toolbar-row fxLayout class="mat-toolbar-row-display"> 
+          <button mat-icon-button>
+            <mat-icon  (click)="sidenav.toggle()" >        
+              menu
+            </mat-icon>
+          </button>
+          <h1> <a style="cursor: pointer" (click)="refreshPage()">FiveDollars</a></h1>
+          <span class="example-spacer"></span>
+          
+          <mat-icon id="avatar" mat-card-avata class="avatar-icon-display"  (click)="doSomething()">
+            account_circle
+          </mat-icon> 
+  
+          <span id="avatar-name" class="avatar-name" (click)="doSomething()" (mouseover)='over()' (mouseout)='out()'>
+            {{name}}
+          </span>
+          
+          <div>
+            <button mat-icon-button [matMenuTriggerFor]="menu">  
+                <mat-icon id='dropDown'>arrow_drop_down</mat-icon> 
+              </button>
+  
+              <mat-menu #menu="matMenu"  class="mat-menu-display" >
+                <button mat-menu-item routerLink='./account/personal-data'>              
+                  <span>Date Personale</span>
+                </button>
+                <button mat-menu-item routerLink='/login' (click)="openLogoutBar()">
+                  <mat-icon mat-card-avata class="icon-display" class='logout-icon'> exit_to_app </mat-icon> 
+                  <span>Ieșire</span>
+                </button>
+              </mat-menu>
+  
+        </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </div>
+    <!-- end code for toolbar -->
+  
+    <!-- code for sidenav -->
+    <div>
+      <mat-sidenav-container  class="custom-sidenav-container" fullscreen>
+        <mat-sidenav mode="side"  [autoFocus]="false"  class="side-nav"  #sidenav opened="sidenavIsOpened" >
+          <mat-nav-list>
+  
+            <a mat-list-item routerLink='./practice'>
+              <mat-icon class='sidenav-icons'>
+                calendar_today
+              </mat-icon>
+              <span class="side-nav-text"> 
+                Planificre lecții
+              </span>
+            </a>      
+            
+            <a mat-list-item routerLink='./lessons'>
+              <mat-icon class='sidenav-icons'>
+                list
+              </mat-icon> 
+              <span class="side-nav-text"> 
+                Lecții practice
+              </span>
+            </a>
+  
+            <a mat-list-item routerLink='./reviews'>
+              <mat-icon class='sidenav-icons'>
+                thumb_up_alt
+              </mat-icon>
+              <span class="side-nav-text"> 
+                Evaluări
+              </span>
+            </a>
+  
+            <a mat-list-item routerLink='./payments'>	
+              <mat-icon class='sidenav-icons'>
+                payment
+              </mat-icon>
+              <span class="side-nav-text"> 
+                Plăți
+              </span>
+            </a>
+  
+            <a mat-list-item routerLink='./account/personal-data'> 
+              <mat-icon class='sidenav-icons'>
+                tag_faces
+              </mat-icon>
+              <span class="side-nav-text" > 
+                Date personale
+              </span>
+            </a>
+  
+          </mat-nav-list>
+        </mat-sidenav>
+  
+        <mat-sidenav-content autosize md-sidenav-focus (click)="getName()">
+          <section>
+            <router-outlet>
+            </router-outlet>
+          </section> 
+  
+  
+          <!-- code for footer -->
+          <footer contentEditable style="bottom: 0px;">
+            <div class="footer-div">
+              <span> <b>Copyright © 2022 </b> <a href="/">Five Dollars</a>. Toate drepturile rezervate. </span>
+            </div>
+          </footer>
+        </mat-sidenav-content>
+        <!-- end for footer -->
+        
+      </mat-sidenav-container>
+      <!-- end code for sidenav -->
+    </div>
+  </div>
+  <!-- code for app -->

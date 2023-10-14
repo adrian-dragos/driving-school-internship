@@ -1,0 +1,38 @@
+<div class="main-div">
+    <nav class="navbar navbar-dark my-custom-nav">
+        <div class="btn-group">
+            <button mat-button routerLink='./personal-data' (click)="changeTitleToPersonalData()" [ngStyle]="{'color': personalDataNavButtonColor}">
+                Date Personale
+            </button>
+
+            <button mat-button routerLink='./edit' (click)="changeTitleToEdit()" [ngStyle]="{'color': editNavButtonColor }">
+                Editați contul
+            </button>
+
+            <button mat-button routerLink='./upload' (click)="changeTitleToUpload()" [ngStyle]="{'color': uploadNavButtonColor }">
+                Încărcați documente
+            </button>
+
+            <button mat-button routerLink='./change-password'  (click)="changeTitleToChangePassword()" [ngStyle]="{'color': changePasswordNavButtonColor }">
+                Modifică parola
+            </button>   
+        </div>
+    </nav>
+
+
+    <div class="main-container">
+        <div class="title-container">
+            <div class="title">
+                {{title}}
+            </div>
+        </div>
+
+        <div class="body-container">
+
+            <section>
+                <router-outlet>
+                </router-outlet>
+              </section>       
+        </div>
+    </div>
+</div>

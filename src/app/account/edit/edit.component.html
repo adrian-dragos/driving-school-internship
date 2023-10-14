@@ -1,0 +1,138 @@
+<div class="form-div">
+    <form [formGroup]="editForm">
+
+
+        <div style="margin: 10px;">
+            <label>Adresa de email</label>
+            <input 
+            class="form-control form-control-sm" 
+            placeholder="Indroduceți email-ul" 
+            formControlName="userEmail"/>
+            <span 
+            class="invalid-form"
+            *ngIf="editForm.controls.userEmail?.value == null && (editForm.controls.userEmail?.dirty || editForm.controls.userEmail?.touched)"
+            >
+                Acesta câmp necesită a fi completat.
+            </span>
+            <span 
+            class="invalid-form"
+            *ngIf="!editForm.controls.userEmail?.valid && editForm.controls.userEmail?.value != null && (editForm.controls.userEmail?.dirty || editForm.controls.userEmail?.touched)"
+            >
+                Acesta nu este un email valid.
+            </span>
+        </div>
+
+
+
+        <div class="form-group" style="margin: 10px;">
+            <label for="firstName">Prenumele (ex: Ion) </label>
+            <input 
+            type="text" 
+            id="firstName"
+            class="form-control form-control-sm" 
+            placeholder="Indroduceți prenumele" 
+            formControlName="firstName"/>
+            <span 
+            class="invalid-form"
+            *ngIf="!editForm.controls.firstName?.valid && (editForm.controls.firstName?.dirty || editForm.controls.firstName?.touched)"
+            >
+                Acest câmp necesită a fi completat.
+            </span>
+        </div>
+
+        <div class="form-group" style="margin: 10px;"> 
+            <label for="lastName">Numele (ex: Ciobanu)</label>
+            <input 
+            type="text" 
+            id="lastName"
+            class="form-control form-control-sm"  
+            placeholder="Indroduceți numele" 
+            formControlName="lastName"/>
+            <span 
+            class="invalid-form"
+            *ngIf="!editForm.controls.lastName?.valid && (editForm.controls.lastName?.dirty || editForm.controls.lastName?.touched)"
+            >
+                Acest câmp necesită a fi completat
+            </span>
+        </div>
+
+        <div class="form-group" style="margin: 10px;" as>
+            <label for="phoneNumber">Număr telefon</label>
+            <input 
+            type="text"
+            id="phoneNumber" 
+            class="form-control form-control-sm" 
+            placeholder="Indroduceți numărul de telefon" 
+            formControlName="phoneNumber"/>
+            <span 
+            class="invalid-form"
+            *ngIf="!editForm.controls.phoneNumber?.valid && (editForm.controls.phoneNumber?.dirty || editForm.controls.phoneNumber?.touched)"
+            >
+                Acest câmp necesită a fi completat
+            </span>
+        </div>
+
+        <div class="form-group" style="margin: 10px;">
+            <label for="birthday">Data nașterei:</label>
+            <input 
+            class="form-control form-control-sm" 
+            type="date"
+            id="birthday"
+            min="1940-01-01" max="2020-12-31"
+            formControlName="birthday"/>
+            <span 
+            class="invalid-form"
+            *ngIf="!editForm.controls.birthday?.valid && (editForm.controls.birthday?.dirty || editForm.controls.birthday?.touched)"
+            >
+                Acest câmp necesită a fi completat
+            </span>
+        </div>
+
+        <!-- <div class="form-group" style="margin: 10px;">
+            <label for="birthday">Data nașterei (ex: 01.01.1990)</label>
+            <input 
+            type="text"
+            id="birthday" 
+            class="form-control form-control-sm" 
+            placeholder="01.01.1990" 
+            formControlName="birthday">
+            <span 
+            class="invalid-form"
+            *ngIf="!editForm.controls.birthday?.valid && (editForm.controls.birthday?.dirty || editForm.controls.birthday?.touched)"
+            >
+                Acest câmp necesită a fi completat
+            </span>
+        </div> -->
+        
+
+        <div class="form-group" style="margin: 10px;">
+            <label>Tipul cutiei</label>
+        </div>
+
+        <div class="form-group" style="margin: 10px;">
+            <select class="form-select form-select-sm" formControlName="gearType">
+                <option selected value="Mecanică">Mecanică</option>
+                <option value="Automată">Automată</option>
+            </select>    
+            <span 
+            class="invalid-form"
+            *ngIf="!editForm.controls.gearType?.valid && (editForm.controls.gearType?.dirty || editForm.controls.gearType?.touched)"
+            >
+                O valoare trebuie să fie aleasă.
+            </span>
+        </div>
+        
+
+          
+        <button 
+        type="submit" 
+        class="btn" 
+        style="margin: 10px; background-color: #4dbd74; color: white;"
+        (click)="onSubmit()"
+        >
+            Modifică
+        </button>
+    </form>
+</div>
+
+

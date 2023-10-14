@@ -1,0 +1,115 @@
+<div class="login-page">
+  <mat-card>
+    <mat-card-title style="text-align:center;">SignIn/SignUp</mat-card-title>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs" [(selectedIndex)]="tabIndex">      
+      <mat-tab label="Conectare">
+        <mat-card-content>  
+          <form [formGroup]="signinForm" (ngSubmit)="onSubmitLogin()">
+            <mat-form-field appearance="standard">
+              <mat-label for="email">Email</mat-label>
+              <input matInput
+                type="text"
+                id="email"
+                formControlName="email">   
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="!signinForm.controls['email'].value">Email is required!</mat-error>
+                <mat-error *ngIf="signinForm.controls['email'].invalid && signinForm.controls['email'].value">Enter a valid email address!</mat-error>
+            </mat-form-field> 
+           
+            <mat-form-field appearance="standard">
+              <mat-label for="password">Parola</mat-label>
+              <input matInput
+                [type]="hideSignInPassword ? 'password': 'text'"
+                id="password"
+                formControlName="password">   
+
+                <i class="material-icons" matSuffix (click)="hideSignInPassword = !hideSignInPassword"> 
+                  {{ hideSignInPassword ? 'visibility' : 'visibility_off' }}
+                </i>                
+                <mat-error *ngIf="!signinForm.controls['password'].value">Password is required!</mat-error>
+                <mat-error *ngIf="signinForm.controls['password'].invalid && signinForm.controls['password'].value">Enter a valid passwrod!</mat-error>
+            </mat-form-field> 
+
+            <mat-checkbox formControlName="rememberMe">Ține-mă minte!</mat-checkbox>
+            <button
+            [disabled]="!signinForm.valid"
+            mat-raised-button
+            color="primary"
+            class="login-button"
+            class="btn btn-primary" 
+            class="button"
+            type="submit"
+            >
+              Submit
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-tab>
+
+      <mat-tab label="Înregistrare">
+        <mat-card-content>  
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()">
+            <mat-form-field appearance="standard">
+              <mat-label for="email">Email</mat-label>
+              <input matInput
+                type="text"
+                id="email"
+                formControlName="email">   
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="!registerForm.controls['email'].value">Email is required!</mat-error>
+                <mat-error *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].value">Enter a valid email address!</mat-error>
+            </mat-form-field> 
+           
+            <mat-form-field appearance="standard">
+              <mat-label for="password">Parola</mat-label>
+              <input matInput
+                [type]="hideRegisterPassword? 'password': 'text'"
+                id="password"
+                formControlName="password">   
+                <i class="material-icons" matSuffix (click)="hideRegisterPassword = !hideRegisterPassword"> 
+                  {{ hideRegisterPassword ? 'visibility' : 'visibility_off' }}
+                </i>
+                <!-- <mat-icon matSuffix>lock</mat-icon> -->
+                <mat-error *ngIf="!registerForm.controls['password'].value">Password is required!</mat-error>
+                <mat-error  *ngIf="registerForm.controls['password'].hasError('minlength')">  Must be at least 5 charchters long!</mat-error>
+                <mat-error  *ngIf="registerForm.controls['password'].hasError('hasNumber') && !registerForm.controls['password'].hasError('minlength')">  
+                  Must have at least 1 number!
+                </mat-error>
+                <mat-error  *ngIf="registerForm.controls['password'].hasError('hasCapitalCase') && !registerForm.controls['password'].hasError('hasNumber') && !registerForm.controls['password'].hasError('minlength')">  
+                  Must have at least one captial letter!
+                </mat-error>
+            </mat-form-field> 
+
+            <mat-form-field appearance="standard">
+              <mat-label for="confirmPassword">Repetați parola</mat-label>
+              <input matInput
+                [type]="hideConfirmPassword ? 'password': 'text'"
+                id="confirmPassword" 
+                formControlName="confirmPassword">  
+                
+                <i class="material-icons" matSuffix (click)="hideConfirmPassword = !hideConfirmPassword"> 
+                  {{ hideConfirmPassword ? 'visibility' : 'visibility_off' }}
+                </i>
+                <!-- <mat-icon matSuffix>lock</mat-icon>               -->
+                <mat-error *ngIf="!registerForm.controls['confirmPassword'].value">Field is required!</mat-error>
+                <mat-error *ngIf="registerForm.controls['confirmPassword'].hasError('NoPassswordMatch')">Password do not match</mat-error>
+            </mat-form-field> 
+
+            <button
+            [disabled]="!registerForm.valid"
+            mat-raised-button
+            color="primary"
+            class="login-button"
+            class="btn btn-primary" 
+            class="button"
+            type="submit"
+            >
+              Crează cont
+            </button>
+          </form>
+        </mat-card-content>
+
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

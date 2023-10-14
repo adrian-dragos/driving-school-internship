@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "~bootstrap/dist/css/bootstrap.css";
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.green-snackbar {
+    background: #4dbd74;
+}
+
+.blue-snackbar {
+    background: #20a8d8;
+}

@@ -1,0 +1,50 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.my-custom-nav {
+    margin: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #29363d;
+    color: #878f93;
+    width: 97.5%;
+}
+
+.main-div {
+    margin: 0;
+    display: flex;
+    min-height: 88.5vh;
+    flex-direction: column;
+}
+
+.main-container {
+    margin-left: 20px;
+    width: 97.5%;
+    border: 1px solid #c6d1d8;
+}
+
+.title-container {
+    border: 1px solid #c6d1d8;
+    background-color: #f0f3f5;
+}
+
+.body-container {
+    width: 100%;
+    border: 1px solid #c6d1d8;
+}
+
+.title {
+    margin: 15px;
+    font-weight: bold;
+    font-size: medium;
+    font-weight: 400;
+    color: #151b1e;
+    text-align: left;
+}
+
+.table-header {    
+    margin: 10px;
+    padding: 5px;
+    padding-left: 40px;
+    width: 20%;
+    font-weight: 570;
+}
